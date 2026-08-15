@@ -15,9 +15,9 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import log_loss, roc_auc_score, accuracy_score
 
-DATA_DIR = "/home/esem5377/lg_aimers7_ws/open/data"
-OUT_DIR = "/home/esem5377/lg_aimers7_ws/work/output"
-MODEL_DIR = "/home/esem5377/lg_aimers7_ws/work/model"
+DATA_DIR = "/home/esem5377/lg_aimers7_ws/lg_aimers7_ws/open/data"
+OUT_DIR = "/home/esem5377/lg_aimers7_ws/lg_aimers7_ws/work/output"
+MODEL_DIR = "/home/esem5377/lg_aimers7_ws/lg_aimers7_ws/work/model"
 
 ID_COL = "row_id"
 TARGET_COL = "control_success"

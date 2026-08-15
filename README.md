@@ -6,31 +6,33 @@
 ## 폴더 구조
 
 ```
-open/
-  data_description.md      # 데이터 설명서 (컬럼 정의, 제출 규칙 등 필독)
-  data/                     # 원본 데이터 (.gitignore 처리, 각자 로컬에 준비 필요)
-    train.csv               # 학습 데이터 2019~2024, 1,475,092행 x 49컬럼
-    test.csv                 # 형식 확인용 5행 샘플 (실제 평가는 서버가 2025시즌 데이터로 교체)
-    sample_submission.csv
-    trackman_history.csv    # 2019~2024 Trackman 투구 실측 로그 (아직 미사용)
-  baseline_submit/          # 주최측 제공 베이스라인 예시 (RandomForest)
+lg_aimers7_ws/
+  open/
+    data_description.md      # 데이터 설명서 (컬럼 정의, 제출 규칙 등 필독)
+    data/                     # 원본 데이터 (.gitignore 처리, 각자 로컬에 준비 필요)
+      train.csv               # 학습 데이터 2019~2024, 1,475,092행 x 49컬럼
+      test.csv                 # 형식 확인용 5행 샘플 (실제 평가는 서버가 2025시즌 데이터로 교체)
+      sample_submission.csv
+      trackman_history.csv    # 2019~2024 Trackman 투구 실측 로그 (아직 미사용)
+    baseline_submit/          # 주최측 제공 베이스라인 예시 (RandomForest)
 
-work/
-  eda.py                    # 기초 EDA
-  train.py                  # LightGBM 학습 (시간 기반 검증: 2019~2023 학습 / 2024 검증)
-  predict.py                # 로컬 추론/검증용
-  model/                    # 학습된 모델 (lgbm.pkl, feature_meta.pkl)
-  submit/                   # 리더보드 제출용 패키지 원본 (script.py + model + requirements.txt)
-  first_submit.zip          # 실제 제출한 zip
+  work/
+    eda.py                    # 기초 EDA
+    train.py                  # LightGBM 학습 (시간 기반 검증: 2019~2023 학습 / 2024 검증)
+    predict.py                # 로컬 추론/검증용
+    model/                    # 학습된 모델 (lgbm.pkl, feature_meta.pkl)
+    submit/                   # 리더보드 제출용 패키지 원본 (script.py + model + requirements.txt)
+    first_submit.zip          # 실제 제출한 zip
 
-worklog/
-  2026-08-15.md             # 작업 기록
+  worklog/
+    2026-08-15.md             # 작업 기록
 ```
 
 ## 데이터 준비
 
-`open/data/*.csv`는 용량이 커서(train 352MB, trackman_history 338MB) 레포에는
-포함되어 있지 않습니다. 대회 배포본에서 받아 `open/data/` 아래에 그대로 넣어주세요.
+`lg_aimers7_ws/open/data/*.csv`는 용량이 커서(train 352MB, trackman_history 338MB)
+레포에는 포함되어 있지 않습니다. 대회 배포본에서 받아 `lg_aimers7_ws/open/data/`
+아래에 그대로 넣어주세요.
 
 ## 환경 세팅
 
@@ -45,15 +47,14 @@ pip3 install --user --break-system-packages pandas scikit-learn lightgbm joblib
 
 ```bash
 # 학습 (train.csv 필요)
-python3 work/train.py
+python3 lg_aimers7_ws/work/train.py
 
 # 로컬 추론 확인 (test.csv 5건)
-python3 work/predict.py
+python3 lg_aimers7_ws/work/predict.py
 
 # 제출 zip 재생성
-cd work/submit && zip -r ../first_submit.zip script.py model requirements.txt
+cd lg_aimers7_ws/work/submit && zip -r ../first_submit.zip script.py model requirements.txt
 ```
-
 
 ## 제출 규칙 요약 (자세한 건 data_description.md)
 
