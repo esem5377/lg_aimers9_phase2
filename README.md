@@ -20,10 +20,18 @@ lg_aimers9_ws/
     eda.py                    # 기초 EDA
     build_trackman_context.py # trackman_history.csv → 상황(카운트/투타/이닝) 단위 통계 룩업 테이블 생성
     train.py                  # LightGBM 학습 (시간 기반 검증: 2019~2023 학습 / 2024 검증)
-    predict.py                # 로컬 추론/검증용
-    model/                    # 학습된 모델 (lgbm.pkl, feature_meta.pkl, trackman_context.pkl)
-    submit/                   # 리더보드 제출용 패키지 원본 (script.py + model + requirements.txt)
-    submit_v2.zip             # 제출용 zip (trackman 컨텍스트 피처 + ID 컬럼 제거 반영 버전)
+    train_catboost.py         # CatBoost 학습 (동일 피처/검증, 범주형 처리가 더 좋아 LightGBM보다 우수)
+    predict.py                # 로컬 추론/검증용 (LightGBM)
+    tune.py                   # LightGBM 하이퍼파라미터 랜덤서치 (결과: 개선 미미, 참고용)
+    tune_coldstart.py         # asof_* 콜드스타트 베이지안 스무딩 실험 (결과: 효과 없음, 참고용)
+    tune_v2.py                # trackman 교차그룹 실험 + LGB/CatBoost 앙상블 비교 (CatBoost 단독이 최고)
+    build_team_history.py     # 팀 단위 as-of 이력 피처 실험 (결과: 효과 없음, 참고용, 파이프라인 미연결)
+    model/                    # LightGBM 모델 (lgbm.pkl, feature_meta.pkl, trackman_context.pkl)
+    model_catboost/           # CatBoost 모델 (catboost.cbm, feature_meta.json)
+    submit/                   # LightGBM 제출 패키지 원본 (822점)
+    submit_catboost/          # CatBoost 제출 패키지 원본 (875점, 현재 최선)
+    submit_v2.zip             # LightGBM 제출 zip (822점)
+    submit_v3_catboost.zip    # CatBoost 제출 zip (875점, 현재 최선)
 
   worklog/
     2026-08-15.md             # 작업 기록
@@ -38,7 +46,7 @@ lg_aimers9_ws/
 ## 환경 세팅
 
 ```bash
-pip3 install --user --break-system-packages pandas scikit-learn lightgbm joblib
+pip3 install --user --break-system-packages pandas scikit-learn lightgbm joblib catboost
 ```
 
 `python3 -m venv`가 이 환경에서 sudo 없이 정상 동작하지 않아 `--user
@@ -56,7 +64,13 @@ python3 lg_aimers9_ws/work/train.py
 # 로컬 추론 확인 (test.csv 5건)
 python3 lg_aimers9_ws/work/predict.py
 
-# 제출 zip 재생성
+# CatBoost 학습 (현재 최선 버전, model/trackman_context.pkl 필요)
+python3 lg_aimers9_ws/work/train_catboost.py
+
+# 제출 zip 재생성 (CatBoost, 현재 최선)
+cd lg_aimers9_ws/work/submit_catboost && zip -r ../submit_v3_catboost.zip script.py model requirements.txt
+
+# 제출 zip 재생성 (LightGBM, 이전 버전)
 cd lg_aimers9_ws/work/submit && zip -r ../submit_v2.zip script.py model requirements.txt
 ```
 
