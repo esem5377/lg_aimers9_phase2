@@ -1,4 +1,4 @@
-# LG Aimers 7 해커톤 - 투구 제구 성공 확률 예측
+# LG Aimers 9 해커톤 - 투구 제구 성공 확률 예측
 
 투구 직전까지 알 수 있는 경기 상황 / 선수 정보 / 과거 이력 피처로 해당 투구의
 제구 성공 확률(`control_success`)을 예측하는 과제.
@@ -6,7 +6,7 @@
 ## 폴더 구조
 
 ```
-lg_aimers7_ws/
+lg_aimers9_ws/
   open/
     data_description.md      # 데이터 설명서 (컬럼 정의, 제출 규칙 등 필독)
     data/                     # 원본 데이터 (.gitignore 처리, 각자 로컬에 준비 필요)
@@ -31,8 +31,8 @@ lg_aimers7_ws/
 
 ## 데이터 준비
 
-`lg_aimers7_ws/open/data/*.csv`는 용량이 커서(train 352MB, trackman_history 338MB)
-레포에는 포함되어 있지 않습니다. 대회 배포본에서 받아 `lg_aimers7_ws/open/data/`
+`lg_aimers9_ws/open/data/*.csv`는 용량이 커서(train 352MB, trackman_history 338MB)
+레포에는 포함되어 있지 않습니다. 대회 배포본에서 받아 `lg_aimers9_ws/open/data/`
 아래에 그대로 넣어주세요.
 
 ## 환경 세팅
@@ -48,16 +48,16 @@ pip3 install --user --break-system-packages pandas scikit-learn lightgbm joblib
 
 ```bash
 # trackman_history 기반 상황 단위 통계 피처 생성 (최초 1회, 또는 trackman_history.csv 갱신 시)
-python3 lg_aimers7_ws/work/build_trackman_context.py
+python3 lg_aimers9_ws/work/build_trackman_context.py
 
 # 학습 (train.csv 필요, model/trackman_context.pkl 필요)
-python3 lg_aimers7_ws/work/train.py
+python3 lg_aimers9_ws/work/train.py
 
 # 로컬 추론 확인 (test.csv 5건)
-python3 lg_aimers7_ws/work/predict.py
+python3 lg_aimers9_ws/work/predict.py
 
 # 제출 zip 재생성
-cd lg_aimers7_ws/work/submit && zip -r ../submit_v2.zip script.py model requirements.txt
+cd lg_aimers9_ws/work/submit && zip -r ../submit_v2.zip script.py model requirements.txt
 ```
 
 ## 제출 규칙 요약 (자세한 건 data_description.md)

@@ -1,4 +1,4 @@
-"""LG Aimers 7 - control_success 예측 베이스라인 학습 스크립트.
+"""LG Aimers 9 - control_success 예측 베이스라인 학습 스크립트.
 
 - train.csv(2019~2024)로 학습.
 - 실제 평가(test.csv)는 2025시즌이므로, 검증은 최근 시즌(2024)을 홀드아웃하는
@@ -15,9 +15,9 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import log_loss, roc_auc_score, accuracy_score
 
-DATA_DIR = "/home/esem5377/lg_aimers7_ws/lg_aimers7_ws/open/data"
-OUT_DIR = "/home/esem5377/lg_aimers7_ws/lg_aimers7_ws/work/output"
-MODEL_DIR = "/home/esem5377/lg_aimers7_ws/lg_aimers7_ws/work/model"
+DATA_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/open/data"
+OUT_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/work/output"
+MODEL_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/work/model"
 
 ID_COL = "row_id"
 TARGET_COL = "control_success"

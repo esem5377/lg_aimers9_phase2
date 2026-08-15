@@ -4,9 +4,9 @@ import os
 import joblib
 import pandas as pd
 
-DATA_DIR = "/home/esem5377/lg_aimers7_ws/lg_aimers7_ws/open/data"
-MODEL_DIR = "/home/esem5377/lg_aimers7_ws/lg_aimers7_ws/work/model"
-OUT_DIR = "/home/esem5377/lg_aimers7_ws/lg_aimers7_ws/work/output"
+DATA_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/open/data"
+MODEL_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/work/model"
+OUT_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/work/output"
 
 ID_COL = "row_id"
 TARGET_COL = "control_success"

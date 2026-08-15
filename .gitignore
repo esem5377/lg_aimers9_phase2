@@ -1,8 +1,8 @@
 # 대회 원본 데이터 (용량 초과 + 재배포 지양)
-lg_aimers7_ws/open/data/*.csv
+lg_aimers9_ws/open/data/*.csv
 
 # 로컬 산출물 (재생성 가능)
-lg_aimers7_ws/work/output/
+lg_aimers9_ws/work/output/
 
 # Python
 __pycache__/
