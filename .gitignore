@@ -1,0 +1,10 @@
+# 대회 원본 데이터 (용량 초과 + 재배포 지양)
+open/data/*.csv
+
+# 로컬 산출물 (재생성 가능)
+work/output/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
