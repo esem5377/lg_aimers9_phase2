@@ -72,6 +72,10 @@ def main():
     df = attach_trackman_context(df, context)
     print(f" shape after join={df.shape}")
 
+    # 팀 단위 as-of 이력(build_team_history.py, attach_team_history())은 실험 결과
+    # 2024 홀드아웃 AUC를 0.5489 -> 0.5466으로 오히려 떨어뜨려 사용하지 않는다.
+    # season이 이미 시대별 추세를 잡고 있어 팀별 잔차 신호는 노이즈에 가까웠던 것으로 보임.
+
     # ---- 시간 기반 분할: 2019~2023 학습 / 2024 검증 ----
     # 실제 평가(test.csv)는 2025시즌이므로 최근 시즌 홀드아웃이 랜덤 분할보다
     # 실전 성능을 더 잘 대변한다.
