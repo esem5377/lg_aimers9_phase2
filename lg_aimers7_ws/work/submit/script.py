@@ -34,6 +34,18 @@ def load_sample_submission(path):
 # 학습 때 사용한 전처리 (그대로)
 # =======================
 
+def attach_trackman_context(df, context):
+    """trackman_history 기반 상황 단위 통계 피처를 좌측 조인으로 붙인다 (학습 때와 동일).
+
+    카운트/아웃, 투타 좌우, 이닝/초말 같은 공통 상황 키로 집계한 값이라
+    선수 단위 정보나 개별 행의 결과 정보를 담지 않는다. model/trackman_context.pkl
+    에 미리 계산되어 있어 평가 환경에서 trackman_history.csv 자체는 필요 없다.
+    """
+    for spec in context.values():
+        df = df.merge(spec["table"], on=spec["keys"], how="left")
+    return df
+
+
 def build_features(df, meta):
     """모델 입력 추출 — row_id만 빼고 학습 때와 동일한 컬럼 순서로 정렬.
 
@@ -90,12 +102,14 @@ def main():
     SAMPLE_SUB_PATH = os.path.join(TEST_DIR, "sample_submission.csv")
     MODEL_PATH = os.path.join(MODEL_DIR, "lgbm.pkl")
     META_PATH = os.path.join(MODEL_DIR, "feature_meta.pkl")
+    CONTEXT_PATH = os.path.join(MODEL_DIR, "trackman_context.pkl")
     OUT_PATH = os.path.join(OUT_DIR, "submission.csv")
 
     # ---- 모델 로드 ----
     print("Load model...")
     model = joblib.load(MODEL_PATH)
     meta = joblib.load(META_PATH)
+    context = joblib.load(CONTEXT_PATH)
     print(f" OK. n_features={getattr(model, 'n_features_in_', '?')}")
 
     # ---- 테스트 데이터 로드 ----
@@ -103,6 +117,9 @@ def main():
     test = load_test(TEST_PATH)
     sub = load_sample_submission(SAMPLE_SUB_PATH)
     print(f" test={len(test)}  submission={len(sub)}")
+
+    # ---- trackman context 피처 부착 (학습과 동일) ----
+    test = attach_trackman_context(test, context)
 
     # ---- 전처리 (학습과 동일) ----
     print("Build features...")

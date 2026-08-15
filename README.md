@@ -18,11 +18,12 @@ lg_aimers7_ws/
 
   work/
     eda.py                    # 기초 EDA
+    build_trackman_context.py # trackman_history.csv → 상황(카운트/투타/이닝) 단위 통계 룩업 테이블 생성
     train.py                  # LightGBM 학습 (시간 기반 검증: 2019~2023 학습 / 2024 검증)
     predict.py                # 로컬 추론/검증용
-    model/                    # 학습된 모델 (lgbm.pkl, feature_meta.pkl)
+    model/                    # 학습된 모델 (lgbm.pkl, feature_meta.pkl, trackman_context.pkl)
     submit/                   # 리더보드 제출용 패키지 원본 (script.py + model + requirements.txt)
-    first_submit.zip          # 실제 제출한 zip
+    submit_v2.zip             # 제출용 zip (trackman 컨텍스트 피처 + ID 컬럼 제거 반영 버전)
 
   worklog/
     2026-08-15.md             # 작업 기록
@@ -46,14 +47,17 @@ pip3 install --user --break-system-packages pandas scikit-learn lightgbm joblib
 ## 사용법
 
 ```bash
-# 학습 (train.csv 필요)
+# trackman_history 기반 상황 단위 통계 피처 생성 (최초 1회, 또는 trackman_history.csv 갱신 시)
+python3 lg_aimers7_ws/work/build_trackman_context.py
+
+# 학습 (train.csv 필요, model/trackman_context.pkl 필요)
 python3 lg_aimers7_ws/work/train.py
 
 # 로컬 추론 확인 (test.csv 5건)
 python3 lg_aimers7_ws/work/predict.py
 
 # 제출 zip 재생성
-cd lg_aimers7_ws/work/submit && zip -r ../first_submit.zip script.py model requirements.txt
+cd lg_aimers7_ws/work/submit && zip -r ../submit_v2.zip script.py model requirements.txt
 ```
 
 ## 제출 규칙 요약 (자세한 건 data_description.md)

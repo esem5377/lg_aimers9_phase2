@@ -25,8 +25,14 @@ TARGET_COL = "control_success"
 CAT_COLS = [
     "top_bottom", "game_type", "base_state",
     "pitcher_hand", "batter_hand",
-    "pitcher_id", "batter_id", "pitcher_team_id", "batter_team_id",
+    "pitcher_team_id", "batter_team_id",
 ]
+
+# raw pitcher_id/batter_id(792/830개 범주)를 그대로 범주형으로 넣으면 트리가
+# 선수 단위로 과적합해 train gain은 압도적으로 크지만 2024 홀드아웃 AUC는
+# 오히려 떨어진다 (0.5377 -> 제거 시 0.5489, 실험 확인 완료). 선수 성향은
+# 이미 leak-safe하게 계산된 asof_* 이력 피처로 반영되므로 raw id는 제외한다.
+DROP_COLS = ["pitcher_id", "batter_id"]
 
 
 def load_train():
@@ -34,8 +40,20 @@ def load_train():
     return df
 
 
+def attach_trackman_context(df, context):
+    """trackman_history 기반 상황 단위 통계 피처를 좌측 조인으로 붙인다.
+
+    선수 단위 join이 불가능해(build_trackman_context.py 참고) 카운트/아웃,
+    투타 좌우, 이닝/초말 같은 공통 상황 키로만 묶은 집계값이라 개별 행의
+    결과 정보를 담지 않는다.
+    """
+    for spec in context.values():
+        df = df.merge(spec["table"], on=spec["keys"], how="left")
+    return df
+
+
 def build_features(df):
-    X = df.drop(columns=[c for c in [ID_COL, TARGET_COL] if c in df.columns])
+    X = df.drop(columns=[c for c in [ID_COL, TARGET_COL] + DROP_COLS if c in df.columns])
     for c in CAT_COLS:
         X[c] = X[c].astype("category")
     return X
@@ -48,6 +66,11 @@ def main():
     print("Load train data...")
     df = load_train()
     print(f" shape={df.shape}")
+
+    print("Attach trackman context features...")
+    context = joblib.load(os.path.join(MODEL_DIR, "trackman_context.pkl"))
+    df = attach_trackman_context(df, context)
+    print(f" shape after join={df.shape}")
 
     # ---- 시간 기반 분할: 2019~2023 학습 / 2024 검증 ----
     # 실제 평가(test.csv)는 2025시즌이므로 최근 시즌 홀드아웃이 랜덤 분할보다

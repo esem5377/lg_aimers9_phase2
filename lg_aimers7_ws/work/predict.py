@@ -27,6 +27,13 @@ def load_sample_submission(path):
     return df
 
 
+def attach_trackman_context(df, context):
+    """trackman_history 기반 상황 단위 통계 피처를 좌측 조인으로 붙인다 (학습 때와 동일)."""
+    for spec in context.values():
+        df = df.merge(spec["table"], on=spec["keys"], how="left")
+    return df
+
+
 def build_features(df, meta):
     """학습 때와 동일한 컬럼 순서 / 범주형 코드로 변환.
 
@@ -69,6 +76,10 @@ def main():
     test = load_test(TEST_PATH)
     sub = load_sample_submission(SAMPLE_SUB_PATH)
     print(f" test={len(test)}  submission={len(sub)}")
+
+    print("Attach trackman context features...")
+    context = joblib.load(os.path.join(MODEL_DIR, "trackman_context.pkl"))
+    test = attach_trackman_context(test, context)
 
     print("Build features...")
     ids = test[ID_COL].tolist()
