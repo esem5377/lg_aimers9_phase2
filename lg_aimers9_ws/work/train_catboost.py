@@ -27,6 +27,12 @@ CAT_COLS = [
 ]
 DROP_COLS = ["pitcher_id", "batter_id"]
 
+# work/tune_catboost.py 랜덤서치 trial 7 결과 (auc=0.55056, baseline 0.55005 대비 +0.0005).
+BEST_PARAMS = dict(
+    learning_rate=0.01, depth=8, l2_leaf_reg=20.0,
+    bagging_temperature=1.0, random_strength=1.0, border_count=32,
+)
+
 
 def load_data():
     df = pd.read_csv(os.path.join(DATA_DIR, "train.csv"), encoding="utf-8-sig")
@@ -64,9 +70,9 @@ def main():
 
     print("Fit (time-split validation)...")
     model_cv = CatBoostClassifier(
-        iterations=2000, learning_rate=0.03, depth=8, l2_leaf_reg=3.0,
-        loss_function="Logloss", eval_metric="AUC", random_seed=42,
+        iterations=2000, loss_function="Logloss", eval_metric="AUC", random_seed=42,
         cat_features=cat_idx, early_stopping_rounds=100, verbose=200,
+        **BEST_PARAMS,
     )
     model_cv.fit(X_tr, y_tr, eval_set=(X_va, y_va))
 
@@ -85,8 +91,9 @@ def main():
     print("\nRefit on full data with best_iteration...")
     best_iter = max(model_cv.get_best_iteration(), 1)
     model_final = CatBoostClassifier(
-        iterations=best_iter, learning_rate=0.03, depth=8, l2_leaf_reg=3.0,
-        loss_function="Logloss", random_seed=42, cat_features=cat_idx, verbose=False,
+        iterations=best_iter, loss_function="Logloss", random_seed=42,
+        cat_features=cat_idx, verbose=False,
+        **BEST_PARAMS,
     )
     model_final.fit(X_all, y_all)
 
