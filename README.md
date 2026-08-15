@@ -54,13 +54,6 @@ python3 work/predict.py
 cd work/submit && zip -r ../first_submit.zip script.py model requirements.txt
 ```
 
-## 현재 상태
-
-- 첫 제출 (LightGBM, 튜닝 거의 안 함): **리더보드 400점**
-- 로컬 검증(2024시즌 홀드아웃) AUC 0.534 — 거의 랜덤 수준. 팀원 기존 모델은 900점.
-- `trackman_history.csv` 아직 미활용, 이게 가장 유력한 개선 포인트로 보임.
-
-자세한 내용은 [worklog/2026-08-15.md](worklog/2026-08-15.md) 참고.
 
 ## 제출 규칙 요약 (자세한 건 data_description.md)
 
