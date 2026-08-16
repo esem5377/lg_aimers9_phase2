@@ -16,8 +16,8 @@ import os
 import joblib
 import pandas as pd
 
-DATA_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/open/data"
-MODEL_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/work/model"
+DATA_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/open/data"
+MODEL_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/model"
 
 # trackman_history 값 -> train.csv 인코딩으로 맞추는 매핑
 # (빈도 비율 대조로 확인: pitcher_hand 2=Right/1=Left, batter_hand 2=Right/1=Left)

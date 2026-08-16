@@ -14,9 +14,9 @@ import pandas as pd
 from catboost import CatBoostClassifier
 from sklearn.metrics import log_loss, roc_auc_score, accuracy_score
 
-DATA_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/open/data"
-MODEL_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/work/model_catboost"
-OUT_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/work/output"
+DATA_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/open/data"
+MODEL_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/model_catboost"
+OUT_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output"
 
 ID_COL = "row_id"
 TARGET_COL = "control_success"
@@ -37,7 +37,7 @@ BEST_PARAMS = dict(
 def load_data():
     df = pd.read_csv(os.path.join(DATA_DIR, "train.csv"), encoding="utf-8-sig")
     context = joblib.load(os.path.join(
-        "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/work/model", "trackman_context.pkl"))
+        "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/model", "trackman_context.pkl"))
     for spec in context.values():
         df = df.merge(spec["table"], on=spec["keys"], how="left")
     return df

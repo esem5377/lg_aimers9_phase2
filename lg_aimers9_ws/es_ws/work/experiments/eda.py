@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv("/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/open/data/train.csv", encoding="utf-8-sig")
+df = pd.read_csv("/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/open/data/train.csv", encoding="utf-8-sig")
 print("shape:", df.shape)
 print()
 print("target balance:")

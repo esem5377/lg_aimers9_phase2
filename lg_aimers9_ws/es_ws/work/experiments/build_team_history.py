@@ -22,8 +22,8 @@ import os
 import joblib
 import pandas as pd
 
-DATA_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/open/data"
-MODEL_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/work/model"
+DATA_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/open/data"
+MODEL_DIR = "/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/model"
 
 TEAM_SPECS = {
     "pitcher_team": {"team_col": "pitcher_team_id", "prefix": "pt_team"},
