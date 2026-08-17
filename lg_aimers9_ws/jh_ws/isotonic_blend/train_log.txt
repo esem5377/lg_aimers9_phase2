@@ -1,0 +1,16 @@
+[01:30:37] [1/6] train.csv 로딩...
+[01:30:43]   shape=(1475092, 49)
+[01:30:43]   feature 수=47 (범주형=9, 수치형=38)
+[01:30:48]   target rate r=0.52377
+[01:30:48] [2/6] 5-Fold LightGBM + CatBoost 학습 시작...
+[02:02:11]   └ Fold 0 완료 (1883s) | LGB best_iter=234 BSS=1792.3 | CAT best_iter=2390 BSS=2201.1
+[02:34:42]   └ Fold 1 완료 (1951s) | LGB best_iter=167 BSS=1807.2 | CAT best_iter=2558 BSS=2184.2
+[03:04:52]   └ Fold 2 완료 (1810s) | LGB best_iter=208 BSS=1813.8 | CAT best_iter=2383 BSS=2215.9
+[03:37:39]   └ Fold 3 완료 (1967s) | LGB best_iter=241 BSS=1793.9 | CAT best_iter=2635 BSS=2195.9
+[04:05:36]   └ Fold 4 완료 (1677s) | LGB best_iter=183 BSS=1824.9 | CAT best_iter=2252 BSS=2172.9
+[04:05:39] [3/6] OOF 기준 앙상블 최적 가중치 탐색...
+[04:05:41]   └ best_w(lgb)=0.08, best_w(cat)=0.92 | OOF Brier=0.243955 | OOF BSS=2197.1
+[04:05:41] [4/6] OOF 예측 기반 확률 보정(Isotonic Regression) 학습...
+[04:05:41]   └ 보정 후 OOF Brier=0.243917 | 보정 후 OOF BSS=2212.3
+[04:05:41] [5/6] 아티팩트 저장...
+[04:05:42] [6/6] 완료! 최종 OOF BSS(캘리브레이션 적용) = 2212.3
