@@ -1,0 +1,18 @@
+device: cuda
+[1/5] 데이터 로딩...
+  shape: (1475092, 38), cat fields: ['pitcher_id', 'batter_id', 'pitcher_team_id', 'batter_team_id', 'pitcher_hand', 'batter_hand', 'top_bottom', 'game_type', 'base_state']
+[2/5] group split (투수 단위 80/20)...
+  train=1189566, val=285526, 투수 겹침=0개
+  cardinalities: {'pitcher_id': 792, 'batter_id': 830, 'pitcher_team_id': 13, 'batter_team_id': 13, 'pitcher_hand': 2, 'batter_hand': 2, 'top_bottom': 2, 'game_type': 2, 'base_state': 8}
+[3/5] 학습 데이터 텐서 준비...
+[4/5] 학습 시작...
+  epoch 0: train_loss=5.41443 val_auc=0.51160 val_logloss=3.01379 (1.1s)
+  epoch 1: train_loss=2.60660 val_auc=0.50971 val_logloss=2.09149 (0.7s)
+  epoch 2: train_loss=1.98674 val_auc=0.50672 val_logloss=1.78016 (0.7s)
+  epoch 3: train_loss=1.69344 val_auc=0.51191 val_logloss=1.62540 (0.7s)
+  epoch 4: train_loss=1.49805 val_auc=0.50903 val_logloss=1.47014 (0.7s)
+  epoch 5: train_loss=1.35769 val_auc=0.50813 val_logloss=1.37023 (0.7s)
+  epoch 6: train_loss=1.25581 val_auc=0.50689 val_logloss=1.31679 (0.7s)
+  early stopping at epoch 6
+[5/5] 최종 best val AUC: 0.51191
+done

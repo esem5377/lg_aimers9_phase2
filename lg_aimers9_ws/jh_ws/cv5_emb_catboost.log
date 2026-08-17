@@ -1,0 +1,38 @@
+device: cuda
+[1/3] 데이터 로딩...
+[2/3] 5-fold 진짜 group k-fold (pitcher_id) — fold별 DeepFM 재학습 + CatBoost 2종...
+fold 0: train=1179983 val=295109 pitcher_overlap=0
+  fold 0 DeepFM val_auc=0.56133 (참고용, 임베딩 추출 목적)
+  fold 0 [baseline] AUC=0.57144 best_iter=597 n_features=47
+  fold 0 [with_emb] AUC=0.56652 best_iter=279 n_features=80
+  fold 0 차이: -0.00492  (266s elapsed total)
+fold 1: train=1180712 val=294380 pitcher_overlap=0
+  fold 1 DeepFM val_auc=0.55796 (참고용, 임베딩 추출 목적)
+  fold 1 [baseline] AUC=0.57146 best_iter=562 n_features=47
+  fold 1 [with_emb] AUC=0.56536 best_iter=387 n_features=80
+  fold 1 차이: -0.00610  (550s elapsed total)
+fold 2: train=1180742 val=294350 pitcher_overlap=0
+  fold 2 DeepFM val_auc=0.56036 (참고용, 임베딩 추출 목적)
+  fold 2 [baseline] AUC=0.57229 best_iter=501 n_features=47
+  fold 2 [with_emb] AUC=0.56772 best_iter=327 n_features=80
+  fold 2 차이: -0.00457  (813s elapsed total)
+fold 3: train=1178226 val=296866 pitcher_overlap=0
+  fold 3 DeepFM val_auc=0.55626 (참고용, 임베딩 추출 목적)
+  fold 3 [baseline] AUC=0.56547 best_iter=677 n_features=47
+  fold 3 [with_emb] AUC=0.56158 best_iter=628 n_features=80
+  fold 3 차이: -0.00389  (1199s elapsed total)
+fold 4: train=1180705 val=294387 pitcher_overlap=0
+  fold 4 DeepFM val_auc=0.56328 (참고용, 임베딩 추출 목적)
+  fold 4 [baseline] AUC=0.57552 best_iter=555 n_features=47
+  fold 4 [with_emb] AUC=0.57009 best_iter=300 n_features=80
+  fold 4 차이: -0.00543  (1472s elapsed total)
+
+[3/3] === 5-fold OOF 최종 결과 (리키지 없음, fold별 DeepFM 재학습) ===
+baseline : OOF AUC=0.57119 LogLoss=0.68321  fold_aucs=['0.57144', '0.57146', '0.57229', '0.56547', '0.57552']
+with_emb : OOF AUC=0.56565 LogLoss=0.68463  fold_aucs=['0.56652', '0.56536', '0.56772', '0.56158', '0.57009']
+차이(OOF)  : -0.00554
+fold별 차이 : ['-0.00492', '-0.00610', '-0.00457', '-0.00389', '-0.00543']
+DeepFM fold AUCs (참고): ['0.56133', '0.55796', '0.56036', '0.55626', '0.56328']
+
+total elapsed: 1473s
+done

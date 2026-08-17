@@ -4,6 +4,7 @@ lg_aimers9_ws/es_ws/open/data/*.csv
 # 로컬 산출물 (재생성 가능)
 lg_aimers9_ws/es_ws/work/output/
 lg_aimers9_ws/es_ws/work/catboost_info/
+lg_aimers9_ws/es_ws/work/experiments/catboost_info/
 lg_aimers9_ws/jh_ws/catboost_info/
 lg_aimers9_ws/jh_ws/train.log
 

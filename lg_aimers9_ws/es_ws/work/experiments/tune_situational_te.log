@@ -1,0 +1,4 @@
+Load train.csv + trackman context...
+ shape=(1475092, 75)
+
+[fold0] n_train=1180702 n_valid=294390 pitcher_overlap=0 (0이어야 진짜 group k-fold)

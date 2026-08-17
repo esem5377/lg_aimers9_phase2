@@ -1,0 +1,30 @@
+Load base train.csv...
+ shape=(1475092, 49)
+Merge trackman_context (baseline, mean 4종)...
+Merge trackman_context_v2 (확장: +extension/rel_height/rel_side/zone_speed, +std)...
+
+============================================================
+[CONFIG] v1_baseline (기존 trackman context, mean 4종)
+============================================================
+  n_features=69
+  [fold0(train<=2021,valid2022)] auc=0.57950 best_iter=512 (89.3s) n_train=728588 n_valid=247472
+  [fold1(train<=2022,valid2023)] auc=0.52786 best_iter=1093 (224.5s) n_train=976060 n_valid=245525
+  [fold2(train<=2023,valid2024)] auc=0.55056 best_iter=1053 (269.3s) n_train=1221585 n_valid=253507
+  -> mean_auc=0.55264  per-fold=['0.57950', '0.52786', '0.55056']
+
+============================================================
+[CONFIG] v2_extended (확장 트랙맨 물리량 + std)
+============================================================
+  n_features=105
+  [fold0(train<=2021,valid2022)] auc=0.57938 best_iter=672 (121.7s) n_train=728588 n_valid=247472
+  [fold1(train<=2022,valid2023)] auc=0.52419 best_iter=47 (31.1s) n_train=976060 n_valid=245525
+  [fold2(train<=2023,valid2024)] auc=0.55074 best_iter=1079 (314.1s) n_train=1221585 n_valid=253507
+  -> mean_auc=0.55144  per-fold=['0.57938', '0.52419', '0.55074']
+
+============================================================
+=== FINAL SUMMARY (elapsed 1054s) ===
+============================================================
+v1_baseline (기존 trackman context, mean 4종)              mean_auc=0.55264  delta_vs_v1=+0.00000  fold_deltas=['+0.00000', '+0.00000', '+0.00000']  모든폴드에서_v1보다_좋음=True
+v2_extended (확장 트랙맨 물리량 + std)                          mean_auc=0.55144  delta_vs_v1=-0.00121  fold_deltas=['-0.00013', '-0.00367', '+0.00018']  모든폴드에서_v1보다_좋음=False
+
+Saved: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/tune_trackman_v2_results.json

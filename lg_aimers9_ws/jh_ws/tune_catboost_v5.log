@@ -1,0 +1,25 @@
+[1/3] 데이터 로딩 및 사전 집계 (train_v5.py와 동일)...
+[2/3] 다중공선성 제거 및 피처 선별 (train_v5.py와 동일)...
+  selected_features n=45
+[3/3] 5-fold 진짜 group k-fold 스플릿 생성...
+
+=== 탐색 단계: fold [0, 1, 2] 기준, 11개 config (baseline 포함) ===
+[BASELINE] mean_auc(fold[0, 1, 2])=0.57086 fold_aucs=['0.57056', '0.57063', '0.57140'] params={'learning_rate': 0.03, 'depth': 6, 'l2_leaf_reg': 3, 'bagging_temperature': 1, 'random_strength': 1, 'border_count': 254} (399s)
+[trial1] mean_auc(fold[0, 1, 2])=0.56916 fold_aucs=['0.56902', '0.56863', '0.56984'] params={'learning_rate': 0.01, 'depth': 4, 'l2_leaf_reg': 5, 'bagging_temperature': 0.5, 'random_strength': 1, 'border_count': 64} (413s)
+[trial2] mean_auc(fold[0, 1, 2])=0.56949 fold_aucs=['0.56941', '0.56903', '0.57003'] params={'learning_rate': 0.01, 'depth': 4, 'l2_leaf_reg': 20, 'bagging_temperature': 2, 'random_strength': 0.5, 'border_count': 32} (435s)
+[trial3] mean_auc(fold[0, 1, 2])=0.57048 fold_aucs=['0.57029', '0.57019', '0.57095'] params={'learning_rate': 0.01, 'depth': 6, 'l2_leaf_reg': 3, 'bagging_temperature': 0, 'random_strength': 1, 'border_count': 254} (630s)
+[trial4] mean_auc(fold[0, 1, 2])=0.57114 fold_aucs=['0.57120', '0.57065', '0.57158'] params={'learning_rate': 0.02, 'depth': 10, 'l2_leaf_reg': 20, 'bagging_temperature': 1, 'random_strength': 0.5, 'border_count': 64} (622s)
+[trial5] mean_auc(fold[0, 1, 2])=0.57076 fold_aucs=['0.57075', '0.57068', '0.57084'] params={'learning_rate': 0.05, 'depth': 8, 'l2_leaf_reg': 5, 'bagging_temperature': 0.5, 'random_strength': 1, 'border_count': 128} (264s)
+[trial6] mean_auc(fold[0, 1, 2])=0.56871 fold_aucs=['0.56873', '0.56811', '0.56929'] params={'learning_rate': 0.01, 'depth': 4, 'l2_leaf_reg': 10, 'bagging_temperature': 0, 'random_strength': 2, 'border_count': 128} (450s)
+[trial7] mean_auc(fold[0, 1, 2])=0.57024 fold_aucs=['0.57017', '0.57006', '0.57051'] params={'learning_rate': 0.08, 'depth': 8, 'l2_leaf_reg': 1, 'bagging_temperature': 2, 'random_strength': 0.5, 'border_count': 254} (150s)
+[trial8] mean_auc(fold[0, 1, 2])=0.57125 fold_aucs=['0.57104', '0.57117', '0.57154'] params={'learning_rate': 0.01, 'depth': 8, 'l2_leaf_reg': 20, 'bagging_temperature': 1, 'random_strength': 1, 'border_count': 32} (881s)
+[trial9] mean_auc(fold[0, 1, 2])=0.57063 fold_aucs=['0.57054', '0.57039', '0.57097'] params={'learning_rate': 0.01, 'depth': 6, 'l2_leaf_reg': 5, 'bagging_temperature': 0, 'random_strength': 1, 'border_count': 32} (630s)
+[trial10] mean_auc(fold[0, 1, 2])=0.57072 fold_aucs=['0.57063', '0.57038', '0.57117'] params={'learning_rate': 0.05, 'depth': 8, 'l2_leaf_reg': 10, 'bagging_temperature': 1, 'random_strength': 1, 'border_count': 128} (261s)
+
+=== 상위 후보 전체 5-fold 재검증 (baseline 포함) ===
+[BASELINE full5fold] mean_auc=0.57032 fold_aucs=['0.57056', '0.57063', '0.57140', '0.56407', '0.57492']
+[trial8 full5fold] mean_auc=0.57061 fold_aucs=['0.57104', '0.57117', '0.57154', '0.56429', '0.57500'] delta_vs_baseline=+0.00029 fold_deltas=['+0.00049', '+0.00054', '+0.00014', '+0.00022', '+0.00008'] 모든폴드에서baseline보다좋음=True params={'learning_rate': 0.01, 'depth': 8, 'l2_leaf_reg': 20, 'bagging_temperature': 1, 'random_strength': 1, 'border_count': 32}
+[trial4 full5fold] mean_auc=0.57047 fold_aucs=['0.57120', '0.57065', '0.57158', '0.56411', '0.57482'] delta_vs_baseline=+0.00015 fold_deltas=['+0.00065', '+0.00002', '+0.00018', '+0.00004', '-0.00011'] 모든폴드에서baseline보다좋음=False params={'learning_rate': 0.02, 'depth': 10, 'l2_leaf_reg': 20, 'bagging_temperature': 1, 'random_strength': 0.5, 'border_count': 64}
+
+total elapsed: 8709s
+done

@@ -1,0 +1,19 @@
+[1/6] 데이터 로딩 및 트랙맨 컨텍스트(상황 키 기반) 부착...
+[2/6] 핵심 검증 파생변수 생성...
+[3/6] 다중공선성 제거 및 중요 변수 선별...
+  └ 상관관계>0.95로 제거: ['away_win_expectancy', 'asof_pitcher_pitchmix_n', 'tk_cnt_horz_break_mean', 'tk_cnt_fastball_rate', 'tk_cnt_breaking_rate', 'tk_cnt_offspeed_rate', 'tk_hand_horz_break_mean', 'tk_hand_breaking_rate', 'tk_hand_offspeed_rate', 'tk_hand_n', 'tk_inn_induced_vert_break_mean', 'tk_inn_fastball_rate', 'tk_inn_breaking_rate', 'leverage_middle_risk']
+  └ 선택된 피처 개수: 55개
+  └ 선택된 피처: ['season', 'asof_pitcher_n', 'asof_pitcher_ball_rate', 'asof_pitcher_success_rate', 'asof_batter_success_rate', 'asof_pitcher_prev5_game_success_rate', 'asof_pitcher_reverse_rate', 'asof_pitcher_offspeed_rate', 'asof_pitcher_fastball_rate', 'asof_pitcher_prev1_game_success_rate', 'batter_team_id', 'asof_pitcher_strike_rate', 'asof_pitcher_breaking_rate', 'asof_pitcher_prev3_game_success_rate', 'game_type', 'tk_hand_spin_rate_mean', 'asof_batter_middle_rate', 'asof_pitcher_middle_rate', 'pitcher_team_id', 'asof_pitcher_prev1_game_middle_rate', 'asof_pitcher_prev5_game_middle_rate', 'game_month', 'home_win_expectancy', 'asof_batter_n', 'li', 'asof_pitcher_prev3_game_middle_rate', 'tk_cnt_rel_speed_mean', 'tk_cnt_induced_vert_break_mean', 'tk_cnt_spin_rate_mean', 'tk_cnt_n', 'run_top_before', 'score_diff_pitcher_team', 'run_bot_before', 'strikes_before', 'balls_before', 'run_total_before', 'tk_hand_rel_speed_mean', 'inning', 'score_diff_home', 'game_dayofweek', 'tk_inn_horz_break_mean', 'tk_inn_n', 'tk_inn_offspeed_rate', 'tk_inn_spin_rate_mean', 'num_runners_on', 'cnt_diff', 'outs_before', 'tk_inn_rel_speed_mean', 'pitcher_hand', 'base_state', 'batter_hand', 'tk_hand_induced_vert_break_mean', 'runner_on_2b', 'runner_on_3b', 'top_bottom']
+[4/6] 5-Fold 확률 보정(Probability Calibration) GBDT 학습...
+  └ Fold 0 학습 및 보정 완료!
+  └ Fold 1 학습 및 보정 완료!
+  └ Fold 2 학습 및 보정 완료!
+  └ Fold 3 학습 및 보정 완료!
+  └ Fold 4 학습 및 보정 완료!
+[5/6] Optuna 앙상블 최적 가중치 & 확률 클리핑 범위 탐색...
+  └ [최적 가중치] LGBM: 0.217 | Cat: 0.783 | XGB: 0.000
+  └ [최적 확률 클리핑 범위]: [0.0103, 0.9897]
+  └ [최적 OOF Log Loss]: 0.68328
+  └ [OOF AUC blend]: 0.57048
+  └ [OOF AUC lgb/cat/xgb]: 0.56928 / 0.57051 / 0.56934
+[6/6] v2(raw id 제거 + 트랙맨 조인 수정) 학습 완료!

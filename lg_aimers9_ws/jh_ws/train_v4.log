@@ -1,0 +1,19 @@
+[1/6] 데이터 로딩 및 사전 집계 (원본과 동일, 트랙맨 병합은 그대로 깨진 채)...
+[2/6] 핵심 검증 파생변수 생성...
+[3/6] 다중공선성 제거 및 중요 변수 선별...
+  └ 상관관계>0.95로 제거: ['away_win_expectancy', 'asof_pitcher_pitchmix_n', 'leverage_middle_risk']
+  └ 선택된 피처 개수: 44개
+  └ 선택된 피처: ['season', 'asof_pitcher_ball_rate', 'asof_batter_success_rate', 'asof_pitcher_prev5_game_success_rate', 'asof_pitcher_n', 'asof_pitcher_offspeed_rate', 'asof_pitcher_prev1_game_success_rate', 'asof_pitcher_reverse_rate', 'asof_pitcher_success_rate', 'asof_pitcher_middle_rate', 'asof_pitcher_strike_rate', 'batter_team_id', 'asof_batter_middle_rate', 'asof_pitcher_prev3_game_success_rate', 'asof_pitcher_fastball_rate', 'asof_pitcher_prev3_game_middle_rate', 'pitcher_team_id', 'game_type', 'asof_pitcher_prev5_game_middle_rate', 'game_month', 'asof_pitcher_breaking_rate', 'asof_batter_n', 'home_win_expectancy', 'asof_pitcher_prev1_game_middle_rate', 'li', 'cnt_diff', 'batter_hand', 'balls_before', 'pitcher_hand', 'run_total_before', 'game_dayofweek', 'score_diff_pitcher_team', 'inning', 'strikes_before', 'run_top_before', 'run_bot_before', 'score_diff_home', 'outs_before', 'num_runners_on', 'base_state', 'top_bottom', 'runner_on_3b', 'runner_on_2b', 'runner_on_1b']
+[4/6] 5-Fold 확률 보정(Probability Calibration) GBDT 학습...
+  └ Fold 0 학습 및 보정 완료!
+  └ Fold 1 학습 및 보정 완료!
+  └ Fold 2 학습 및 보정 완료!
+  └ Fold 3 학습 및 보정 완료!
+  └ Fold 4 학습 및 보정 완료!
+[5/6] Optuna 앙상블 최적 가중치 & 확률 클리핑 범위 탐색...
+  └ [최적 가중치] LGBM: 0.214 | Cat: 0.786 | XGB: 0.000
+  └ [최적 확률 클리핑 범위]: [0.0099, 0.9901]
+  └ [최적 OOF Log Loss]: 0.68338
+  └ [OOF AUC blend]: 0.56997
+  └ [OOF AUC lgb/cat/xgb]: 0.56850 / 0.56997 / 0.56855
+[6/6] v4(raw id 제거만) 학습 완료!
