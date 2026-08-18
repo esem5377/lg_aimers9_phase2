@@ -1,0 +1,92 @@
+device=cuda
+Load train.csv + trackman context...
+ shape=(1475092, 73)
+ n_cat=10 n_num=59
+
+[fold0] n_train=1180702 n_valid=294390 pitcher_overlap=0
+    epoch00 val_auc=0.56267 best=0.56267@0 lr=1.00e-03
+    epoch01 val_auc=0.56608 best=0.56608@1 lr=1.00e-03
+    epoch02 val_auc=0.56830 best=0.56830@2 lr=1.00e-03
+    epoch03 val_auc=0.56885 best=0.56885@3 lr=1.00e-03
+    epoch04 val_auc=0.56977 best=0.56977@4 lr=1.00e-03
+    epoch05 val_auc=0.56985 best=0.56985@5 lr=1.00e-03
+    epoch06 val_auc=0.56989 best=0.56989@6 lr=1.00e-03
+    epoch07 val_auc=0.56998 best=0.56998@7 lr=1.00e-03
+    epoch09 val_auc=0.57012 best=0.57012@9 lr=1.00e-03
+    epoch10 val_auc=0.57025 best=0.57025@10 lr=1.00e-03
+    epoch11 val_auc=0.57034 best=0.57034@11 lr=1.00e-03
+    epoch12 val_auc=0.57060 best=0.57060@12 lr=1.00e-03
+    epoch13 val_auc=0.57098 best=0.57098@13 lr=1.00e-03
+    epoch15 val_auc=0.57040 best=0.57098@13 lr=1.00e-03
+    epoch18 val_auc=0.56924 best=0.57098@13 lr=5.00e-04
+    epoch21 val_auc=0.56859 best=0.57098@13 lr=2.50e-04
+    early stop at epoch21
+  -> best_val_auc=0.57098 @epoch13 (340.6s)
+
+[fold1] n_train=1180466 n_valid=294626 pitcher_overlap=0
+    epoch00 val_auc=0.56134 best=0.56134@0 lr=1.00e-03
+    epoch01 val_auc=0.56481 best=0.56481@1 lr=1.00e-03
+    epoch02 val_auc=0.56688 best=0.56688@2 lr=1.00e-03
+    epoch03 val_auc=0.56767 best=0.56767@3 lr=1.00e-03
+    epoch04 val_auc=0.56836 best=0.56836@4 lr=1.00e-03
+    epoch06 val_auc=0.56953 best=0.56953@6 lr=1.00e-03
+    epoch09 val_auc=0.56757 best=0.56953@6 lr=1.00e-03
+    epoch12 val_auc=0.56807 best=0.56953@6 lr=5.00e-04
+    early stop at epoch14
+  -> best_val_auc=0.56953 @epoch6 (197.8s)
+
+[fold2] n_train=1180619 n_valid=294473 pitcher_overlap=0
+    epoch00 val_auc=0.56478 best=0.56478@0 lr=1.00e-03
+    epoch01 val_auc=0.56763 best=0.56763@1 lr=1.00e-03
+    epoch02 val_auc=0.56971 best=0.56971@2 lr=1.00e-03
+    epoch03 val_auc=0.57097 best=0.57097@3 lr=1.00e-03
+    epoch04 val_auc=0.57145 best=0.57145@4 lr=1.00e-03
+    epoch05 val_auc=0.57166 best=0.57166@5 lr=1.00e-03
+    epoch06 val_auc=0.57180 best=0.57180@6 lr=1.00e-03
+    epoch09 val_auc=0.57209 best=0.57209@9 lr=1.00e-03
+    epoch10 val_auc=0.57237 best=0.57237@10 lr=1.00e-03
+    epoch12 val_auc=0.57104 best=0.57237@10 lr=1.00e-03
+    epoch15 val_auc=0.57120 best=0.57237@10 lr=5.00e-04
+    epoch18 val_auc=0.57064 best=0.57237@10 lr=2.50e-04
+    early stop at epoch18
+  -> best_val_auc=0.57237 @epoch10 (269.0s)
+
+[fold3] n_train=1180304 n_valid=294788 pitcher_overlap=0
+    epoch00 val_auc=0.55754 best=0.55754@0 lr=1.00e-03
+    epoch01 val_auc=0.55863 best=0.55863@1 lr=1.00e-03
+    epoch02 val_auc=0.56004 best=0.56004@2 lr=1.00e-03
+    epoch03 val_auc=0.56195 best=0.56195@3 lr=1.00e-03
+    epoch05 val_auc=0.56242 best=0.56242@5 lr=1.00e-03
+    epoch06 val_auc=0.56256 best=0.56256@6 lr=1.00e-03
+    epoch08 val_auc=0.56287 best=0.56287@8 lr=1.00e-03
+    epoch09 val_auc=0.56246 best=0.56287@8 lr=1.00e-03
+    epoch10 val_auc=0.56292 best=0.56292@10 lr=1.00e-03
+    epoch12 val_auc=0.56298 best=0.56298@12 lr=1.00e-03
+    epoch15 val_auc=0.56132 best=0.56298@12 lr=1.00e-03
+    epoch18 val_auc=0.56193 best=0.56298@12 lr=5.00e-04
+    early stop at epoch20
+  -> best_val_auc=0.56298 @epoch12 (302.8s)
+
+[fold4] n_train=1178277 n_valid=296815 pitcher_overlap=0
+    epoch00 val_auc=0.56241 best=0.56241@0 lr=1.00e-03
+    epoch01 val_auc=0.56480 best=0.56480@1 lr=1.00e-03
+    epoch02 val_auc=0.56658 best=0.56658@2 lr=1.00e-03
+    epoch03 val_auc=0.56804 best=0.56804@3 lr=1.00e-03
+    epoch04 val_auc=0.56904 best=0.56904@4 lr=1.00e-03
+    epoch05 val_auc=0.56979 best=0.56979@5 lr=1.00e-03
+    epoch06 val_auc=0.56994 best=0.56994@6 lr=1.00e-03
+    epoch09 val_auc=0.56956 best=0.56994@6 lr=1.00e-03
+    epoch10 val_auc=0.56999 best=0.56999@10 lr=5.00e-04
+    epoch12 val_auc=0.56874 best=0.56999@10 lr=5.00e-04
+    epoch15 val_auc=0.56901 best=0.56999@10 lr=2.50e-04
+    epoch18 val_auc=0.56865 best=0.56999@10 lr=1.25e-04
+    early stop at epoch18
+  -> best_val_auc=0.56999 @epoch10 (275.3s)
+
+============================================================
+SUMMARY (elapsed 1403s)
+============================================================
+MLP(no-identity)  mean_auc=0.56917  per-fold=['0.57098', '0.56953', '0.57237', '0.56298', '0.56999']
+CatBoost baseline(tune_situational_te.py) per-fold=[0.57316, 0.57059, 0.57504, 0.56616, 0.57358] mean=0.57171
+
+Saved: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/tune_mlp_no_identity_results.json

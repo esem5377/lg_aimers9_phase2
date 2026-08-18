@@ -2,3 +2,47 @@ Load train.csv + trackman context...
  shape=(1475092, 75)
 
 [fold0] n_train=1180702 n_valid=294390 pitcher_overlap=0 (0이어야 진짜 group k-fold)
+  baseline        auc=0.57316 best_iter=1999 (560.6s)
+  with_situational_te auc=0.57309 best_iter=1911 (539.5s) delta=-0.00007
+
+[fold1] n_train=1180466 n_valid=294626 pitcher_overlap=0 (0이어야 진짜 group k-fold)
+  baseline        auc=0.57059 best_iter=1133 (342.0s)
+  with_situational_te auc=0.57079 best_iter=1807 (558.1s) delta=+0.00020
+
+[fold2] n_train=1180619 n_valid=294473 pitcher_overlap=0 (0이어야 진짜 group k-fold)
+  baseline        auc=0.57504 best_iter=1497 (460.9s)
+  with_situational_te auc=0.57497 best_iter=1680 (519.4s) delta=-0.00008
+
+[fold3] n_train=1180304 n_valid=294788 pitcher_overlap=0 (0이어야 진짜 group k-fold)
+  baseline        auc=0.56616 best_iter=1990 (586.8s)
+  with_situational_te auc=0.56587 best_iter=1554 (485.9s) delta=-0.00029
+
+[fold4] n_train=1178277 n_valid=296815 pitcher_overlap=0 (0이어야 진짜 group k-fold)
+  baseline        auc=0.57358 best_iter=1598 (484.0s)
+  with_situational_te auc=0.57369 best_iter=1955 (574.4s) delta=+0.00011
+
+============================================================
+SUMMARY (elapsed 5128s)
+============================================================
+baseline   mean_auc=0.57171  per-fold=['0.57316', '0.57059', '0.57504', '0.56616', '0.57358']
+with_te    mean_auc=0.57168  per-fold=['0.57309', '0.57079', '0.57497', '0.56587', '0.57369']
+delta=-0.00003  per-fold-delta=['-0.00007', '+0.00020', '-0.00008', '-0.00029', '+0.00011']  모든폴드에서_개선=False
+
+top15 feature importance (last fold, with_te 모델):
+  season                         12.750
+  game_type                      12.008
+  asof_pitcher_success_rate      5.337
+  batter_team_id                 3.545
+  asof_pitcher_reverse_rate      3.541
+  pitcher_team_id                3.235
+  asof_pitcher_ball_rate         3.112
+  asof_pitcher_prev5_game_success_rate 2.853
+  te_hand_count                  2.380
+  asof_batter_success_rate       2.362
+  asof_pitcher_offspeed_rate     2.349
+  asof_pitcher_prev3_game_success_rate 2.334
+  game_month                     2.257
+  asof_pitcher_prev1_game_success_rate 2.146
+  asof_pitcher_fastball_rate     1.888
+
+Saved: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/tune_situational_te_results.json
