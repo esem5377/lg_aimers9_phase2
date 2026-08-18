@@ -1,0 +1,159 @@
+{
+  "columns": [
+    "season",
+    "game_month",
+    "game_dayofweek",
+    "inning",
+    "top_bottom",
+    "game_type",
+    "balls_before",
+    "strikes_before",
+    "outs_before",
+    "run_top_before",
+    "run_bot_before",
+    "run_total_before",
+    "score_diff_home",
+    "score_diff_pitcher_team",
+    "runner_on_1b",
+    "runner_on_2b",
+    "runner_on_3b",
+    "num_runners_on",
+    "base_state",
+    "home_win_expectancy",
+    "away_win_expectancy",
+    "li",
+    "pitcher_hand",
+    "batter_hand",
+    "pitcher_team_id",
+    "batter_team_id",
+    "asof_pitcher_n",
+    "asof_pitcher_success_rate",
+    "asof_pitcher_reverse_rate",
+    "asof_pitcher_middle_rate",
+    "asof_pitcher_ball_rate",
+    "asof_pitcher_strike_rate",
+    "asof_pitcher_prev1_game_success_rate",
+    "asof_pitcher_prev3_game_success_rate",
+    "asof_pitcher_prev5_game_success_rate",
+    "asof_pitcher_prev1_game_middle_rate",
+    "asof_pitcher_prev3_game_middle_rate",
+    "asof_pitcher_prev5_game_middle_rate",
+    "asof_batter_n",
+    "asof_batter_success_rate",
+    "asof_batter_middle_rate",
+    "asof_pitcher_pitchmix_n",
+    "asof_pitcher_fastball_rate",
+    "asof_pitcher_breaking_rate",
+    "asof_pitcher_offspeed_rate",
+    "tk_cnt_rel_speed_mean",
+    "tk_cnt_spin_rate_mean",
+    "tk_cnt_induced_vert_break_mean",
+    "tk_cnt_horz_break_mean",
+    "tk_cnt_fastball_rate",
+    "tk_cnt_breaking_rate",
+    "tk_cnt_offspeed_rate",
+    "tk_cnt_n",
+    "tk_hand_rel_speed_mean",
+    "tk_hand_spin_rate_mean",
+    "tk_hand_induced_vert_break_mean",
+    "tk_hand_horz_break_mean",
+    "tk_hand_fastball_rate",
+    "tk_hand_breaking_rate",
+    "tk_hand_offspeed_rate",
+    "tk_hand_n",
+    "tk_inn_rel_speed_mean",
+    "tk_inn_spin_rate_mean",
+    "tk_inn_induced_vert_break_mean",
+    "tk_inn_horz_break_mean",
+    "tk_inn_fastball_rate",
+    "tk_inn_breaking_rate",
+    "tk_inn_offspeed_rate",
+    "tk_inn_n"
+  ],
+  "cat_cols": [
+    "top_bottom",
+    "game_type",
+    "base_state",
+    "pitcher_hand",
+    "batter_hand",
+    "pitcher_team_id",
+    "batter_team_id"
+  ],
+  "cat_categories": {
+    "top_bottom": [
+      "B",
+      "T"
+    ],
+    "game_type": [
+      "F",
+      "R"
+    ],
+    "base_state": [
+      "123",
+      "12_",
+      "1_3",
+      "1__",
+      "_23",
+      "_2_",
+      "__3",
+      "___"
+    ],
+    "pitcher_hand": [
+      "1",
+      "2"
+    ],
+    "batter_hand": [
+      "1",
+      "2"
+    ],
+    "pitcher_team_id": [
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "25"
+    ],
+    "batter_team_id": [
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "25"
+    ]
+  },
+  "calibration": {
+    "cb": {
+      "a": 4.585399074988731,
+      "b": -2.304235389996848
+    },
+    "lgb": {
+      "a": 4.660299509082382,
+      "b": -2.3433760543581497
+    },
+    "xgb": {
+      "a": 4.612046241760254,
+      "b": -2.3183650970458984
+    }
+  },
+  "blend_weights": {
+    "cb": 0.84,
+    "lgb": 0.12,
+    "xgb": 0.040000000000000036
+  }
+}

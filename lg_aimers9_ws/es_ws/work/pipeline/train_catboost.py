@@ -1,12 +1,13 @@
 """CatBoost 버전 최종 모델 학습 — 리더보드 테스트 제출용.
 
-train.py와 동일한 피처(trackman context 3종 포함, raw pitcher_id/batter_id
-제외, team history/cross 그룹 제외 — 둘 다 실험에서 효과 없었음)와 동일한
-시간 기반 검증(2019~2023 학습 / 2024 검증)을 사용. tune_v2.py 실험에서
-CatBoost 단일 모델이 LightGBM보다 AUC 0.0012 높게 나온 걸 실제로 배포
-가능한 형태로 만든다.
+train.py와 동일한 피처(trackman context 3종 포함, team history/cross 그룹
+제외 — 실험에서 효과 없었음)와 동일한 시간 기반 검증(2019~2023 학습 /
+2024 검증)을 사용. tune_v2.py 실험에서 CatBoost 단일 모델이 LightGBM보다
+AUC 0.0012 높게 나온 걸 실제로 배포 가능한 형태로 만든다.
+(raw pitcher_id/batter_id는 8/18 추가(2) 참고 -- CatBoost 범주형으로 넣으면
+과적합하지만, label-encoded 수치형으로 넣으면 이득이 있어 포함한다.)
 
-8/18 추가: `tune_ensemble_calibrated.py` 실험에서 sigmoid 확률보정만으로
+8/18 추가(1): `tune_ensemble_calibrated.py` 실험에서 sigmoid 확률보정만으로
 2024 홀드아웃 BSS가 800.75 -> 825.57 (+24.8)로 오르는 걸 확인했다(AUC는
 보정이 monotonic 변환이라 그대로 0.55056 -- 순위는 안 바뀌고 확률의
 절대적 정확도만 좋아지는데, 대회 실제 채점 지표가 AUC가 아니라 BSS라서
@@ -16,6 +17,22 @@ CatBoost 단일 모델이 LightGBM보다 AUC 0.0012 높게 나온 걸 실제로 
 확률 1개를 입력으로 받는 2-파라미터(a, b) 로지스틱 회귀로 직접 재현해서
 `feature_meta.json`에 순수 float로 저장한다 -- 추론 시엔
 `1 / (1 + exp(-(a * raw_p + b)))`만 계산하면 되므로 버전 의존성이 전혀 없다.
+실측: 리더보드 889 -> 959.
+
+8/18 추가(2): `tune_rawid_numeric_calibrated.py` + `tune_rawid_cv_robust.py`
+실험에서 raw pitcher_id/batter_id를 jh_ws 방식대로 label-encoded 수치형
+(CatBoost cat_features 아님)으로 다시 포함시켰더니, 보정된 파이프라인
+위에서 2024 홀드아웃 BSS가 825.57 -> 835.05 (+9.48)로 추가 상승했다.
+3-fold walk-forward(2022/2023/2024 검증)로도 재확인: fold(->2022) +9.47,
+fold(->2024) +9.48로 사실상 동일한 크기로 일관됨. fold(->2023)만 -69.52로
+크게 무너졌지만, raw id 유무와 무관하게 그 폴드 자체가 BSS 0 근처로
+붕괴하는 걸 확인함(8/17에 이미 기록된 "2023년 game_type F/R 관계 역전"
+데이터 이상과 일치) -- raw id 자체의 문제가 아니라 2023 단일 폴드의
+알려진 이상치로 판단하고 채택.
+
+test.csv(2025시즌)에는 train에 없던 신인 선수 id가 있을 수 있으므로,
+`pitcher_id`/`batter_id` 매핑에 없는 값은 추론 시 -1(out-of-vocabulary
+sentinel)로 인코딩한다 (jh_ws script.py의 `cat_map.get(v, -1)`과 동일 패턴).
 """
 import json
 import os
@@ -62,7 +79,9 @@ CAT_COLS = [
     "pitcher_hand", "batter_hand",
     "pitcher_team_id", "batter_team_id",
 ]
-DROP_COLS = ["pitcher_id", "batter_id"]
+# jh_ws v9 방식: label-encoded 수치형으로 포함 (CatBoost cat_features 아님).
+# 매핑에 없는 값(신인 선수 등)은 추론 시 -1로 인코딩.
+RAW_ID_COLS = ["pitcher_id", "batter_id"]
 
 # work/tune_catboost.py 랜덤서치 trial 7 결과 (auc=0.55056, baseline 0.55005 대비 +0.0005).
 BEST_PARAMS = dict(
@@ -80,8 +99,18 @@ def load_data():
     return df
 
 
-def build_features(df):
-    X = df.drop(columns=[c for c in [ID_COL, TARGET_COL] + DROP_COLS if c in df.columns])
+def build_id_mappings(df):
+    mappings = {}
+    for c in RAW_ID_COLS:
+        uniq = sorted(df[c].astype(str).unique())
+        mappings[c] = {v: i for i, v in enumerate(uniq)}
+    return mappings
+
+
+def build_features(df, id_mappings):
+    X = df.drop(columns=[ID_COL, TARGET_COL])
+    for c in RAW_ID_COLS:
+        X[c] = X[c].astype(str).map(id_mappings[c]).fillna(-1).astype(int)
     for c in CAT_COLS:
         X[c] = X[c].astype(str)
     return X
@@ -95,9 +124,12 @@ def main():
     df = load_data()
     print(f" shape={df.shape}")
 
+    id_mappings = build_id_mappings(df)
+    print(f" id_mappings: pitcher_id n={len(id_mappings['pitcher_id'])}  batter_id n={len(id_mappings['batter_id'])}")
+
     train_mask = df["season"] <= 2023
     valid_mask = df["season"] == 2024
-    X_all = build_features(df)
+    X_all = build_features(df, id_mappings)
     y_all = df[TARGET_COL]
     X_tr, y_tr = X_all[train_mask], y_all[train_mask]
     X_va, y_va = X_all[valid_mask], y_all[valid_mask]
@@ -164,6 +196,8 @@ def main():
         json.dump({
             "columns": list(X_all.columns),
             "cat_cols": CAT_COLS,
+            "raw_id_cols": RAW_ID_COLS,
+            "id_mappings": id_mappings,
             "calibration": {"method": "platt_sigmoid", "a": a_final, "b": b_final},
         }, f, indent=2)
     print(f"Saved model to {MODEL_DIR}/catboost.cbm")
