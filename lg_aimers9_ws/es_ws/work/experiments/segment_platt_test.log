@@ -1,0 +1,39 @@
+Load data...
+ shape=(1475092, 73)
+ segment(game_type) value_counts:
+game_type
+R    1314088
+F     161004
+Name: count, dtype: int64
+
+[fold0(train<=2021,valid2022)] training...
+  done in 198s, n_valid=247472
+    calib_fit_size=0.2 (n_fit~49494, n_eval~197978, seg_n_fit~{'F': 6094, 'R': 43400}, 3 seeds): global-raw=+16.33  segment-raw=+21.69  segment-global=+5.36
+    calib_fit_size=0.5 (n_fit~123736, n_eval~123736, seg_n_fit~{'F': 15216, 'R': 108520}, 3 seeds): global-raw=+22.96  segment-raw=+29.34  segment-global=+6.37
+    calib_fit_size=0.8 (n_fit~197977, n_eval~49495, seg_n_fit~{'F': 24369, 'R': 173608}, 3 seeds): global-raw=+21.19  segment-raw=+25.94  segment-global=+4.75
+
+[fold1(train<=2022,valid2023)] training...
+  done in 27s, n_valid=245525
+    calib_fit_size=0.2 (n_fit~49105, n_eval~196420, seg_n_fit~{'F': 5128, 'R': 43977}, 3 seeds): global-raw=-2.66  segment-raw=+30.15  segment-global=+32.81
+    calib_fit_size=0.5 (n_fit~122762, n_eval~122763, seg_n_fit~{'F': 12809, 'R': 109953}, 3 seeds): global-raw=-2.25  segment-raw=+37.57  segment-global=+39.82
+    calib_fit_size=0.8 (n_fit~196420, n_eval~49105, seg_n_fit~{'F': 20520, 'R': 175900}, 3 seeds): global-raw=-2.60  segment-raw=+34.39  segment-global=+36.99
+
+[fold2(train<=2023,valid2024)] training...
+  done in 420s, n_valid=253507
+    calib_fit_size=0.2 (n_fit~50701, n_eval~202806, seg_n_fit~{'F': 5879, 'R': 44822}, 3 seeds): global-raw=+27.70  segment-raw=+27.03  segment-global=-0.67
+    calib_fit_size=0.5 (n_fit~126753, n_eval~126754, seg_n_fit~{'F': 14975, 'R': 111778}, 3 seeds): global-raw=+28.19  segment-raw=+27.69  segment-global=-0.51
+    calib_fit_size=0.8 (n_fit~202805, n_eval~50702, seg_n_fit~{'F': 24032, 'R': 178773}, 3 seeds): global-raw=+27.06  segment-raw=+26.03  segment-global=-1.03
+
+=== 요약: calib_fit_size별 segment-global delta (fold2=2024만, 프로덕션과 가장 근접) ===
+  size=0.2: mean=-0.67  min=-1.63  max=+0.14
+  size=0.5: mean=-0.51  min=-1.32  max=-0.02
+  size=0.8: mean=-1.03  min=-2.47  max=+0.35
+
+=== 요약: fold별 segment-global delta (calib_fit_size=0.5 고정) ===
+  fold0(train<=2021,valid2022): mean=+6.37  min=+5.12  max=+7.56
+  fold1(train<=2022,valid2023): mean=+39.82  min=+32.59  max=+44.35
+  fold2(train<=2023,valid2024): mean=-0.51  min=-1.32  max=-0.02
+
+Saved: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/tune_segment_platt_results.json
+
+판단 기준(8/19 교훈 반영): (a) fold0(->2022)과 fold2(->2024) 두 폴드가 독립적으로 비슷한 크기·같은 방향으로 일치해야 신뢰(단일 폴드 근거는 채택 안 함), (b) calib_fit_size가 작아질수록 분산이 커지는지(과적합 취약성, 특히 F 세그먼트 표본이 작아서 더 취약할 수 있음), (c) fold1(->2023)은 알려진 이상치이므로 참고만.

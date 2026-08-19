@@ -1,0 +1,28 @@
+Load data...
+ shape=(1475092, 73)
+
+3-fold walk-forward: baseline vs +season>=2023 x game_type regime feature...
+  [fold0(train<=2021,valid2022)] (424s) n_train=728588 n_valid=247472
+    base:   raw=2374.63  calib=2397.01
+    regime: raw=2375.43  calib=2397.24
+    delta(calibrated, regime - base) = +0.23
+  [fold1(train<=2022,valid2023)] (58s) n_train=976060 n_valid=245525
+    base:   raw=2.77  calib=0.00
+    regime: raw=15.37  calib=0.00
+    delta(calibrated, regime - base) = +0.00
+  [fold2(train<=2023,valid2024)] (976s) n_train=1221585 n_valid=253507
+    base:   raw=805.85  calib=835.05
+    regime: raw=816.12  calib=845.48
+    delta(calibrated, regime - base) = +10.43
+
+=== 요약 ===
+  fold0(train<=2021,valid2022): delta=+0.23
+  fold1(train<=2022,valid2023): delta=+0.00
+  fold2(train<=2023,valid2024): delta=+10.43
+  fold1+fold2(2023,2024) 모두 양수 = False
+  전체 mean delta = +3.55
+  fold1+fold2 mean delta = +5.21
+
+Saved: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/tune_regime2023_results.json
+
+판단 기준: fold1(->2023)과 fold2(->2024) 둘 다 양수여야 신뢰. test.csv(2025)가 실제로 이 레짐을 이어받는지는 리더보드 실측 전엔 알 수 없음 -- 로컬 신호가 강해도 test.csv 표본이 game_type=R 위주라면 전이 효과가 작을 수 있음에 유의.

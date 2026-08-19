@@ -1,0 +1,36 @@
+Load train data...
+ shape=(1475092, 73)
+ id_mappings: pitcher_id n=792  batter_id n=830
+ train=(1221585, 72) valid(2024)=(253507, 72)
+Fit (time-split validation)...
+0:	test: 0.5338969	best: 0.5338969 (0)	total: 447ms	remaining: 14m 54s
+200:	test: 0.5456613	best: 0.5456613 (200)	total: 1m 6s	remaining: 9m 56s
+400:	test: 0.5486132	best: 0.5486132 (400)	total: 2m 13s	remaining: 8m 53s
+600:	test: 0.5498925	best: 0.5498925 (600)	total: 3m 18s	remaining: 7m 42s
+800:	test: 0.5504269	best: 0.5504294 (797)	total: 4m 24s	remaining: 6m 35s
+1000:	test: 0.5507944	best: 0.5507944 (1000)	total: 5m 29s	remaining: 5m 28s
+1200:	test: 0.5509173	best: 0.5509271 (1193)	total: 6m 34s	remaining: 4m 22s
+1400:	test: 0.5510549	best: 0.5510661 (1363)	total: 7m 39s	remaining: 3m 16s
+Stopped by overfitting detector  (100 iterations wait)
+
+bestTest = 0.551116409
+bestIteration = 1499
+
+Shrink model to first 1500 iterations.
+Validation metrics (raw, 보정 전): {
+  "valid_season": 2024,
+  "auc": 0.551116409030972,
+  "logloss": 0.688664266463602,
+  "accuracy@0.5": 0.5373382194574509,
+  "bss_raw": 816.1219880445935,
+  "best_iteration": 1499
+}
+
+Sigmoid 보정(Platt scaling) 검증 -- 2024 홀드아웃에 직접 fit해 BSS 개선 재확인...
+ 수동 Platt scaling BSS = 845.48 (raw 816.12 대비 +29.36)
+ sklearn CalibratedClassifierCV와 예측값 최대 절대오차 = 1.52e-04 (0에 가까울수록 재현 정확)
+
+Refit on full data with best_iteration (보정용 5% carve-out 분리)...
+ train=(1401337, 72)  calibration carve-out=(73755, 72)
+ carve-out BSS: raw=2015.27  calibrated=2023.30
+Saved model to /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/model_catboost/catboost.cbm

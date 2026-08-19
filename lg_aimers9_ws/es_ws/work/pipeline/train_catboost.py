@@ -33,6 +33,22 @@ fold(->2024) +9.48로 사실상 동일한 크기로 일관됨. fold(->2023)만 -
 test.csv(2025시즌)에는 train에 없던 신인 선수 id가 있을 수 있으므로,
 `pitcher_id`/`batter_id` 매핑에 없는 값은 추론 시 -1(out-of-vocabulary
 sentinel)로 인코딩한다 (jh_ws script.py의 `cat_map.get(v, -1)`과 동일 패턴).
+
+8/19 시도 및 롤백: `tune_regime2023.py` 3-fold walk-forward 실험에서
+`season>=2023` x `game_type` 교차를 새 범주형 피처(`regime_gametype`)로
+추가했더니 fold(->2024, train에 2023이 포함돼 post23 카테고리를 실제로
+학습한 유일한 유효 폴드)에서 보정 후 BSS 835.05 -> 845.48 (+10.43). 다른
+두 폴드는 판단에 못 썼음(fold(->2022)는 train이 전부 2019~2021이라
+post23 카테고리 자체가 없어 가설 미검증, fold(->2023)은 라벨 자체가
+BSS 0 근처로 붕괴하는 8/17에 이미 기록된 알려진 이상치라 델타가 둘 다
+바닥에 붙어 무의미) -- raw id 때(fold 2개 독립 일치, +9.47/+9.48)보다
+근거가 약한 단일 폴드 신호였음에도 채택해 `submit_v8_regime2023`으로
+제출했으나 **리더보드 974 -> 968 (-6)로 하락, 기각**. raw id/확률보정처럼
+다중 폴드가 독립적으로 일치하지 않는 한(단일 폴드 신호는) 스케일이
+커도(+10 BSS) 신뢰할 수 없다는 걸 다시 확인 -- 8/17 섹션3(5-fold 전체
+일치했던 CatBoost 튜닝도 반증됨)과 같은 계열의 실패 사례. 이 피처는
+프로덕션에서 제거하고 v7 상태(raw id만 포함)로 롤백함. 자세한 내용은
+`es_ws/worklog/2026-08-19.md` 참고.
 """
 import json
 import os
@@ -82,6 +98,8 @@ CAT_COLS = [
 # jh_ws v9 방식: label-encoded 수치형으로 포함 (CatBoost cat_features 아님).
 # 매핑에 없는 값(신인 선수 등)은 추론 시 -1로 인코딩.
 RAW_ID_COLS = ["pitcher_id", "batter_id"]
+# 8/19: season>=2023 x game_type 교차(regime_gametype) 시도했으나 리더보드
+# 974->968로 하락해 롤백함(위 docstring "8/19 시도 및 롤백" 참고).
 
 # work/tune_catboost.py 랜덤서치 trial 7 결과 (auc=0.55056, baseline 0.55005 대비 +0.0005).
 BEST_PARAMS = dict(
