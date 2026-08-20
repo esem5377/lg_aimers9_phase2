@@ -1,0 +1,18 @@
+{
+  "single_bss": {
+    "cat": 833.0803908859874,
+    "lgb": 754.9844327749634,
+    "xgb": 719.4965708879786
+  },
+  "single_best_name": "cat",
+  "single_best_bss": 833.0803908859874,
+  "blend_best_bss": 835.9775871306318,
+  "blend_best_weights": {
+    "cat": 0.85,
+    "lgb": 0.05,
+    "xgb": 0.1
+  },
+  "delta_blend_vs_single_best": 2.8971962446444195,
+  "delta_blend_vs_974_baseline": 30.62758713063181,
+  "elapsed_sec": 1086.7790565490723
+}

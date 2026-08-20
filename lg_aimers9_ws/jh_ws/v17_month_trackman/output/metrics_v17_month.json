@@ -1,0 +1,10 @@
+{
+  "valid_season": 2024,
+  "auc": 0.550434677871533,
+  "logloss": 0.6888011096157024,
+  "accuracy@0.5": 0.536604511906969,
+  "bss_raw": 789.1028128843902,
+  "best_iteration": 927,
+  "bss_calibrated": 823.7419676543567,
+  "platt_vs_sklearn_max_abs_diff": 0.00015137040404589186
+}
