@@ -1,0 +1,28 @@
+Load train data...
+ shape=(1475092, 73)
+ id_mappings: pitcher_id n=792  batter_id n=830
+ n_features=73
+
+Split 5% stratified carve-out (early stopping + calibration, 학습에 절대 사용 안 함)...
+ train=(1401337, 73)  carve-out=(73755, 73)
+
+Fit final model (early stopping on carve-out, max iterations=2000)...
+0:	test: 0.5651736	best: 0.5651736 (0)	total: 1.04s	remaining: 34m 48s
+200:	test: 0.5716592	best: 0.5716615 (199)	total: 3m 4s	remaining: 27m 31s
+400:	test: 0.5732130	best: 0.5732130 (400)	total: 6m 12s	remaining: 24m 44s
+600:	test: 0.5742548	best: 0.5742548 (600)	total: 9m 21s	remaining: 21m 47s
+800:	test: 0.5749502	best: 0.5749502 (800)	total: 12m 29s	remaining: 18m 41s
+1000:	test: 0.5755192	best: 0.5755192 (1000)	total: 15m 38s	remaining: 15m 36s
+1200:	test: 0.5760481	best: 0.5760481 (1200)	total: 18m 45s	remaining: 12m 28s
+1400:	test: 0.5764900	best: 0.5764900 (1400)	total: 21m 53s	remaining: 9m 21s
+1600:	test: 0.5770717	best: 0.5770747 (1598)	total: 24m 58s	remaining: 6m 13s
+1800:	test: 0.5775988	best: 0.5775988 (1800)	total: 28m 3s	remaining: 3m 6s
+1999:	test: 0.5779433	best: 0.5779433 (1999)	total: 31m 7s	remaining: 0us
+
+bestTest = 0.5779433015
+bestIteration = 1999
+
+ best_iteration=1999
+ carve-out: auc=0.57794  bss_raw=2055.55  bss_calib=2067.24
+
+Saved model to C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v11_freq974\model
