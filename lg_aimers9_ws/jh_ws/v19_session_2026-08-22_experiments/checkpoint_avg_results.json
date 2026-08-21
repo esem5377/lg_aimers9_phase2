@@ -1,0 +1,14 @@
+{
+  "baseline_6seed_final_only": 2069.212232061346,
+  "median_6seed_final_only": 2067.6526812563047,
+  "checkpoint_avg_6seed_x_5ckpt": 2059.4106143927647,
+  "delta_median_vs_mean": -1.5595508050414537,
+  "delta_checkpoint_avg_vs_baseline": -9.801617668581457,
+  "checkpoints_used": [
+    1800,
+    1850,
+    1900,
+    1950,
+    2000
+  ]
+}

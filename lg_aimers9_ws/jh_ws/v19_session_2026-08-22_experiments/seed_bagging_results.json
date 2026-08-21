@@ -1,0 +1,95 @@
+{
+  "fold0_2022": {
+    "tag": "fold0_2022",
+    "n_train": 728588,
+    "n_eval": 247472,
+    "seeds": [
+      {
+        "seed": 42,
+        "best_iteration": 997,
+        "auc": 0.5794016175477779,
+        "bss_raw": 2367.4645827046147,
+        "bss_calibrated": 2386.4930909141212,
+        "elapsed_sec": 479.858026266098
+      },
+      {
+        "seed": 7,
+        "best_iteration": 999,
+        "auc": 0.5794752434332772,
+        "bss_raw": 2368.525202435401,
+        "bss_calibrated": 2388.773425009305,
+        "elapsed_sec": 485.7127740383148
+      },
+      {
+        "seed": 123,
+        "best_iteration": 999,
+        "auc": 0.5795029619996468,
+        "bss_raw": 2364.1477355186626,
+        "bss_calibrated": 2384.22972675133,
+        "elapsed_sec": 480.57154297828674
+      }
+    ],
+    "bagged": {
+      "n_seeds": 3,
+      "auc": 0.5795535839286329,
+      "bss_raw": 2370.325658777639,
+      "bss_calibrated": 2390.8372673780764
+    },
+    "mean_single_seed_bss_calibrated": 2386.4987475582516,
+    "std_single_seed_bss_calibrated": 1.8549613586448352,
+    "bagging_delta_vs_mean_single_seed": 4.338519819824796
+  },
+  "fold2_2024": {
+    "tag": "fold2_2024",
+    "n_train": 1221585,
+    "n_eval": 253507,
+    "seeds": [
+      {
+        "seed": 42,
+        "best_iteration": 999,
+        "auc": 0.5508686862418797,
+        "bss_raw": 808.7153668937974,
+        "bss_calibrated": 832.4060438655523,
+        "elapsed_sec": 784.393933057785
+      },
+      {
+        "seed": 7,
+        "best_iteration": 999,
+        "auc": 0.5509834011858166,
+        "bss_raw": 809.1454405025567,
+        "bss_calibrated": 835.5283278343784,
+        "elapsed_sec": 785.7167537212372
+      },
+      {
+        "seed": 123,
+        "best_iteration": 998,
+        "auc": 0.5508574692223442,
+        "bss_raw": 805.1480362289309,
+        "bss_calibrated": 829.9484130203206,
+        "elapsed_sec": 782.3777873516083
+      }
+    ],
+    "bagged": {
+      "n_seeds": 3,
+      "auc": 0.5510123967812608,
+      "bss_raw": 810.6994098541875,
+      "bss_calibrated": 836.6047680560929
+    },
+    "mean_single_seed_bss_calibrated": 832.6275949067503,
+    "std_single_seed_bss_calibrated": 2.283371189115988,
+    "bagging_delta_vs_mean_single_seed": 3.9771731493425477
+  },
+  "summary": {
+    "fold0_2022": {
+      "single_seed_mean": 2386.4987475582516,
+      "bagged": 2390.8372673780764,
+      "delta": 4.338519819824796
+    },
+    "fold2_2024": {
+      "single_seed_mean": 832.6275949067503,
+      "bagged": 836.6047680560929,
+      "delta": 3.9771731493425477
+    },
+    "all_axes_positive": true
+  }
+}

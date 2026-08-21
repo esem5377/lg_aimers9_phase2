@@ -1,0 +1,53 @@
+{
+  "fold0_2022": {
+    "baseline": {
+      "tag": "fold0_2022/baseline",
+      "n_features": 71,
+      "best_iteration": 997,
+      "auc": 0.5794016175477779,
+      "bss_raw": 2367.4645827046147,
+      "bss_calibrated": 2386.4930909141212,
+      "elapsed_sec": 473.4641375541687,
+      "autoencoder_final_recon_mse": null
+    },
+    "with_embedding": {
+      "tag": "fold0_2022/autoencoder_emb",
+      "n_features": 75,
+      "best_iteration": 999,
+      "auc": 0.5770162524926634,
+      "bss_raw": 2267.4763574237145,
+      "bss_calibrated": 2282.885056018569,
+      "elapsed_sec": 482.6064326763153,
+      "autoencoder_final_recon_mse": 0.08067341893911362
+    },
+    "delta_calibrated": -103.60803489555246
+  },
+  "fold2_2024": {
+    "baseline": {
+      "tag": "fold2_2024/baseline",
+      "n_features": 71,
+      "best_iteration": 999,
+      "auc": 0.5508686862418797,
+      "bss_raw": 808.7153668937974,
+      "bss_calibrated": 832.4060438655523,
+      "elapsed_sec": 779.064272403717,
+      "autoencoder_final_recon_mse": null
+    },
+    "with_embedding": {
+      "tag": "fold2_2024/autoencoder_emb",
+      "n_features": 75,
+      "best_iteration": 999,
+      "auc": 0.5461422244166736,
+      "bss_raw": 610.7228551531784,
+      "bss_calibrated": 634.9854702021873,
+      "elapsed_sec": 794.0215685367584,
+      "autoencoder_final_recon_mse": 0.06934098899364471
+    },
+    "delta_calibrated": -197.42057366336496
+  },
+  "summary": {
+    "fold0_2022": -103.60803489555246,
+    "fold2_2024": -197.42057366336496,
+    "all_axes_positive": false
+  }
+}

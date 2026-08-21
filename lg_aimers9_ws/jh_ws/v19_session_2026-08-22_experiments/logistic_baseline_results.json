@@ -1,0 +1,24 @@
+{
+  "fold0_2022": {
+    "tag": "fold0_2022",
+    "n_features_onehot": 1245,
+    "auc": 0.5725579954676895,
+    "bss_raw": 1821.7023327793956,
+    "bss_calibrated": 1851.2577972816912,
+    "fit_elapsed_sec": 501.157870054245
+  },
+  "fold2_2024": {
+    "tag": "fold2_2024",
+    "n_features_onehot": 1555,
+    "auc": 0.5222199768395819,
+    "bss_raw": 0.0,
+    "bss_calibrated": 0.0,
+    "fit_elapsed_sec": 891.4280161857605
+  },
+  "known_other_models": {
+    "catboost_974_fold0": null,
+    "catboost_974_fold2": 833.08,
+    "lgbm_untuned_fold2": 754.98,
+    "xgboost_untuned_fold2": 719.5
+  }
+}
