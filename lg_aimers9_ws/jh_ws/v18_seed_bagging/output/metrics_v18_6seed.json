@@ -1,0 +1,29 @@
+{
+  "all_seeds": [
+    42,
+    7,
+    123,
+    1,
+    99,
+    777
+  ],
+  "new_seed_metrics": [
+    {
+      "seed": 1,
+      "carveout_bss_raw": 2060.4637108980305,
+      "elapsed_sec": 1825.5204124450684
+    },
+    {
+      "seed": 99,
+      "carveout_bss_raw": 2055.983119869176,
+      "elapsed_sec": 1791.2545919418335
+    },
+    {
+      "seed": 777,
+      "carveout_bss_raw": 2051.2782927422977,
+      "elapsed_sec": 1792.3442432880402
+    }
+  ],
+  "carveout_bss_raw_bagged": 2057.302035890218,
+  "carveout_bss_calibrated_bagged": 2069.212232061346
+}

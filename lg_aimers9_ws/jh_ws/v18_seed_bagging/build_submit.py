@@ -5,14 +5,16 @@ import os
 import zipfile
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-OUT_ZIP = os.path.join(ROOT, 'v18_seed_bagging.zip')
+OUT_ZIP = os.path.join(ROOT, 'v18_6seed_bagging.zip')
 
+SEEDS = [42, 7, 123, 1, 99, 777]
 files_to_add = [
     ('script.py', os.path.join(ROOT, 'script.py')),
     ('requirements.txt', os.path.join(ROOT, 'requirements.txt')),
-    ('model/catboost_seed42.cbm', os.path.join(ROOT, 'model', 'catboost_seed42.cbm')),
-    ('model/catboost_seed7.cbm', os.path.join(ROOT, 'model', 'catboost_seed7.cbm')),
-    ('model/catboost_seed123.cbm', os.path.join(ROOT, 'model', 'catboost_seed123.cbm')),
+] + [
+    (f'model/catboost_seed{s}.cbm', os.path.join(ROOT, 'model', f'catboost_seed{s}.cbm'))
+    for s in SEEDS
+] + [
     ('model/feature_meta.json', os.path.join(ROOT, 'model', 'feature_meta.json')),
     ('model/trackman_context.pkl', os.path.join(ROOT, 'model', 'trackman_context.pkl')),
 ]

@@ -1,0 +1,60 @@
+Load train data (v18 train_final.py와 동일 절차 -- split 재현 목적)...
+ shape=(1475092, 73)
+ id_mappings 기존 저장값과 일치 확인 (재현성 OK)
+ train=(1401337, 71)  calibration carve-out=(73755, 71)
+
+=== 기존 3개 모델 재사용: raw 예측만 재계산 ===
+ seed=42: 로드+예측 완료 (재학습 안 함)
+ seed=7: 로드+예측 완료 (재학습 안 함)
+ seed=123: 로드+예측 완료 (재학습 안 함)
+
+=== 신규 seed=1 학습 (iterations=2000) ===
+0:	learn: 0.6929827	total: 1.11s	remaining: 36m 51s
+200:	learn: 0.6836980	total: 2m 56s	remaining: 26m 18s
+400:	learn: 0.6825138	total: 5m 58s	remaining: 23m 48s
+600:	learn: 0.6818399	total: 8m 59s	remaining: 20m 55s
+800:	learn: 0.6812920	total: 11m 59s	remaining: 17m 56s
+1000:	learn: 0.6808302	total: 14m 59s	remaining: 14m 57s
+1200:	learn: 0.6803663	total: 18m 3s	remaining: 12m 1s
+1400:	learn: 0.6799178	total: 21m 11s	remaining: 9m 3s
+1600:	learn: 0.6794202	total: 24m 13s	remaining: 6m 2s
+1800:	learn: 0.6789256	total: 27m 14s	remaining: 3m
+1999:	learn: 0.6784279	total: 30m 18s	remaining: 0us
+ seed=1 학습 완료 (1825.5s)
+ saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v18_seed_bagging\model\catboost_seed1.cbm
+
+=== 신규 seed=99 학습 (iterations=2000) ===
+0:	learn: 0.6929801	total: 1.01s	remaining: 33m 39s
+200:	learn: 0.6836981	total: 3m 5s	remaining: 27m 37s
+400:	learn: 0.6825221	total: 6m 9s	remaining: 24m 35s
+600:	learn: 0.6818409	total: 9m 13s	remaining: 21m 28s
+800:	learn: 0.6813107	total: 12m 12s	remaining: 18m 16s
+1000:	learn: 0.6808480	total: 15m 8s	remaining: 15m 7s
+1200:	learn: 0.6804094	total: 18m 4s	remaining: 12m 1s
+1400:	learn: 0.6799649	total: 20m 59s	remaining: 8m 58s
+1600:	learn: 0.6794867	total: 23m 55s	remaining: 5m 57s
+1800:	learn: 0.6790112	total: 26m 48s	remaining: 2m 57s
+1999:	learn: 0.6785432	total: 29m 42s	remaining: 0us
+ seed=99 학습 완료 (1791.3s)
+ saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v18_seed_bagging\model\catboost_seed99.cbm
+
+=== 신규 seed=777 학습 (iterations=2000) ===
+0:	learn: 0.6929849	total: 944ms	remaining: 31m 27s
+200:	learn: 0.6836613	total: 2m 57s	remaining: 26m 27s
+400:	learn: 0.6825062	total: 5m 56s	remaining: 23m 41s
+600:	learn: 0.6818381	total: 8m 55s	remaining: 20m 46s
+800:	learn: 0.6812884	total: 11m 53s	remaining: 17m 47s
+1000:	learn: 0.6808047	total: 14m 53s	remaining: 14m 52s
+1200:	learn: 0.6803564	total: 17m 55s	remaining: 11m 55s
+1400:	learn: 0.6799198	total: 20m 51s	remaining: 8m 55s
+1600:	learn: 0.6794553	total: 23m 48s	remaining: 5m 56s
+1800:	learn: 0.6789553	total: 26m 48s	remaining: 2m 57s
+1999:	learn: 0.6785030	total: 29m 45s	remaining: 0us
+ seed=777 학습 완료 (1792.3s)
+ saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v18_seed_bagging\model\catboost_seed777.cbm
+
+=== 배깅: 6시드 raw 확률 평균 -> Platt 1회 fit ===
+ carve-out BSS(6시드 배깅): raw=2057.30  calibrated=2069.21
+ (참고: 3시드 버전 calibrated=2065.91)
+
+Saved: feature_meta.json 갱신 (seeds=[42, 7, 123, 1, 99, 777]), 6개 모델 파일 model/에 존재
