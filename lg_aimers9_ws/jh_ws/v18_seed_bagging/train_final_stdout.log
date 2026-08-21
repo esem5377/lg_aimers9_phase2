@@ -1,0 +1,56 @@
+Load train data (전체, season 제한 없음 -- 974 프로덕션과 동일)...
+ shape=(1475092, 73)
+ id_mappings: pitcher_id n=792  batter_id n=830
+
+Calibration carve-out(5%) 분리 (모든 시드가 동일 split 공유)...
+ train=(1401337, 71)  calibration carve-out=(73755, 71)
+
+=== seed=42 학습 (iterations=2000) ===
+0:	learn: 0.6929820	total: 961ms	remaining: 32m
+200:	learn: 0.6836606	total: 2m 58s	remaining: 26m 38s
+400:	learn: 0.6825047	total: 5m 59s	remaining: 23m 55s
+600:	learn: 0.6818261	total: 9m	remaining: 20m 57s
+800:	learn: 0.6813010	total: 11m 58s	remaining: 17m 56s
+1000:	learn: 0.6808255	total: 14m 57s	remaining: 14m 55s
+1200:	learn: 0.6803852	total: 17m 57s	remaining: 11m 56s
+1400:	learn: 0.6799445	total: 20m 55s	remaining: 8m 56s
+1600:	learn: 0.6794849	total: 23m 50s	remaining: 5m 56s
+1800:	learn: 0.6790038	total: 26m 50s	remaining: 2m 57s
+1999:	learn: 0.6785409	total: 29m 47s	remaining: 0us
+ seed=42 학습 완료 (1794.4s)
+ saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v18_seed_bagging\model\catboost_seed42.cbm
+
+=== seed=7 학습 (iterations=2000) ===
+0:	learn: 0.6929850	total: 979ms	remaining: 32m 37s
+200:	learn: 0.6837292	total: 3m 3s	remaining: 27m 18s
+400:	learn: 0.6825388	total: 6m 6s	remaining: 24m 21s
+600:	learn: 0.6818663	total: 9m 8s	remaining: 21m 16s
+800:	learn: 0.6813394	total: 12m 8s	remaining: 18m 10s
+1000:	learn: 0.6808531	total: 15m 7s	remaining: 15m 6s
+1200:	learn: 0.6804182	total: 18m 5s	remaining: 12m 2s
+1400:	learn: 0.6799827	total: 21m 5s	remaining: 9m
+1600:	learn: 0.6795117	total: 24m 4s	remaining: 6m
+1800:	learn: 0.6790104	total: 27m 4s	remaining: 2m 59s
+1999:	learn: 0.6785583	total: 30m 1s	remaining: 0us
+ seed=7 학습 완료 (1809.1s)
+ saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v18_seed_bagging\model\catboost_seed7.cbm
+
+=== seed=123 학습 (iterations=2000) ===
+0:	learn: 0.6929773	total: 931ms	remaining: 31m 1s
+200:	learn: 0.6836757	total: 3m 2s	remaining: 27m 12s
+400:	learn: 0.6824986	total: 6m 5s	remaining: 24m 19s
+600:	learn: 0.6818296	total: 9m 12s	remaining: 21m 26s
+800:	learn: 0.6812943	total: 12m 14s	remaining: 18m 20s
+1000:	learn: 0.6808256	total: 15m 16s	remaining: 15m 14s
+1200:	learn: 0.6803714	total: 18m 18s	remaining: 12m 10s
+1400:	learn: 0.6799116	total: 21m 22s	remaining: 9m 8s
+1600:	learn: 0.6794236	total: 24m 26s	remaining: 6m 5s
+1800:	learn: 0.6788980	total: 27m 32s	remaining: 3m 2s
+1999:	learn: 0.6784139	total: 30m 35s	remaining: 0us
+ seed=123 학습 완료 (1843.6s)
+ saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v18_seed_bagging\model\catboost_seed123.cbm
+
+=== 배깅: 3시드 raw 확률 평균 -> Platt 1회 fit ===
+ carve-out BSS(배깅): raw=2054.51  calibrated=2065.91
+
+Saved 3 models + feature_meta.json to C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v18_seed_bagging\model

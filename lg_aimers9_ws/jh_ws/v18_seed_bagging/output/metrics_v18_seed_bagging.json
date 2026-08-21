@@ -1,0 +1,21 @@
+{
+  "seeds": [
+    {
+      "seed": 42,
+      "carveout_bss_raw": 2044.5841879577542,
+      "elapsed_sec": 1794.4345960617065
+    },
+    {
+      "seed": 7,
+      "carveout_bss_raw": 2053.433438130037,
+      "elapsed_sec": 1809.0682849884033
+    },
+    {
+      "seed": 123,
+      "carveout_bss_raw": 2057.1375627940756,
+      "elapsed_sec": 1843.6265590190887
+    }
+  ],
+  "carveout_bss_raw_bagged": 2054.505743482349,
+  "carveout_bss_calibrated_bagged": 2065.9129399902445
+}
