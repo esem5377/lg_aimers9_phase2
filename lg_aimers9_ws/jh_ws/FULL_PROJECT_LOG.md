@@ -152,10 +152,41 @@ control_risk_score_weighted = 0.4*reverse + 0.3*middle + 0.3*ball
 - `control_success` 전체 평균이 2019~2024 단조 하락(레짐 변화), `game_type`(F/R)과 target 관계는 2023년 기점 역전.
 - eval 시즌 시점의 `asof_pitcher_n`/`asof_batter_n`(누적 이력 표본)이 시즌이 늦을수록 두꺼워짐(2022시즌 평균 3194.7/3827.1 → 2024시즌 3928.2/5402.5) — 초기 fold(fold0→2022)일수록 원재료 자체의 노이즈가 커서 재조합 피처가 상대적으로 불리한 경향의 원인으로 추정(다만 절대 법칙은 아님, 반례도 있음).
 
-## 현재 상태 (2026-08-23 기준)
+## 1시드 실제 제출 3종 비교 — control_risk_score 원재료 제거(987)가 최고 (8/22~23)
 
-- **팀 전체 최고: 993점**(es_ws v11, `submit_v11_riskscore_blend` — jh_ws v20의 CatBoost 6시드 자산 재사용 + LGBM 3시드 블렌드).
-- jh_ws 단독 최고: 992점(`v20_control_risk_score`).
-- 1150(과거 확인된 타 팀 리더보드 기준) 대비 격차 157점, 지금까지 시도한 어떤 단일 실험도 이 정도 규모의 개선을 낸 적이 없음. 이 목표 자체가 8/20~21 확인 시점의 스냅샷이라 재확인 필요.
-- **탐색이 거의 소진된 방향**: 재조합 피처(3연속 실패), 신경망(DeepFM/MLP 둘 다 실패), 트리 구조 변경(Lossguide 실패), 진짜 스태킹(es_ws가 실측으로 실패 확인), 정규화 강도 조정(실패), 팀 매핑(매칭 근거 없음), 시퀀스 모델(규칙상 불가).
-- **아직 안 해본 것**: 남은 "소폭 delta 그룹"(_isna 플래그/carve-out 비율/median 블렌드/체크포인트 평균 재검증), LGBM/XGBoost를 jh_ws의 Optuna 튜닝값으로 교체한 블렌드 재검증.
+6시드 풀 재학습(3시간)을 매번 거치지 않고, 새 피처 후보를 빠르게(단일 시드, 약 30분) 실제 제출로 검증하는 방식을 도입. 992 레시피(control_risk_score, 원재료 유지)를 기준으로 세 갈래 시도:
+
+| 버전 | 구성 | 실제 점수 |
+|---|---|---|
+| v21 | control_risk_score(원재료 유지) + matchup_skill_gap + recent_form_gap | 977 |
+| **v22** | **control_risk_score만, 원재료(reverse/middle/ball_rate) 제거** | **987**(1시드 중 최고) |
+| v23 | v22 베이스 + control_quality_score + pitcher_net_control(원재료 유지) | 971 |
+
+- v21/v23 둘 다 v22(987)보다 낮아 기각. quality_score/net_control은 원재료 유지/제거, risk_score 베이스 유지/제거를 조합한 모든 경우의 수(로컬 4가지 + 실제제출 1가지)를 다 시도했고 전부 실패로 확정.
+- **1시드 실험 전용 기준점**: 앞으로 "6시드 대신 1시드로 빠르게" 검증하는 후보는 993/992(6시드)가 아니라 **987(v22, 1시드)을 비교 기준**으로 삼기로 함 — 시드 개수를 맞춰야 apples-to-apples 비교가 됨.
+- **참고**: control_risk_score의 원재료를 유지(992, 6시드)하는 게 맞는지 제거(987 계열)하는 게 맞는지는 아직 같은 시드 수로 직접 비교한 적이 없어 미확정 상태.
+
+## Brier Score 직접 최적화 calibration 실험 (8/23)
+
+Isotonic(비모수, 두 번 기각: -66.79, -11~-28)과 기존 Platt(2파라미터 sigmoid, logloss/MLE 최적화) 사이의 변형 -- 똑같이 2파라미터 sigmoid를 쓰되 목적함수를 실제 채점 지표인 Brier Score(squared error)로 직접 최소화(`scipy.optimize.minimize`). 987점 베이스(drop_ingredients) 위에서 fold0/fold2 비교.
+- **결과**: fold0 delta=**0.00**(완전히 동일), fold2 delta=**-0.51**(노이즈 수준) — 사실상 차이 없음.
+- **해석**: Isotonic이 실패한 이유는 "지나치게 유연해서 과적합"이었는데, 이 실험은 파라미터 수를 Platt과 동일(2개)하게 유지한 채 목적함수만 바꾼 것이라 애초에 표현력에 차이가 없었음. 저차원 파라미터 공간에서는 logloss와 Brier 최적점이 사실상 같은 곳으로 수렴함. 기각.
+
+## 외부 전략 문서 2건 검토 — 대부분 재탕이거나 규정 위반 소지 (8/23)
+
+사용자가 외부에서 받아온 "1150점 돌파 전략" 문서 2건(`LG_Aimers9_Phase2_1150_Breakthrough_Strategy.md`, `LG_Aimers9_Execution_Strategy_1150.md`)을 프로젝트 실제 이력과 대조 검토.
+
+- **규정 위반 위험**: 1번 문서의 "Test 예측값 평균을 목표치로 sweeping"하는 Global Mean Shift는 `competition_rules.md`의 "평가 데이터 전체 분포를 이용한 사후 보정 금지" 조항과 정확히 충돌 -- 실격 사유가 될 수 있음을 경고. 2번 문서는 이를 인지하고 "train.csv 추세만으로 계산한 고정 상수" 방식으로 스스로 수정했으나, 그마저도 8/18 `season_trend_prior` 실험에서 "baseline 모델이 이미 예측평균-실제평균 gap 0.8%p로 추세를 잘 흡수하고 있다"는 게 확인된 바 있어 불필요할 가능성이 높다고 판단, 실행 안 함.
+- **데이터에 없는 것을 가정**: `in_zone_rate`/`whiff_rate`/`first_pitch_strike_rate` 제안은 `trackman_history.csv`에 스윙/판정/코스 위치 컬럼이 전혀 없어 애초에 계산 불가능함을 확인.
+- **이미 실패한 것과 겹침**: RMSE 회귀 블렌딩(=8/19 "D 앙상블", -1.53), Bayesian smoothing(=8/20 cold-start smoothing, -0.1), 최근 3년 서브모델(=8/20 recency 가중, 기각), trackman 상황 키 확장(=v17 month축, -18.9)과 각각 동일 계열.
+- **유일하게 새로 시도할 가치가 있던 것**: Brier-최적화 Platt(위 섹션) -- 실행해봤으나 무의미했음.
+- **결론**: 두 문서 모두 실질적으로 새로운 방향을 제시하지 못함, 실행 안 함(Brier-최적화 Platt 제외).
+
+## 현재 상태 (2026-08-23 기준, 최신)
+
+- **팀 전체 최고: 993점**(es_ws v11, `submit_v11_riskscore_blend`).
+- jh_ws 단독 최고(6시드): 992점(`v20_control_risk_score`).
+- jh_ws 1시드 실험 최고: 987점(`v22_drop_ingredients_1seed`).
+- 1150(과거 확인된 타 팀 리더보드 기준) 대비 격차 약 157~179점, 지금까지 시도한 어떤 단일 실험도 이 정도 규모의 개선을 낸 적이 없음. 이 목표 자체가 8/20~21 확인 시점의 스냅샷이라 재확인 필요.
+- **탐색이 거의 소진된 방향**: 재조합 피처(control_risk_score 제외 전부 실패, quality/net_control 모든 조합 소진), 신경망(DeepFM/MLP 둘 다 실패), 트리 구조 변경(Lossguide 실패), 진짜 스태킹(es_ws가 실측으로 실패 확인), 정규화 강도 조정(실패), 팀 매핑(매칭 근거 없음), 시퀀스 모델(규칙상 불가), calibration 변형(Isotonic/Brier-최적화 Platt 둘 다 무의미/악화), 외부 전략 문서 2건(대부분 재탕 또는 규정 위반 소지).
+- **아직 안 해본 것**: 남은 "소폭 delta 그룹"(_isna 플래그/carve-out 비율/median 블렌드/체크포인트 평균 재검증), LGBM/XGBoost를 jh_ws의 Optuna 튜닝값으로 교체한 블렌드 재검증, control_risk_score 원재료 유지 vs 제거를 같은 시드 수(6시드)로 직접 비교.
