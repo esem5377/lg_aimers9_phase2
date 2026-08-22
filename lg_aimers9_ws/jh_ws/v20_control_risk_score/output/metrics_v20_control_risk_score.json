@@ -1,0 +1,36 @@
+{
+  "seeds": [
+    {
+      "seed": 42,
+      "carveout_bss_raw": 2054.2349696082374,
+      "elapsed_sec": 1802.9051721096039
+    },
+    {
+      "seed": 7,
+      "carveout_bss_raw": 2045.772058050732,
+      "elapsed_sec": 1827.3561177253723
+    },
+    {
+      "seed": 123,
+      "carveout_bss_raw": 2055.85312753902,
+      "elapsed_sec": 2912.5900089740753
+    },
+    {
+      "seed": 1,
+      "carveout_bss_raw": 2064.724421651365,
+      "elapsed_sec": 1837.9748685359955
+    },
+    {
+      "seed": 99,
+      "carveout_bss_raw": 2046.0978764886395,
+      "elapsed_sec": 1831.8063623905182
+    },
+    {
+      "seed": 777,
+      "carveout_bss_raw": 2049.1260059453784,
+      "elapsed_sec": 1826.213764667511
+    }
+  ],
+  "carveout_bss_raw_bagged": 2056.0733799028894,
+  "carveout_bss_calibrated_bagged": 2068.459025162195
+}
