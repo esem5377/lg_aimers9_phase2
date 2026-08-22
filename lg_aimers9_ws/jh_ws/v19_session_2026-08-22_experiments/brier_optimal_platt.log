@@ -1,0 +1,13 @@
+Load train data + trackman context...
+ shape=(1475092, 73)
+
+=== fold0_2022 ===
+  [fold0_2022] auc=0.5789 bss_raw=2352.59  MLE=2368.23  Brier=2368.23  delta=+0.00 (497.0s)
+
+=== fold2_2024 ===
+  [fold2_2024] auc=0.5515 bss_raw=821.51  MLE=848.32  Brier=847.81  delta=-0.51 (780.4s)
+
+=== SUMMARY (Brier-optimized Platt vs MLE Platt, calibrated BSS delta) ===
+  {'fold0_2022': np.float64(0.0), 'fold2_2024': np.float64(-0.5097639591444931), 'all_axes_positive': False}
+
+Saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v19_session_2026-08-22_experiments\brier_optimal_platt_results.json

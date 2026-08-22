@@ -1,0 +1,26 @@
+Load train data (전체) + control_risk_score(원재료 제거) + quality/net_control(원재료 유지) 추가...
+ shape=(1475092, 74)
+ id_mappings: pitcher_id n=792  batter_id n=830
+ n_features=72 (987베이스 70 + quality/net_control 2 = 72)
+
+Calibration carve-out(5%) 분리...
+ train=(1401337, 72)  calibration carve-out=(73755, 72)
+
+=== seed=42 학습 (iterations=2000) ===
+0:	learn: 0.6929792	total: 981ms	remaining: 32m 40s
+200:	learn: 0.6836851	total: 2m 55s	remaining: 26m 14s
+400:	learn: 0.6825741	total: 5m 53s	remaining: 23m 31s
+600:	learn: 0.6819378	total: 8m 54s	remaining: 20m 44s
+800:	learn: 0.6813994	total: 11m 52s	remaining: 17m 46s
+1000:	learn: 0.6809376	total: 14m 49s	remaining: 14m 48s
+1200:	learn: 0.6805227	total: 17m 46s	remaining: 11m 49s
+1400:	learn: 0.6800901	total: 20m 41s	remaining: 8m 50s
+1600:	learn: 0.6796234	total: 23m 40s	remaining: 5m 53s
+1800:	learn: 0.6791599	total: 26m 41s	remaining: 2m 56s
+1999:	learn: 0.6787277	total: 29m 35s	remaining: 0us
+ 학습 완료 (1784.9s)
+ carve-out BSS: raw=2045.44  calibrated=2056.89
+ (참고: v22 987점 1시드 베이스 carve-out calibrated는 별도 기록 없음, v20 6시드 2068.46/v21 1시드 참고용)
+ saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v23_quality_netcontrol_on_dropbase_1seed\model\catboost_seed42.cbm
+
+Saved 1 model + feature_meta.json to C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v23_quality_netcontrol_on_dropbase_1seed\model

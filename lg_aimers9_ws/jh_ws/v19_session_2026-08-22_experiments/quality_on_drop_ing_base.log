@@ -1,0 +1,13 @@
+Load train data + trackman context...
+ shape=(1475092, 73)
+
+=== fold0_2022 ===
+  [fold0_2022/quality_on_drop_ing_base] n_features=69 auc=0.5788 bss_calib=2360.29 (459.2s)
+
+=== fold2_2024 ===
+  [fold2_2024/quality_on_drop_ing_base] n_features=69 auc=0.5513 bss_calib=834.82 (749.1s)
+
+=== SUMMARY (quality+원재료제거 vs 987점 drop_ingredients base) ===
+  {'fold0_2022': np.float64(-7.943013150002571), 'fold2_2024': np.float64(-13.495553775655367), 'all_axes_positive': False}
+
+Saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v19_session_2026-08-22_experiments\quality_on_drop_ing_base_results.json
