@@ -1,0 +1,25 @@
+Load jh_ws v20 feature_meta (id_mappings, CatBoost 6시드 재사용)...
+ CatBoost 6개 모델 로드 완료 (seeds=[42, 7, 123, 1, 99, 777])
+
+Load train data (+control_risk_score)...
+ shape=(1475092, 75)  (3s)
+
+Calibration carve-out(5%) 분리 (jh_ws 프로덕션과 동일 관례)...
+ train=1401337  calib=73755  (6s)
+
+=== CatBoost 6시드 배깅 예측 (calib carve-out, 재학습 없음) ===
+ cat bagged raw BSS(calib) = 2056.07  (8s)
+
+=== LightGBM 신규 3시드 학습 ===
+ seed=42 완료 (24s)
+ seed=7 완료 (21s)
+ seed=123 완료 (21s)
+ lgb bagged raw BSS(calib) = 2000.28  (74s)
+
+=== 블렌드: walk-forward(honest) 고정 가중치 사용 (carve-out 재탐색 안 함) ===
+ 채택 가중치 = {'cat': 0.78, 'lgb': 0.22}
+ 전체 calib(5%) 위 비교: CatBoost단독 calibrated=2068.46  블렌드 calibrated=2070.44  delta=+1.98
+ 블렌드: raw=2053.51  calibrated=2070.44
+
+Saved feature_meta.json + lgb model files to /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/model_riskscore_blend
+총 소요 74s

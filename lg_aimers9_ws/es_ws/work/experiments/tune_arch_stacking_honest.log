@@ -1,0 +1,38 @@
+/home/esem5377/.local/lib/python3.12/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+/home/esem5377/.local/lib/python3.12/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+Load data...
+ shape=(1475092, 73)
+
+===== fold0(train<=2021,valid2022) n_train=728588 n_valid=247472 =====
+ [CatBoost] fit... (2s)
+  auc=0.57963 (196s)
+ [LightGBM] fit... (198s)
+  auc=0.57889 (208s)
+ [XGBoost] fit... (210s)
+  auc=0.57826 (241s)
+ 단일최고(cat)=2347.14
+ (a) grid blend=2351.71 (w={'cat': 0.7, 'lgb': 0.15, 'xgb': 0.15})  delta=+4.57
+ (b) LR stacking=2337.86 (coef={'cat': 1.5796543478395442, 'lgb': 1.6313539678862792, 'xgb': 1.4568699396335143, 'intercept': -2.3621410582720497})  delta=-9.28
+ (b)-(a) delta = -13.85  (fold 241s)
+
+===== fold2(train<=2023,valid2024) n_train=1221585 n_valid=253507 =====
+ [CatBoost] fit... (2s)
+  auc=0.55089 (416s)
+ [LightGBM] fit... (418s)
+  auc=0.54840 (433s)
+ [XGBoost] fit... (435s)
+  auc=0.54712 (486s)
+ 단일최고(cat)=827.57
+ (a) grid blend=828.94 (w={'cat': 0.85, 'lgb': 0.1, 'xgb': 0.05})  delta=+1.37
+ (b) LR stacking=799.73 (coef={'cat': 1.7091587379823014, 'lgb': 1.3658129452996008, 'xgb': 1.4244841984105028, 'intercept': -2.2905693978167223})  delta=-27.83
+ (b)-(a) delta = -29.21  (fold 487s)
+
+=== 요약: (b) LR stacking - (a) grid blend ===
+  fold0(train<=2021,valid2022): stack_vs_grid=-13.85  (grid_delta=+4.57, stack_delta=-9.28)
+  fold2(train<=2023,valid2024): stack_vs_grid=-29.21  (grid_delta=+1.37, stack_delta=-27.83)
+  fold0 & fold2 모두 stacking이 grid보다 나음 = False
+
+Saved: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/tune_arch_stacking_honest_results.json
+총 소요 731s
