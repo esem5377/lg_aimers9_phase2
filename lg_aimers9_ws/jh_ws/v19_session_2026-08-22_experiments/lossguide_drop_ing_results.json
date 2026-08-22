@@ -1,0 +1,53 @@
+{
+  "fold0_2022": {
+    "symmetric_reused": {
+      "tag": "fold0_2022/drop_ingredients",
+      "variant": "drop_ingredients",
+      "n_features": 70,
+      "best_iteration": 999,
+      "auc": 0.5789463671211645,
+      "bss_raw": 2352.593059005292,
+      "bss_calibrated": 2368.2347324428088,
+      "elapsed_sec": 464.9822702407837
+    },
+    "lossguide": {
+      "tag": "fold0_2022/lossguide",
+      "variant": "lossguide",
+      "n_features": 70,
+      "best_iteration": 999,
+      "auc": 0.5787363969231629,
+      "bss_raw": 2346.1242608369125,
+      "bss_calibrated": 2356.8276593669225,
+      "elapsed_sec": 417.6317660808563
+    },
+    "delta_vs_symmetric": -11.407073075886274
+  },
+  "fold2_2024": {
+    "symmetric_reused": {
+      "tag": "fold2_2024/drop_ingredients",
+      "variant": "drop_ingredients",
+      "n_features": 70,
+      "best_iteration": 999,
+      "auc": 0.551534604654357,
+      "bss_raw": 821.5126893177604,
+      "bss_calibrated": 848.3158362301291,
+      "elapsed_sec": 754.9407589435577
+    },
+    "lossguide": {
+      "tag": "fold2_2024/lossguide",
+      "variant": "lossguide",
+      "n_features": 70,
+      "best_iteration": 999,
+      "auc": 0.5506499690145692,
+      "bss_raw": 793.7009908821291,
+      "bss_calibrated": 820.7087392703594,
+      "elapsed_sec": 622.8706314563751
+    },
+    "delta_vs_symmetric": -27.607096959769706
+  },
+  "summary": {
+    "fold0_2022": -11.407073075886274,
+    "fold2_2024": -27.607096959769706,
+    "all_axes_positive": false
+  }
+}

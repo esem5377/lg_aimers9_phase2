@@ -1,0 +1,21 @@
+Load train data + trackman context...
+ shape=(1475092, 73)
+
+=== fold0_2022 ===
+  [fold0_2022/baseline] n_features=71 auc=0.5794 bss_calib=2386.49 (468.1s)
+  [fold0_2022/matchup] n_features=72 auc=0.5793 bss_calib=2379.26 (471.6s)
+  [fold0_2022/recent_form] n_features=72 auc=0.5796 bss_calib=2387.88 (469.0s)
+  [fold0_2022/both] n_features=73 auc=0.5797 bss_calib=2391.80 (470.2s)
+
+=== fold2_2024 ===
+  [fold2_2024/baseline] n_features=71 auc=0.5509 bss_calib=832.41 (759.0s)
+  [fold2_2024/matchup] n_features=72 auc=0.5508 bss_calib=831.47 (784.8s)
+  [fold2_2024/recent_form] n_features=72 auc=0.5506 bss_calib=823.98 (776.9s)
+  [fold2_2024/both] n_features=73 auc=0.5508 bss_calib=831.35 (784.0s)
+
+=== SUMMARY (delta vs baseline, calibrated BSS) ===
+  matchup: {'fold0_2022': np.float64(-7.231062791845943), 'fold2_2024': np.float64(-0.9315703578871535), 'all_axes_positive': False}
+  recent_form: {'fold0_2022': np.float64(1.3840350810869495), 'fold2_2024': np.float64(-8.429989781233417), 'all_axes_positive': False}
+  both: {'fold0_2022': np.float64(5.302218186964637), 'fold2_2024': np.float64(-1.0513209189545023), 'all_axes_positive': False}
+
+Saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v19_session_2026-08-22_experiments\matchup_recent_gap_results.json

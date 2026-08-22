@@ -1,0 +1,25 @@
+Load train data (전체) + control_risk_score(*2) 추가, 원재료 3개 제거...
+ shape=(1475092, 72)
+ id_mappings: pitcher_id n=792  batter_id n=830
+ n_features=70 (v20의 73 - 원재료3 = 70)
+
+Calibration carve-out(5%) 분리...
+ train=(1401337, 70)  calibration carve-out=(73755, 70)
+
+=== seed=42 학습 (iterations=2000) ===
+0:	learn: 0.6929808	total: 985ms	remaining: 32m 48s
+200:	learn: 0.6836677	total: 2m 53s	remaining: 25m 49s
+400:	learn: 0.6825766	total: 5m 50s	remaining: 23m 16s
+600:	learn: 0.6819213	total: 8m 45s	remaining: 20m 24s
+800:	learn: 0.6813786	total: 11m 41s	remaining: 17m 30s
+1000:	learn: 0.6809173	total: 14m 35s	remaining: 14m 33s
+1200:	learn: 0.6804865	total: 17m 29s	remaining: 11m 38s
+1400:	learn: 0.6800533	total: 20m 24s	remaining: 8m 43s
+1600:	learn: 0.6796007	total: 23m 22s	remaining: 5m 49s
+1800:	learn: 0.6791471	total: 26m 14s	remaining: 2m 54s
+1999:	learn: 0.6786909	total: 29m 6s	remaining: 0us
+ 학습 완료 (1753.7s)
+ carve-out BSS: raw=2045.96  calibrated=2057.20
+ saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v22_drop_ingredients_1seed\model\catboost_seed42.cbm
+
+Saved 1 model + feature_meta.json to C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v22_drop_ingredients_1seed\model

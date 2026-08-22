@@ -1,0 +1,13 @@
+Load train data + trackman context...
+ shape=(1475092, 73)
+
+=== fold0_2022 ===
+  [fold0_2022/middle_sum] n_features=74 auc=0.5789 bss_calib=2368.49 (478.6s)
+
+=== fold2_2024 ===
+  [fold2_2024/middle_sum] n_features=74 auc=0.5511 bss_calib=832.77 (786.5s)
+
+=== SUMMARY (middle_sum vs 992-baseline) ===
+  {'fold0_2022': np.float64(-14.258719887893676), 'fold2_2024': np.float64(-6.675280138823723), 'all_axes_positive': False}
+
+Saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v19_session_2026-08-22_experiments\middle_rate_sum_results.json

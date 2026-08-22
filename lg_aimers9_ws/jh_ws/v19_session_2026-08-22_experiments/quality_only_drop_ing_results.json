@@ -1,0 +1,84 @@
+{
+  "fold0_2022": {
+    "baseline_reused": {
+      "tag": "fold0_2022/baseline",
+      "variant": "baseline",
+      "n_features": 73,
+      "best_iteration": 999,
+      "auc": 0.5791369129325785,
+      "bss_raw": 2367.3525419675266,
+      "bss_calibrated": 2382.7519216834235,
+      "elapsed_sec": 465.0887701511383,
+      "delta_vs_baseline": 0.0
+    },
+    "quality_kept_ingredients_reused": {
+      "tag": "fold0_2022/quality",
+      "variant": "quality",
+      "n_features": 74,
+      "best_iteration": 999,
+      "auc": 0.5789787961360146,
+      "bss_raw": 2357.127513878299,
+      "bss_calibrated": 2373.496404445907,
+      "elapsed_sec": 466.48327684402466,
+      "delta_vs_baseline": -9.255517237516415
+    },
+    "quality_drop_ingredients": {
+      "tag": "fold0_2022/quality_drop_ingredients",
+      "variant": "quality_drop_ingredients",
+      "n_features": 72,
+      "best_iteration": 999,
+      "auc": 0.5784353610035495,
+      "bss_raw": 2342.5519571019236,
+      "bss_calibrated": 2354.592984651005,
+      "elapsed_sec": 464.45439743995667
+    },
+    "delta_drop_vs_baseline": -28.158937032418635,
+    "delta_drop_vs_quality_kept": -18.90341979490222
+  },
+  "fold2_2024": {
+    "baseline_reused": {
+      "tag": "fold2_2024/baseline",
+      "variant": "baseline",
+      "n_features": 73,
+      "best_iteration": 999,
+      "auc": 0.5512380468421649,
+      "bss_raw": 811.6548374337507,
+      "bss_calibrated": 839.4449721183639,
+      "elapsed_sec": 769.2679398059845,
+      "delta_vs_baseline": 0.0
+    },
+    "quality_kept_ingredients_reused": {
+      "tag": "fold2_2024/quality",
+      "variant": "quality",
+      "n_features": 74,
+      "best_iteration": 999,
+      "auc": 0.5512032122809685,
+      "bss_raw": 815.2952443408745,
+      "bss_calibrated": 839.1023539162102,
+      "elapsed_sec": 773.1085247993469,
+      "delta_vs_baseline": -0.3426182021537443
+    },
+    "quality_drop_ingredients": {
+      "tag": "fold2_2024/quality_drop_ingredients",
+      "variant": "quality_drop_ingredients",
+      "n_features": 72,
+      "best_iteration": 999,
+      "auc": 0.5512511881123328,
+      "bss_raw": 804.5051907778488,
+      "bss_calibrated": 833.7727565922548,
+      "elapsed_sec": 759.4671084880829
+    },
+    "delta_drop_vs_baseline": -5.672215526109085,
+    "delta_drop_vs_quality_kept": -5.3295973239553405
+  },
+  "summary": {
+    "fold0_2022": {
+      "delta_drop_vs_baseline": -28.158937032418635,
+      "delta_drop_vs_quality_kept": -18.90341979490222
+    },
+    "fold2_2024": {
+      "delta_drop_vs_baseline": -5.672215526109085,
+      "delta_drop_vs_quality_kept": -5.3295973239553405
+    }
+  }
+}

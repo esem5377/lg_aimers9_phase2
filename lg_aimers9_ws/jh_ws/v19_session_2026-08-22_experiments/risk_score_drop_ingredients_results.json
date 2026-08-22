@@ -1,0 +1,76 @@
+{
+  "fold0_2022": {
+    "baseline_reused": {
+      "tag": "fold0_2022/baseline",
+      "n_features": 71,
+      "best_iteration": 997,
+      "auc": 0.5794016175477779,
+      "bss_raw": 2367.4645827046147,
+      "bss_calibrated": 2386.4930909141212,
+      "elapsed_sec": 468.91530895233154
+    },
+    "with_ingredients_reused": {
+      "tag": "fold0_2022/+risk_score",
+      "n_features": 73,
+      "best_iteration": 999,
+      "auc": 0.5791369129325785,
+      "bss_raw": 2367.3525419675266,
+      "bss_calibrated": 2382.7519216834235,
+      "elapsed_sec": 477.71787214279175
+    },
+    "drop_ingredients": {
+      "tag": "fold0_2022/drop_ingredients",
+      "variant": "drop_ingredients",
+      "n_features": 70,
+      "best_iteration": 999,
+      "auc": 0.5789463671211645,
+      "bss_raw": 2352.593059005292,
+      "bss_calibrated": 2368.2347324428088,
+      "elapsed_sec": 464.9822702407837
+    },
+    "delta_drop_vs_baseline": -18.258358471312476,
+    "delta_drop_vs_with_ingredients": -14.517189240614698
+  },
+  "fold2_2024": {
+    "baseline_reused": {
+      "tag": "fold2_2024/baseline",
+      "n_features": 71,
+      "best_iteration": 999,
+      "auc": 0.5508686862418797,
+      "bss_raw": 808.7153668937974,
+      "bss_calibrated": 832.4060438655523,
+      "elapsed_sec": 817.0017235279083
+    },
+    "with_ingredients_reused": {
+      "tag": "fold2_2024/+risk_score",
+      "n_features": 73,
+      "best_iteration": 999,
+      "auc": 0.5512380468421649,
+      "bss_raw": 811.6548374337507,
+      "bss_calibrated": 839.4449721183639,
+      "elapsed_sec": 809.9081621170044
+    },
+    "drop_ingredients": {
+      "tag": "fold2_2024/drop_ingredients",
+      "variant": "drop_ingredients",
+      "n_features": 70,
+      "best_iteration": 999,
+      "auc": 0.551534604654357,
+      "bss_raw": 821.5126893177604,
+      "bss_calibrated": 848.3158362301291,
+      "elapsed_sec": 754.9407589435577
+    },
+    "delta_drop_vs_baseline": 15.909792364576788,
+    "delta_drop_vs_with_ingredients": 8.870864111765172
+  },
+  "summary": {
+    "fold0_2022": {
+      "delta_drop_vs_baseline": -18.258358471312476,
+      "delta_drop_vs_with_ingredients": -14.517189240614698
+    },
+    "fold2_2024": {
+      "delta_drop_vs_baseline": 15.909792364576788,
+      "delta_drop_vs_with_ingredients": 8.870864111765172
+    }
+  }
+}

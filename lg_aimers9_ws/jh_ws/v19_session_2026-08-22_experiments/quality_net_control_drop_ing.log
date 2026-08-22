@@ -1,0 +1,14 @@
+Load train data + trackman context...
+ shape=(1475092, 73)
+
+=== fold0_2022 ===
+  [fold0_2022/both_drop_ingredients] n_features=73 auc=0.5790 bss_calib=2375.23 (478.7s)
+
+=== fold2_2024 ===
+  [fold2_2024/both_drop_ingredients] n_features=73 auc=0.5513 bss_calib=837.80 (768.3s)
+
+=== SUMMARY (both_drop_ingredients vs baseline / vs both_kept) ===
+  fold0_2022: {'delta_drop_vs_baseline': np.float64(-7.525356135173752), 'delta_drop_vs_both_kept': np.float64(1.1960874195970064)}
+  fold2_2024: {'delta_drop_vs_baseline': np.float64(-1.64544226359817), 'delta_drop_vs_both_kept': np.float64(-7.64772422958697)}
+
+Saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v19_session_2026-08-22_experiments\quality_net_control_drop_ing_results.json

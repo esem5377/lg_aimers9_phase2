@@ -1,0 +1,13 @@
+Load train data + trackman context...
+ shape=(1475092, 73)
+
+=== fold0_2022 ===
+  [fold0_2022/lossguide] n_features=70 auc=0.5787 bss_calib=2356.83 (417.6s)
+
+=== fold2_2024 ===
+  [fold2_2024/lossguide] n_features=70 auc=0.5506 bss_calib=820.71 (622.9s)
+
+=== SUMMARY (Lossguide vs Symmetric, drop_ingredients base) ===
+  {'fold0_2022': np.float64(-11.407073075886274), 'fold2_2024': np.float64(-27.607096959769706), 'all_axes_positive': False}
+
+Saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v19_session_2026-08-22_experiments\lossguide_drop_ing_results.json

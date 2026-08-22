@@ -1,0 +1,14 @@
+Load train data + trackman context...
+ shape=(1475092, 73)
+
+=== fold0_2022 ===
+  [fold0_2022/drop_ingredients] n_features=70 auc=0.5789 bss_calib=2368.23 (465.0s)
+
+=== fold2_2024 ===
+  [fold2_2024/drop_ingredients] n_features=70 auc=0.5515 bss_calib=848.32 (754.9s)
+
+=== SUMMARY (drop_ingredients vs baseline / vs with_ingredients) ===
+  fold0_2022: {'delta_drop_vs_baseline': np.float64(-18.258358471312476), 'delta_drop_vs_with_ingredients': np.float64(-14.517189240614698)}
+  fold2_2024: {'delta_drop_vs_baseline': np.float64(15.909792364576788), 'delta_drop_vs_with_ingredients': np.float64(8.870864111765172)}
+
+Saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v19_session_2026-08-22_experiments\risk_score_drop_ingredients_results.json
