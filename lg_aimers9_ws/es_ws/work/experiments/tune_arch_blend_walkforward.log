@@ -1,0 +1,43 @@
+/home/esem5377/.local/lib/python3.12/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+/home/esem5377/.local/lib/python3.12/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+Load data...
+ shape=(1475092, 73)
+
+===== fold0(train<=2021,valid2022) n_train=728588 n_valid=247472 =====
+ [CatBoost] fit... (1s elapsed)
+  best_iter=936 auc=0.57963 (196s)
+ [LightGBM] fit... (198s elapsed)
+  best_iter=241 auc=0.57889 (207s)
+ [XGBoost] fit... (209s elapsed)
+  best_iter=139 auc=0.57826 (240s)
+  cat: bss_raw=2374.63  bss_calib=2397.01
+  lgb: bss_raw=2339.68  bss_calib=2353.08
+  xgb: bss_raw=2297.41  bss_calib=2330.93
+ 단일 최고(cat) calib BSS = 2397.01
+ 블렌드 최고 BSS = 2402.43  weights={'cat': 0.75, 'lgb': 0.15, 'xgb': 0.1}
+ 블렌드 - 단일최고 delta = +5.42  (fold 소요 240s)
+
+===== fold2(train<=2023,valid2024) n_train=1221585 n_valid=253507 =====
+ [CatBoost] fit... (2s elapsed)
+  best_iter=1282 auc=0.55089 (438s)
+ [LightGBM] fit... (440s elapsed)
+  best_iter=224 auc=0.54840 (455s)
+ [XGBoost] fit... (457s elapsed)
+  best_iter=224 auc=0.54712 (508s)
+  cat: bss_raw=805.85  bss_calib=835.05
+  lgb: bss_raw=691.64  bss_calib=754.98
+  xgb: bss_raw=644.17  bss_calib=706.62
+ 단일 최고(cat) calib BSS = 835.05
+ 블렌드 최고 BSS = 837.13  weights={'cat': 0.85, 'lgb': 0.1, 'xgb': 0.05}
+ 블렌드 - 단일최고 delta = +2.08  (fold 소요 508s)
+
+=== 요약 (blend - 단일최고 delta) ===
+  fold0(train<=2021,valid2022): delta=+5.42  weights={'cat': 0.75, 'lgb': 0.15, 'xgb': 0.1}
+  fold2(train<=2023,valid2024): delta=+2.08  weights={'cat': 0.85, 'lgb': 0.1, 'xgb': 0.05}
+  fold0 & fold2 모두 양수 = True
+
+Saved: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/tune_arch_blend_walkforward_results.json
+
+판단 기준: fold0(->2022)과 fold2(->2024) 둘 다 독립적으로 양수여야 채택 후보(단, 위 docstring의 진단 한계 -- 가중치를 eval셋에 직접 fit한 낙관편향 -- 감안해 production 반영 전 정직한 carve-out 재검증 필수).
