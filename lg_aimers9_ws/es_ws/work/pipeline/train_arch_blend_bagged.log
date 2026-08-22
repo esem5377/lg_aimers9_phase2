@@ -1,0 +1,36 @@
+Load jh_ws v18 feature_meta (id_mappings, CatBoost 6시드 재사용)...
+ CatBoost 6개 모델 로드 완료 (seeds=[42, 7, 123, 1, 99, 777])
+
+Load train data...
+ shape=(1475092, 73)  (3s)
+
+Calibration carve-out(5%) 분리 (jh_ws 프로덕션과 동일 관례)...
+ train=1401337  calib=73755  (7s)
+
+=== CatBoost 6시드 배깅 예측 (calib carve-out, 재학습 없음) ===
+ cat bagged raw BSS(calib) = 2057.30  (10s)
+
+=== LightGBM 신규 3시드 학습 ===
+ seed=42 완료 (24s)
+ seed=7 완료 (24s)
+ seed=123 완료 (24s)
+ lgb bagged raw BSS(calib) = 2022.71  (82s)
+
+=== XGBoost 신규 3시드 학습 ===
+ seed=42 완료 (46s)
+ seed=7 완료 (43s)
+ seed=123 완료 (43s)
+ xgb bagged raw BSS(calib) = 2115.45  (214s)
+
+=== 블렌드 가중치: calib carve-out에서 재탐색하지 않고 walk-forward(honest) 결과 그대로 사용 ===
+ (calib carve-out은 전체 2019~2024에서 무작위 5% -- train과 선수풀/분포를 공유해 실제로 돌려보니
+  XGBoost가 CatBoost를 역전(2115 vs 2057)하고 가중치가 xgb 0.85로 쏠리는, 이 프로젝트가 이미 한번
+  겪은 '무작위분할 OOF가 미래시즌 일반화를 과대평가' 함정과 동일 패턴이 재현돼 신뢰 안 함.
+ 대신 tune_arch_blend_honest.py의 fold2(->2024, 가장 최근/성숙 데이터 레짐) 가중치를 채택.
+ 채택 가중치(fold2 walk-forward honest) = {'cat': 0.85, 'lgb': 0.1, 'xgb': 0.05}
+
+=== 최종 Platt: 전체 calib(5%)에 개별 모델 재보정 -> 프로덕션에 사용 ===
+ 전체 calib(5%) 위 최종 확인: raw=2064.70  calibrated=2080.01
+
+Saved feature_meta.json + lgb/xgb model files to /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/model_arch_blend
+총 소요 214s

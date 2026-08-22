@@ -1,0 +1,37 @@
+/home/esem5377/.local/lib/python3.12/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+/home/esem5377/.local/lib/python3.12/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+Load data...
+ shape=(1475092, 73)
+
+===== fold0(train<=2021,valid2022) n_train=728588 n_valid=247472 =====
+ calib_fit=123736  calib_eval=123736
+ [CatBoost] fit... (2s elapsed)
+  best_iter=936 auc=0.57963 (196s)
+ [LightGBM] fit... (198s elapsed)
+  best_iter=241 auc=0.57889 (208s)
+ [XGBoost] fit... (210s elapsed)
+  best_iter=139 auc=0.57826 (240s)
+ calib_fit에서 고른 블렌드 가중치 = {'cat': 0.7, 'lgb': 0.15, 'xgb': 0.15}
+ calib_eval(진짜 홀드아웃): 단일최고(cat)=2347.14  블렌드=2351.71  delta=+4.57
+ (fold 소요 240s)
+
+===== fold2(train<=2023,valid2024) n_train=1221585 n_valid=253507 =====
+ calib_fit=126753  calib_eval=126754
+ [CatBoost] fit... (2s elapsed)
+  best_iter=1282 auc=0.55089 (417s)
+ [LightGBM] fit... (419s elapsed)
+  best_iter=224 auc=0.54840 (439s)
+ [XGBoost] fit... (441s elapsed)
+  best_iter=224 auc=0.54712 (492s)
+ calib_fit에서 고른 블렌드 가중치 = {'cat': 0.85, 'lgb': 0.1, 'xgb': 0.05}
+ calib_eval(진짜 홀드아웃): 단일최고(cat)=827.57  블렌드=828.94  delta=+1.37
+ (fold 소요 492s)
+
+=== 요약 (honest delta = calib_eval에서 블렌드 - 단일최고) ===
+  fold0(train<=2021,valid2022): delta=+4.57  weights={'cat': 0.7, 'lgb': 0.15, 'xgb': 0.15}
+  fold2(train<=2023,valid2024): delta=+1.37  weights={'cat': 0.85, 'lgb': 0.1, 'xgb': 0.05}
+  fold0 & fold2 모두 양수 = True
+
+Saved: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/tune_arch_blend_honest_results.json
