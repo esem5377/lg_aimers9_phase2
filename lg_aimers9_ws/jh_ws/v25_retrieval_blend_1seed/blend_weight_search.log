@@ -1,0 +1,22 @@
+Load data + split (재현)...
+ calib=(73755, 72)
+CatBoost 예측 계산...
+Retrieval 예측 계산(저장된 encoder+참조 임베딩 재사용)...
+ 완료
+
+=== 블렌드 가중치 그리드서치 (w*catboost + (1-w)*retrieval) ===
+  w=0.0  (catboost=0.0 / retrieval=1.0)  calibrated BSS=1929.07
+  w=0.1  (catboost=0.1 / retrieval=0.9)  calibrated BSS=1970.67
+  w=0.2  (catboost=0.2 / retrieval=0.8)  calibrated BSS=2005.86
+  w=0.3  (catboost=0.3 / retrieval=0.7)  calibrated BSS=2034.43
+  w=0.4  (catboost=0.4 / retrieval=0.6)  calibrated BSS=2056.30
+  w=0.5  (catboost=0.5 / retrieval=0.5)  calibrated BSS=2071.52
+  w=0.6  (catboost=0.6 / retrieval=0.4)  calibrated BSS=2080.25
+  w=0.7  (catboost=0.7 / retrieval=0.3)  calibrated BSS=2082.78
+  w=0.8  (catboost=0.8 / retrieval=0.2)  calibrated BSS=2079.36
+  w=0.9  (catboost=0.9 / retrieval=0.1)  calibrated BSS=2070.75
+  w=1.0  (catboost=1.0 / retrieval=0.0)  calibrated BSS=2057.20
+
+최적 가중치: w=0.7 (catboost=0.7/retrieval=0.30000000000000004), BSS=2082.78
+참고: w=0.5(기존 v25) BSS=2071.52, w=1.0(catboost단독) BSS=2057.20, w=0.0(retrieval단독) BSS=1929.07
+Saved: blend_weight_search_results.json
