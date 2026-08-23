@@ -1,0 +1,39 @@
+Load train data (전체) + control_risk_score 추가, 원재료3 제거...
+ shape=(1475092, 72)
+ train_sub=(1401337, 72)  calib=(73755, 72)
+
+=== CatBoost 모델 로드(재학습 생략) ===
+ CatBoost 로드 완료, calib 예측 계산됨
+
+=== Retrieval encoder(NCA) 학습 ===
+ n_numeric=61 cardinalities={'pitcher_id': 792, 'batter_id': 830, 'pitcher_team_id': 13, 'batter_team_id': 13, 'top_bottom': 2, 'game_type': 2, 'base_state': 8, 'pitcher_hand': 2, 'batter_hand': 2}
+  NCA encoder device=cpu
+    epoch 1/20 train_loss=0.68742
+    epoch 2/20 train_loss=0.68617
+    epoch 3/20 train_loss=0.68567
+    epoch 4/20 train_loss=0.68523
+    epoch 5/20 train_loss=0.68490
+    epoch 6/20 train_loss=0.68471
+    epoch 7/20 train_loss=0.68457
+    epoch 8/20 train_loss=0.68449
+    epoch 9/20 train_loss=0.68431
+    epoch 10/20 train_loss=0.68422
+    epoch 11/20 train_loss=0.68421
+    epoch 12/20 train_loss=0.68405
+    epoch 13/20 train_loss=0.68399
+    epoch 14/20 train_loss=0.68378
+    epoch 15/20 train_loss=0.68377
+    epoch 16/20 train_loss=0.68383
+    epoch 17/20 train_loss=0.68375
+    epoch 18/20 train_loss=0.68359
+    epoch 19/20 train_loss=0.68367
+    epoch 20/20 train_loss=0.68354
+ encoder 학습 완료 (1205.9s)
+ 참조 집합: 1401337/1401337 (서브샘플 없음)
+ 참조 임베딩 계산 완료 (31.8s)
+ calib retrieval 추론 완료 (216.3s)  <- 메모리 버그 수정 후 속도 확인용
+
+=== 블렌드 + Platt calibration ===
+ carve-out BSS: cb_only=2045.96  nca_only=1896.79  blend_calibrated=2071.52
+
+Saved all artifacts to C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v25_retrieval_blend_1seed\model

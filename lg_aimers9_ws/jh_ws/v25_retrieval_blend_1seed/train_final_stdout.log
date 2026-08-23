@@ -1,0 +1,45 @@
+Load train data (전체) + control_risk_score 추가, 원재료3 제거...
+ shape=(1475092, 72)
+ train_sub=(1401337, 72)  calib=(73755, 72)
+
+=== CatBoost 학습 ===
+0:	learn: 0.6929808	total: 982ms	remaining: 32m 42s
+200:	learn: 0.6836677	total: 3m 1s	remaining: 27m 5s
+400:	learn: 0.6825766	total: 6m 5s	remaining: 24m 15s
+600:	learn: 0.6819213	total: 9m 6s	remaining: 21m 12s
+800:	learn: 0.6813786	total: 12m 8s	remaining: 18m 10s
+1000:	learn: 0.6809173	total: 15m 6s	remaining: 15m 4s
+1200:	learn: 0.6804865	total: 18m 5s	remaining: 12m 2s
+1400:	learn: 0.6800533	total: 21m 3s	remaining: 9m
+1600:	learn: 0.6796007	total: 24m 5s	remaining: 6m
+1800:	learn: 0.6791471	total: 27m 5s	remaining: 2m 59s
+1999:	learn: 0.6786909	total: 30m 1s	remaining: 0us
+ CatBoost 학습 완료 (1800.8s)
+ saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v25_retrieval_blend_1seed\model\catboost_seed42.cbm
+
+=== Retrieval encoder(NCA) 학습 ===
+ n_numeric=61 cardinalities={'pitcher_id': 792, 'batter_id': 830, 'pitcher_team_id': 13, 'batter_team_id': 13, 'top_bottom': 2, 'game_type': 2, 'base_state': 8, 'pitcher_hand': 2, 'batter_hand': 2}
+  NCA encoder device=cpu
+    epoch 1/20 train_loss=0.68742
+    epoch 2/20 train_loss=0.68617
+    epoch 3/20 train_loss=0.68567
+    epoch 4/20 train_loss=0.68523
+    epoch 5/20 train_loss=0.68490
+    epoch 6/20 train_loss=0.68471
+    epoch 7/20 train_loss=0.68457
+    epoch 8/20 train_loss=0.68449
+    epoch 9/20 train_loss=0.68431
+    epoch 10/20 train_loss=0.68422
+    epoch 11/20 train_loss=0.68421
+    epoch 12/20 train_loss=0.68405
+    epoch 13/20 train_loss=0.68399
+    epoch 14/20 train_loss=0.68378
+    epoch 15/20 train_loss=0.68377
+    epoch 16/20 train_loss=0.68383
+    epoch 17/20 train_loss=0.68375
+    epoch 18/20 train_loss=0.68359
+    epoch 19/20 train_loss=0.68367
+    epoch 20/20 train_loss=0.68354
+ encoder 학습 완료 (1206.7s)
+ 참조 집합: 1401337/1401337 (서브샘플 없음)
+ 참조 임베딩 계산 완료 (31.9s)

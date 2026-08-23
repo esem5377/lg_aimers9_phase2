@@ -1,0 +1,9 @@
+{
+  "seed": 42,
+  "nca_elapsed_sec": 1205.8728077411652,
+  "reference_size": 1401337,
+  "carveout_bss_cb_only": 2045.9586372305494,
+  "carveout_bss_nca_only": 1896.7926322243645,
+  "carveout_bss_blend_raw": 2032.244650055004,
+  "carveout_bss_blend_calibrated": 2071.5212395582607
+}

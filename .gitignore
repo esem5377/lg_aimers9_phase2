@@ -12,3 +12,8 @@ lg_aimers9_ws/jh_ws/train.log
 __pycache__/
 *.pyc
 .venv/
+
+# GitHub 100MB 단일파일 제한 초과 (v25 retrieval 참조 임베딩/제출 zip)
+lg_aimers9_ws/jh_ws/v25_retrieval_blend_1seed/model/reference_embeddings.npy
+lg_aimers9_ws/jh_ws/v25_retrieval_blend_1seed/v25_retrieval_1s.zip
+lg_aimers9_ws/jh_ws/*/catboost_info/

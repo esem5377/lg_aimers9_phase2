@@ -1,0 +1,25 @@
+Load train data (전체) + control_risk_score(*2) 추가, 원재료3+약한불안정5 = 8개 제거...
+ shape=(1475092, 67)
+ id_mappings: pitcher_id n=792  batter_id n=830
+ n_features=65 (v22의 70 - 약한불안정5 = 65)
+
+Calibration carve-out(5%) 분리...
+ train=(1401337, 65)  calibration carve-out=(73755, 65)
+
+=== seed=42 학습 (iterations=2000) ===
+0:	learn: 0.6929830	total: 1.82s	remaining: 1h 35s
+200:	learn: 0.6837022	total: 5m 22s	remaining: 48m 10s
+400:	learn: 0.6826184	total: 10m 51s	remaining: 43m 15s
+600:	learn: 0.6819887	total: 15m 52s	remaining: 36m 57s
+800:	learn: 0.6815028	total: 18m 46s	remaining: 28m 5s
+1000:	learn: 0.6810683	total: 21m 40s	remaining: 21m 38s
+1200:	learn: 0.6806656	total: 24m 33s	remaining: 16m 20s
+1400:	learn: 0.6802655	total: 27m 24s	remaining: 11m 42s
+1600:	learn: 0.6798147	total: 30m 16s	remaining: 7m 32s
+1800:	learn: 0.6793906	total: 33m 5s	remaining: 3m 39s
+1999:	learn: 0.6789644	total: 35m 55s	remaining: 0us
+ 학습 완료 (2168.9s)
+ carve-out BSS: raw=2015.20  calibrated=2026.00
+ saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v24_drop_weak_unstable_1seed\model\catboost_seed42.cbm
+
+Saved 1 model + feature_meta.json to C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v24_drop_weak_unstable_1seed\model
