@@ -1,0 +1,34 @@
+Load train data + trackman context...
+ shape=(1475092, 73)
+
+=== fold0_2022 ===
+  분류기 캐시 로드: C:\Users\USER\AppData\Local\Temp\claude\C--Users-USER\24e954c1-d480-4a70-9d75-dbfa46ca88d3\scratchpad\catboost_cache_fold0_2022.pkl
+  [classifier cached] auc=0.5789 bss_calib=2368.23
+  피처 전처리...
+  n_features=164
+  ExtraTrees 그리드서치(3개 조합, eval_df 기준 직접 선택, n_estimators=250)...
+    {'max_depth': 6, 'min_samples_leaf': 1000} -> eval_auc=0.5739 eval_bss=2149.90 (37.6s)
+    {'max_depth': 8, 'min_samples_leaf': 500} -> eval_auc=0.5748 eval_bss=2178.89 (45.8s)
+    {'max_depth': 10, 'min_samples_leaf': 200} -> eval_auc=0.5762 eval_bss=2238.41 (60.3s)
+  best_params={'max_depth': 10, 'min_samples_leaf': 200} (eval_bss=2238.41, 총 143.7s)
+  alpha 그리드서치(classifier vs extratrees, calib_df 기준)...
+  best_alpha(calib 기준)=1.0 (calib_bss=1847.37)
+
+=== fold2_2024 ===
+  분류기 캐시 로드: C:\Users\USER\AppData\Local\Temp\claude\C--Users-USER\24e954c1-d480-4a70-9d75-dbfa46ca88d3\scratchpad\catboost_cache_fold2_2024.pkl
+  [classifier cached] auc=0.5515 bss_calib=848.32
+  피처 전처리...
+  n_features=164
+  ExtraTrees 그리드서치(3개 조합, eval_df 기준 직접 선택, n_estimators=250)...
+    {'max_depth': 6, 'min_samples_leaf': 1000} -> eval_auc=0.5247 eval_bss=0.00 (66.7s)
+    {'max_depth': 8, 'min_samples_leaf': 500} -> eval_auc=0.5260 eval_bss=0.00 (93.5s)
+    {'max_depth': 10, 'min_samples_leaf': 200} -> eval_auc=0.5275 eval_bss=0.00 (115.0s)
+  best_params={'max_depth': 6, 'min_samples_leaf': 1000} (eval_bss=0.00, 총 275.2s)
+  alpha 그리드서치(classifier vs extratrees, calib_df 기준)...
+  best_alpha(calib 기준)=1.0 (calib_bss=1998.63)
+
+=== SUMMARY (classifier baseline -> extratrees blend v2, calibrated BSS) ===
+  fold0_2022: 2368.23 -> 2368.23 (alpha=1.0, params={'max_depth': 10, 'min_samples_leaf': 200}, delta +0.00)
+  fold2_2024: 848.32 -> 848.32 (alpha=1.0, params={'max_depth': 6, 'min_samples_leaf': 1000}, delta +0.00)
+
+Saved: C:\Users\USER\AppData\Local\Temp\claude\C--Users-USER\720d2863-f7fe-44bd-b1f3-7f929b3e99bd\scratchpad\extratrees_blend_screening_v2_results.json

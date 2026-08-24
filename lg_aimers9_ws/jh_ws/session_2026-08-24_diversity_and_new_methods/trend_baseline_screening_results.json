@@ -1,0 +1,22 @@
+{
+  "fold0_2022": {
+    "classifier_baseline_bss": 2368.2347324428088,
+    "trend_a": -0.06280737497639861,
+    "trend_b": 0.23672847626374868,
+    "trend_residual_auc": 0.5793728965484808,
+    "trend_residual_bss_raw": 2323.817701364772,
+    "trend_residual_bss_calibrated": 2304.858643256569,
+    "elapsed_sec": 463.0753891468048,
+    "delta_vs_classifier": -63.376089186239824
+  },
+  "fold2_2024": {
+    "classifier_baseline_bss": 848.3158362301291,
+    "trend_a": -0.05366237990996629,
+    "trend_b": 0.23486355580679488,
+    "trend_residual_auc": 0.5513363588450853,
+    "trend_residual_bss_raw": 818.7277575780416,
+    "trend_residual_bss_calibrated": 783.6681297596848,
+    "elapsed_sec": 756.2289311885834,
+    "delta_vs_classifier": -64.64770647044429
+  }
+}

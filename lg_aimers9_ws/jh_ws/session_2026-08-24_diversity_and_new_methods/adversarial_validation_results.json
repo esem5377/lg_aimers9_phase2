@@ -1,0 +1,282 @@
+{
+  "adversarial_auc": 0.9953232436627568,
+  "n_features": 69,
+  "top_features": [
+    {
+      "Feature Id": "pitcher_id",
+      "Importances": 15.819195846901971
+    },
+    {
+      "Feature Id": "asof_batter_n",
+      "Importances": 10.556113509342095
+    },
+    {
+      "Feature Id": "batter_id",
+      "Importances": 9.705931109417367
+    },
+    {
+      "Feature Id": "asof_batter_middle_rate",
+      "Importances": 7.53325906822537
+    },
+    {
+      "Feature Id": "game_month",
+      "Importances": 7.11105962665418
+    },
+    {
+      "Feature Id": "batter_team_id",
+      "Importances": 6.35544347576989
+    },
+    {
+      "Feature Id": "asof_pitcher_n",
+      "Importances": 6.0764419438862065
+    },
+    {
+      "Feature Id": "asof_pitcher_pitchmix_n",
+      "Importances": 5.606495202304286
+    },
+    {
+      "Feature Id": "asof_pitcher_strike_rate",
+      "Importances": 3.98343616681724
+    },
+    {
+      "Feature Id": "asof_batter_success_rate",
+      "Importances": 3.6894484963662775
+    },
+    {
+      "Feature Id": "asof_pitcher_breaking_rate",
+      "Importances": 3.1701260275288963
+    },
+    {
+      "Feature Id": "asof_pitcher_offspeed_rate",
+      "Importances": 2.710436540199308
+    },
+    {
+      "Feature Id": "control_risk_score_weighted",
+      "Importances": 2.6503817187582297
+    },
+    {
+      "Feature Id": "control_risk_score",
+      "Importances": 2.415870040772714
+    },
+    {
+      "Feature Id": "game_type",
+      "Importances": 1.8582624985550162
+    },
+    {
+      "Feature Id": "asof_pitcher_success_rate",
+      "Importances": 1.7293712936386987
+    },
+    {
+      "Feature Id": "pitcher_team_id",
+      "Importances": 1.5461649592347482
+    },
+    {
+      "Feature Id": "asof_pitcher_fastball_rate",
+      "Importances": 1.4150097153826535
+    },
+    {
+      "Feature Id": "asof_pitcher_prev5_game_middle_rate",
+      "Importances": 1.256750144758431
+    },
+    {
+      "Feature Id": "tk_hand_fastball_rate",
+      "Importances": 0.6933407388996637
+    },
+    {
+      "Feature Id": "run_total_before",
+      "Importances": 0.6858852522040476
+    },
+    {
+      "Feature Id": "batter_hand",
+      "Importances": 0.6564112125256673
+    },
+    {
+      "Feature Id": "inning",
+      "Importances": 0.4642940185125434
+    },
+    {
+      "Feature Id": "asof_pitcher_prev5_game_success_rate",
+      "Importances": 0.44457582455893796
+    },
+    {
+      "Feature Id": "asof_pitcher_prev3_game_success_rate",
+      "Importances": 0.3058196124449582
+    },
+    {
+      "Feature Id": "tk_hand_n",
+      "Importances": 0.22015982127670453
+    },
+    {
+      "Feature Id": "tk_hand_induced_vert_break_mean",
+      "Importances": 0.21987917616105981
+    },
+    {
+      "Feature Id": "asof_pitcher_prev3_game_middle_rate",
+      "Importances": 0.21103414511424817
+    },
+    {
+      "Feature Id": "tk_hand_rel_speed_mean",
+      "Importances": 0.1661031893141753
+    },
+    {
+      "Feature Id": "run_bot_before",
+      "Importances": 0.12899205864257712
+    },
+    {
+      "Feature Id": "score_diff_pitcher_team",
+      "Importances": 0.12233628435004038
+    },
+    {
+      "Feature Id": "asof_pitcher_prev1_game_success_rate",
+      "Importances": 0.08861081332206984
+    },
+    {
+      "Feature Id": "run_top_before",
+      "Importances": 0.07350844852104256
+    },
+    {
+      "Feature Id": "asof_pitcher_prev1_game_middle_rate",
+      "Importances": 0.06716385421466733
+    },
+    {
+      "Feature Id": "tk_hand_breaking_rate",
+      "Importances": 0.04449395114272914
+    },
+    {
+      "Feature Id": "tk_hand_offspeed_rate",
+      "Importances": 0.03594458877721926
+    },
+    {
+      "Feature Id": "li",
+      "Importances": 0.03320563290385318
+    },
+    {
+      "Feature Id": "pitcher_hand",
+      "Importances": 0.031198172766652453
+    },
+    {
+      "Feature Id": "tk_hand_horz_break_mean",
+      "Importances": 0.027210345008848218
+    },
+    {
+      "Feature Id": "tk_inn_horz_break_mean",
+      "Importances": 0.025598140037112093
+    },
+    {
+      "Feature Id": "tk_hand_spin_rate_mean",
+      "Importances": 0.023042357253714684
+    },
+    {
+      "Feature Id": "tk_inn_rel_speed_mean",
+      "Importances": 0.019933490797177676
+    },
+    {
+      "Feature Id": "tk_inn_breaking_rate",
+      "Importances": 0.013198931254080797
+    },
+    {
+      "Feature Id": "game_dayofweek",
+      "Importances": 0.005764292611577761
+    },
+    {
+      "Feature Id": "home_win_expectancy",
+      "Importances": 0.0027696878277308976
+    },
+    {
+      "Feature Id": "tk_inn_offspeed_rate",
+      "Importances": 0.00020659509302601596
+    },
+    {
+      "Feature Id": "tk_inn_n",
+      "Importances": 0.00012197995035671823
+    },
+    {
+      "Feature Id": "top_bottom",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "balls_before",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "strikes_before",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "outs_before",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "score_diff_home",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "runner_on_1b",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "runner_on_2b",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "runner_on_3b",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "num_runners_on",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "base_state",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "away_win_expectancy",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "tk_cnt_rel_speed_mean",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "tk_cnt_spin_rate_mean",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "tk_cnt_induced_vert_break_mean",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "tk_cnt_horz_break_mean",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "tk_cnt_fastball_rate",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "tk_cnt_breaking_rate",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "tk_cnt_offspeed_rate",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "tk_cnt_n",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "tk_inn_spin_rate_mean",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "tk_inn_induced_vert_break_mean",
+      "Importances": 0.0
+    },
+    {
+      "Feature Id": "tk_inn_fastball_rate",
+      "Importances": 0.0
+    }
+  ]
+}

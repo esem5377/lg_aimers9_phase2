@@ -1,0 +1,42 @@
+Load train data + trackman context...
+ shape=(1475092, 73)
+
+=== fold0_2022 ===
+  분류기 캐시 로드: C:\Users\USER\AppData\Local\Temp\claude\C--Users-USER\24e954c1-d480-4a70-9d75-dbfa46ca88d3\scratchpad\catboost_cache_fold0_2022.pkl
+  [classifier cached] auc=0.5789 bss_calib=2368.23
+  피처 전처리(one-hot + id 라벨 + 수치형 중앙값대체)...
+  n_features=164
+  ExtraTrees 그리드서치(4개 조합, OOB 기준, n_estimators=200)...
+    {'max_depth': 15, 'min_samples_leaf': 50} -> oob_bss=1659.83
+    {'max_depth': 15, 'min_samples_leaf': 200} -> oob_bss=1533.03
+    {'max_depth': None, 'min_samples_leaf': 50} -> oob_bss=1904.01
+    {'max_depth': None, 'min_samples_leaf': 200} -> oob_bss=1635.62
+  best_params={'max_depth': None, 'min_samples_leaf': 50} (oob_bss=1904.01, 420.8s)
+  최종 모델 재학습(n_estimators=400)...
+  최종 모델 학습 완료 (234.7s)
+  [extratrees solo] auc=0.5769 bss_calib=2301.19
+  alpha 그리드서치(classifier vs extratrees, calib_df 기준)...
+  best_alpha(calib 기준)=0.0 (calib_bss=2046.88)
+
+=== fold2_2024 ===
+  분류기 캐시 로드: C:\Users\USER\AppData\Local\Temp\claude\C--Users-USER\24e954c1-d480-4a70-9d75-dbfa46ca88d3\scratchpad\catboost_cache_fold2_2024.pkl
+  [classifier cached] auc=0.5515 bss_calib=848.32
+  피처 전처리(one-hot + id 라벨 + 수치형 중앙값대체)...
+  n_features=164
+  ExtraTrees 그리드서치(4개 조합, OOB 기준, n_estimators=200)...
+    {'max_depth': 15, 'min_samples_leaf': 50} -> oob_bss=1582.28
+    {'max_depth': 15, 'min_samples_leaf': 200} -> oob_bss=1466.56
+    {'max_depth': None, 'min_samples_leaf': 50} -> oob_bss=1866.13
+    {'max_depth': None, 'min_samples_leaf': 200} -> oob_bss=1582.29
+  best_params={'max_depth': None, 'min_samples_leaf': 50} (oob_bss=1866.13, 760.0s)
+  최종 모델 재학습(n_estimators=400)...
+  최종 모델 학습 완료 (449.3s)
+  [extratrees solo] auc=0.5353 bss_calib=118.79
+  alpha 그리드서치(classifier vs extratrees, calib_df 기준)...
+  best_alpha(calib 기준)=0.2 (calib_bss=2140.98)
+
+=== SUMMARY (classifier baseline -> extratrees blend, calibrated BSS) ===
+  fold0_2022: 2368.23 -> 2301.19 (alpha=0.0, params={'max_depth': None, 'min_samples_leaf': 50}, delta -67.05)
+  fold2_2024: 848.32 -> 417.54 (alpha=0.2, params={'max_depth': None, 'min_samples_leaf': 50}, delta -430.77)
+
+Saved: C:\Users\USER\AppData\Local\Temp\claude\C--Users-USER\720d2863-f7fe-44bd-b1f3-7f929b3e99bd\scratchpad\extratrees_blend_screening_results.json
