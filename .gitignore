@@ -18,4 +18,8 @@ lg_aimers9_ws/jh_ws/v25_retrieval_blend_1seed/model/reference_embeddings.npy
 lg_aimers9_ws/jh_ws/v25_retrieval_blend_1seed/v25_retrieval_1s.zip
 lg_aimers9_ws/jh_ws/v26_retrieval_blend_w07/model/reference_embeddings.npy
 lg_aimers9_ws/jh_ws/v26_retrieval_blend_w07/v26_retrieval_w07.zip
+lg_aimers9_ws/jh_ws/v27_retrieval_blend_w03/model/reference_embeddings.npy
+lg_aimers9_ws/jh_ws/v27_retrieval_blend_w03/v27_retrieval_w03.zip
+lg_aimers9_ws/jh_ws/v28_isotonic_per_model/model/reference_embeddings.npy
+lg_aimers9_ws/jh_ws/v28_isotonic_per_model/v28_isotonic.zip
 lg_aimers9_ws/jh_ws/*/catboost_info/
