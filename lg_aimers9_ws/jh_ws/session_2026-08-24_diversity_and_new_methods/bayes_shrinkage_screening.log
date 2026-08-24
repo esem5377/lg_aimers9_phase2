@@ -1,0 +1,26 @@
+Load train data + trackman context...
+ shape=(1475092, 73)
+
+=== fold0_2022 ===
+  분류기 캐시 로드: C:\Users\USER\AppData\Local\Temp\claude\C--Users-USER\24e954c1-d480-4a70-9d75-dbfa46ca88d3\scratchpad\catboost_cache_fold0_2022.pkl
+  [classifier cached] auc=0.5789 bss_calib=2368.23
+  kappa 그리드서치(6x6, calib_df 기준)...
+  best kappa_pitcher=100 kappa_batter=20 (calib_bss=1087.89, 10.0s)
+  [shrinkage solo] auc=0.5653 bss_calib=1536.89
+  alpha 그리드서치(classifier vs shrinkage, calib_df 기준)...
+  best_alpha(calib 기준)=1.0 (calib_bss=1847.37)
+
+=== fold2_2024 ===
+  분류기 캐시 로드: C:\Users\USER\AppData\Local\Temp\claude\C--Users-USER\24e954c1-d480-4a70-9d75-dbfa46ca88d3\scratchpad\catboost_cache_fold2_2024.pkl
+  [classifier cached] auc=0.5515 bss_calib=848.32
+  kappa 그리드서치(6x6, calib_df 기준)...
+  best kappa_pitcher=20 kappa_batter=5 (calib_bss=1038.41, 15.3s)
+  [shrinkage solo] auc=0.5333 bss_calib=202.95
+  alpha 그리드서치(classifier vs shrinkage, calib_df 기준)...
+  best_alpha(calib 기준)=1.0 (calib_bss=1998.63)
+
+=== SUMMARY (classifier baseline -> shrinkage blend, calibrated BSS) ===
+  fold0_2022: 2368.23 -> 2368.23 (alpha=1.0, kappa_p=100, kappa_b=20, delta +0.00)
+  fold2_2024: 848.32 -> 848.32 (alpha=1.0, kappa_p=20, kappa_b=5, delta +0.00)
+
+Saved: C:\Users\USER\AppData\Local\Temp\claude\C--Users-USER\720d2863-f7fe-44bd-b1f3-7f929b3e99bd\scratchpad\bayes_shrinkage_screening_results.json

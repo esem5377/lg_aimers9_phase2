@@ -1,0 +1,26 @@
+{
+  "fold0_2022": {
+    "classifier_baseline_bss": 2368.2347324428088,
+    "extratrees_solo_bss": 2238.406597463838,
+    "extratrees_solo_auc": 0.5761845783604718,
+    "best_params": {
+      "max_depth": 10,
+      "min_samples_leaf": 200
+    },
+    "best_alpha": 1.0,
+    "blend_eval_bss": 2368.2347324428088,
+    "delta_vs_classifier": 0.0
+  },
+  "fold2_2024": {
+    "classifier_baseline_bss": 848.3158362301291,
+    "extratrees_solo_bss": 0.0,
+    "extratrees_solo_auc": 0.5247460907687949,
+    "best_params": {
+      "max_depth": 6,
+      "min_samples_leaf": 1000
+    },
+    "best_alpha": 1.0,
+    "blend_eval_bss": 848.3158362301291,
+    "delta_vs_classifier": 0.0
+  }
+}

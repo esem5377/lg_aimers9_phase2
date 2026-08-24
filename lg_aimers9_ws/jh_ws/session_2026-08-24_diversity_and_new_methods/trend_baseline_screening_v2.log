@@ -1,0 +1,30 @@
+Load train data + trackman context...
+ shape=(1475092, 73)
+
+=== fold0_2022 ===
+  분류기 캐시 로드(비교 기준): C:\Users\USER\AppData\Local\Temp\claude\C--Users-USER\24e954c1-d480-4a70-9d75-dbfa46ca88d3\scratchpad\catboost_cache_fold0_2022.pkl
+  [classifier cached] auc=0.5789 bss_calib=2368.23
+  season 단독 트렌드(로지스틱회귀, train_sub만으로 fit)...
+  trend_logit(season) = -0.06281*(season-2019) + 0.23673
+  season 범위: train=[np.int64(2019), np.int64(2020), np.int64(2021)]  eval=[np.int64(2022)]
+  trend_logit 예시: eval season -> baseline 평균=0.0483 (train 평균=0.1731)
+  CatBoost(잔차, baseline=trend) 학습...
+  best_iteration=997 (463.1s)
+  [trend+residual] auc=0.5794 bss_calib=2304.86 (delta -63.38)
+
+=== fold2_2024 ===
+  분류기 캐시 로드(비교 기준): C:\Users\USER\AppData\Local\Temp\claude\C--Users-USER\24e954c1-d480-4a70-9d75-dbfa46ca88d3\scratchpad\catboost_cache_fold2_2024.pkl
+  [classifier cached] auc=0.5515 bss_calib=848.32
+  season 단독 트렌드(로지스틱회귀, train_sub만으로 fit)...
+  trend_logit(season) = -0.05366*(season-2019) + 0.23486
+  season 범위: train=[np.int64(2019), np.int64(2020), np.int64(2021), np.int64(2022), np.int64(2023)]  eval=[np.int64(2024)]
+  trend_logit 예시: eval season -> baseline 평균=-0.0334 (train 평균=0.1267)
+  CatBoost(잔차, baseline=trend) 학습...
+  best_iteration=999 (756.2s)
+  [trend+residual] auc=0.5513 bss_calib=783.67 (delta -64.65)
+
+=== SUMMARY (classifier baseline -> trend+residual, calibrated BSS) ===
+  fold0_2022: 2368.23 -> 2304.86 (delta -63.38)
+  fold2_2024: 848.32 -> 783.67 (delta -64.65)
+
+Saved: C:\Users\USER\AppData\Local\Temp\claude\C--Users-USER\720d2863-f7fe-44bd-b1f3-7f929b3e99bd\scratchpad\trend_baseline_screening_results.json

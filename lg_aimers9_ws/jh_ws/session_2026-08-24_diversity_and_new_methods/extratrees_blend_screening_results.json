@@ -1,0 +1,30 @@
+{
+  "fold0_2022": {
+    "classifier_baseline_bss": 2368.2347324428088,
+    "extratrees_solo_bss": 2301.185586984933,
+    "extratrees_solo_auc": 0.5768554739553745,
+    "best_params": {
+      "max_depth": null,
+      "min_samples_leaf": 50
+    },
+    "best_alpha": 0.0,
+    "blend_eval_bss": 2301.185586984933,
+    "delta_vs_classifier": -67.04914545787597,
+    "search_elapsed_sec": 659.019467830658,
+    "final_train_elapsed_sec": 234.6866261959076
+  },
+  "fold2_2024": {
+    "classifier_baseline_bss": 848.3158362301291,
+    "extratrees_solo_bss": 118.78898202629662,
+    "extratrees_solo_auc": 0.535335809768153,
+    "best_params": {
+      "max_depth": null,
+      "min_samples_leaf": 50
+    },
+    "best_alpha": 0.2,
+    "blend_eval_bss": 417.54112662760747,
+    "delta_vs_classifier": -430.7747096025216,
+    "search_elapsed_sec": 1213.8247377872467,
+    "final_train_elapsed_sec": 449.2786977291107
+  }
+}

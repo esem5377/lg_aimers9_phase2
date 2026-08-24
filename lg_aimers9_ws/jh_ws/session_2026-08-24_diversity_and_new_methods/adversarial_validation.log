@@ -1,0 +1,42 @@
+Load train data + trackman context...
+ shape=(1475092, 72)
+adversarial target 정의: season<=2023(0, 과거) vs season==2024(1, 최근)...
+ is_recent 비율: 0.1719  (season==2024 행 수=253507)
+
+CatBoost(adversarial) 학습(n_features=69)...
+ best_iteration=499  adversarial_auc=0.9953 (353.7s)
+ (0.5=완전히 구분 불가=이상적, 1.0=피처만 보고 연도를 완벽히 맞힘=위험 신호)
+
+=== 상위 30개 피처 (adversarial importance, 연도 구분에 가장 크게 기여) ===
+  pitcher_id                               15.819
+  asof_batter_n                            10.556
+  batter_id                                9.706
+  asof_batter_middle_rate                  7.533
+  game_month                               7.111
+  batter_team_id                           6.355
+  asof_pitcher_n                           6.076
+  asof_pitcher_pitchmix_n                  5.606
+  asof_pitcher_strike_rate                 3.983
+  asof_batter_success_rate                 3.689
+  asof_pitcher_breaking_rate               3.170
+  asof_pitcher_offspeed_rate               2.710
+  control_risk_score_weighted              2.650
+  control_risk_score                       2.416
+  game_type                                1.858
+  asof_pitcher_success_rate                1.729
+  pitcher_team_id                          1.546
+  asof_pitcher_fastball_rate               1.415
+  asof_pitcher_prev5_game_middle_rate      1.257
+  tk_hand_fastball_rate                    0.693
+  run_total_before                         0.686
+  batter_hand                              0.656
+  inning                                   0.464
+  asof_pitcher_prev5_game_success_rate     0.445
+  asof_pitcher_prev3_game_success_rate     0.306
+  tk_hand_n                                0.220
+  tk_hand_induced_vert_break_mean          0.220
+  asof_pitcher_prev3_game_middle_rate      0.211
+  tk_hand_rel_speed_mean                   0.166
+  run_bot_before                           0.129
+
+Saved: C:\Users\USER\AppData\Local\Temp\claude\C--Users-USER\720d2863-f7fe-44bd-b1f3-7f929b3e99bd\scratchpad\adversarial_validation_results.json
