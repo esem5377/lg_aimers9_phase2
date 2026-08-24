@@ -1,0 +1,44 @@
+Load data + reproduce v26 split...
+ train_sub=(1401337, 72)  calib=(73755, 72)
+ calib season counts:
+season
+2019    11977
+2020    12234
+2021    12481
+2022    12193
+2023    12289
+2024    12581
+Name: count, dtype: int64
+CatBoost 예측 계산 (v26 재사용)...
+Retrieval 준비 (v26 encoder/참조임베딩 재사용)...
+ reference_size=1401337
+
+[scale=1.0] calib_df 전체(73755행) 온라인 스트리밍 계산...
+    query chunk 0/73755
+    query chunk 20000/73755
+    query chunk 40000/73755
+    query chunk 60000/73755
+ 완료 (190.2s)
+
+[scale=15.0] calib_df 전체(73755행) 온라인 스트리밍 계산...
+    query chunk 0/73755
+    query chunk 20000/73755
+    query chunk 40000/73755
+    query chunk 60000/73755
+ 완료 (193.1s)
+  scale=1.0 season=2019 n=11977 blend_bss=2429.70 cb_only_bss=2328.84 delta=+100.87
+  scale=1.0 season=2020 n=12234 blend_bss=993.55 cb_only_bss=977.35 delta=+16.20
+  scale=1.0 season=2021 n=12481 blend_bss=2256.02 cb_only_bss=2285.18 delta=-29.16
+  scale=1.0 season=2022 n=12193 blend_bss=3042.16 cb_only_bss=3120.27 delta=-78.11
+  scale=1.0 season=2023 n=12289 blend_bss=1127.65 cb_only_bss=1096.21 delta=+31.43
+  scale=1.0 season=2024 n=12581 blend_bss=877.06 cb_only_bss=829.86 delta=+47.21
+ scale=1.0 OVERALL blend_bss=2071.52 cb_only_bss=2057.20 delta=+14.32
+  scale=15.0 season=2019 n=11977 blend_bss=2373.61 cb_only_bss=2328.84 delta=+44.78
+  scale=15.0 season=2020 n=12234 blend_bss=996.45 cb_only_bss=977.35 delta=+19.11
+  scale=15.0 season=2021 n=12481 blend_bss=2275.15 cb_only_bss=2285.18 delta=-10.03
+  scale=15.0 season=2022 n=12193 blend_bss=3113.66 cb_only_bss=3120.27 delta=-6.61
+  scale=15.0 season=2023 n=12289 blend_bss=1123.33 cb_only_bss=1096.21 delta=+27.11
+  scale=15.0 season=2024 n=12581 blend_bss=851.34 cb_only_bss=829.86 delta=+21.48
+ scale=15.0 OVERALL blend_bss=2072.94 cb_only_bss=2057.20 delta=+15.74
+
+Saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v29_wider_temp_scale15\screening\v26_encoder_season_breakdown_results.json
