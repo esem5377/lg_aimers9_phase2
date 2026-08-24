@@ -1,0 +1,9 @@
+{
+  "fold_name": "fold2_2024",
+  "scale": 15.0,
+  "catboost_baseline_bss": 848.3158362301291,
+  "solo_auc": 0.5465713193514382,
+  "solo_bss": 655.9482145192086,
+  "blend_bss": 856.9115351235279,
+  "delta_vs_catboost": 8.595698893398776
+}

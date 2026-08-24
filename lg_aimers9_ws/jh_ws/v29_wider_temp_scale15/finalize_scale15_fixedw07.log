@@ -1,0 +1,9 @@
+Load data + split (재현)...
+CatBoost 예측 계산...
+Retrieval 예측 계산 (scale=15.0)...
+ retrieval 추론 완료 (208.5s)
+
+carve-out calibrated BSS(w=0.7, scale=15.0)=2066.55  a=6.125017188546976  b=-3.1066181452362995
+ (참고용 숫자일 뿐 -- 채택 근거는 fold2 walk-forward w=0.7 delta=+5.54)
+
+Saved feature_meta.json to C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v29_wider_temp_scale15\model

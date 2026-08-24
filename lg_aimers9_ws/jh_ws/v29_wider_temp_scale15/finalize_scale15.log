@@ -1,0 +1,23 @@
+Load data + split (재현, v25/v26과 동일 seed/split)...
+ calib_df=(73755, 72)
+CatBoost 예측 계산 (v26 모델 재사용, 변경 없음)...
+ cb_only bss=2045.96
+
+Retrieval 예측 계산 (v26 encoder+참조임베딩 재사용, scale=15.0)...
+ device=cpu
+ reference_size=1401337
+ retrieval 추론 완료 (207.2s), nca_only bss=586.35
+
+블렌드 가중치 그리드서치 (calibrated BSS 기준, candidates=[0.5, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9])...
+  w_catboost=0.5: calibrated BSS=2072.94
+  w_catboost=0.6: calibrated BSS=2070.07
+  w_catboost=0.65: calibrated BSS=2068.47
+  w_catboost=0.7: calibrated BSS=2066.55
+  w_catboost=0.75: calibrated BSS=2064.91
+  w_catboost=0.8: calibrated BSS=2063.30
+  w_catboost=0.85: calibrated BSS=2061.72
+  w_catboost=0.9: calibrated BSS=2060.16
+
+최적: w_catboost=0.5  calibrated BSS=2072.94  (v26 기존=2082.78)
+
+Saved feature_meta.json to C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v29_wider_temp_scale15\model

@@ -1,0 +1,28 @@
+{
+  "retrieval_temp_scale": 15.0,
+  "w_catboost": 0.5,
+  "w_catboost_source": "carve-out grid search AND fold2 walk-forward full sweep(0.0-1.0) both independently confirmed 0.5 as the peak",
+  "carveout_bss_blend_calibrated_w05": 2072.94,
+  "calibration_a": 7.810575604447842,
+  "calibration_b": -3.9859922196857807,
+  "walkforward_fold0_delta_scale15_5050": 21.94,
+  "walkforward_fold2_delta_scale15_w05": 8.6,
+  "walkforward_fold2_full_sweep_w00_to_w10": {
+    "0.0": -192.37,
+    "0.1": -47.44,
+    "0.2": -6.95,
+    "0.3": 5.64,
+    "0.4": 8.43,
+    "0.5": 8.6,
+    "0.6": 7.01,
+    "0.7": 5.54,
+    "0.8": 3.65,
+    "0.9": 1.8,
+    "1.0": 0.0
+  },
+  "v26_reference_carveout_bss": 2082.78,
+  "actual_leaderboard_score": 1013,
+  "v26_actual_leaderboard_score": 1023,
+  "actual_delta_vs_v26": -10,
+  "verdict": "REJECTED - walk-forward signal did not transfer to real leaderboard, see PROGRESS.md for hypotheses"
+}
