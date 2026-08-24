@@ -1,0 +1,63 @@
+Load v11 feature_meta (id_mappings, 기존 6+3 모델)...
+ 기존: cat=6 lgb=3
+
+Load train data (+control_risk_score)...
+ shape=(1475092, 75)  (3s)
+
+Calibration carve-out(5%) 분리 (v11과 동일 random_state=42)...
+ train=1401337  calib=73755  (6s)
+
+=== 기존 모델 calib carve-out 예측 (재학습 없음) ===
+
+=== CatBoost 신규 3시드 학습 (iterations=2000, verbose=200) ===
+ --- seed=11 시작 (10s elapsed) ---
+0:	learn: 0.6929808	total: 353ms	remaining: 11m 44s
+200:	learn: 0.6837024	total: 55.1s	remaining: 8m 13s
+400:	learn: 0.6825653	total: 1m 51s	remaining: 7m 23s
+600:	learn: 0.6818692	total: 2m 46s	remaining: 6m 28s
+800:	learn: 0.6813282	total: 3m 42s	remaining: 5m 33s
+1000:	learn: 0.6808332	total: 4m 38s	remaining: 4m 37s
+1200:	learn: 0.6803935	total: 5m 33s	remaining: 3m 41s
+1400:	learn: 0.6799212	total: 6m 28s	remaining: 2m 46s
+1600:	learn: 0.6794103	total: 7m 23s	remaining: 1m 50s
+1800:	learn: 0.6788842	total: 8m 18s	remaining: 55.1s
+1999:	learn: 0.6784135	total: 9m 13s	remaining: 0us
+ seed=11 완료 (558s)
+ --- seed=22 시작 (568s elapsed) ---
+0:	learn: 0.6929748	total: 271ms	remaining: 9m
+200:	learn: 0.6836769	total: 55s	remaining: 8m 11s
+400:	learn: 0.6825357	total: 1m 50s	remaining: 7m 20s
+600:	learn: 0.6818544	total: 2m 46s	remaining: 6m 26s
+800:	learn: 0.6813294	total: 3m 41s	remaining: 5m 31s
+1000:	learn: 0.6808308	total: 4m 36s	remaining: 4m 36s
+1200:	learn: 0.6803614	total: 5m 32s	remaining: 3m 40s
+1400:	learn: 0.6799030	total: 6m 27s	remaining: 2m 45s
+1600:	learn: 0.6793956	total: 7m 23s	remaining: 1m 50s
+1800:	learn: 0.6789193	total: 8m 17s	remaining: 55s
+1999:	learn: 0.6784551	total: 9m 12s	remaining: 0us
+ seed=22 완료 (557s)
+ --- seed=33 시작 (1125s elapsed) ---
+0:	learn: 0.6929842	total: 278ms	remaining: 9m 15s
+200:	learn: 0.6836759	total: 54.9s	remaining: 8m 11s
+400:	learn: 0.6825478	total: 1m 50s	remaining: 7m 20s
+600:	learn: 0.6818678	total: 2m 45s	remaining: 6m 25s
+800:	learn: 0.6813360	total: 3m 40s	remaining: 5m 30s
+1000:	learn: 0.6808740	total: 4m 35s	remaining: 4m 35s
+1200:	learn: 0.6804167	total: 5m 30s	remaining: 3m 40s
+1400:	learn: 0.6799574	total: 6m 26s	remaining: 2m 45s
+1600:	learn: 0.6794586	total: 7m 21s	remaining: 1m 50s
+1800:	learn: 0.6789537	total: 8m 16s	remaining: 54.9s
+1999:	learn: 0.6784840	total: 9m 11s	remaining: 0us
+ seed=33 완료 (556s)
+
+=== LightGBM 신규 3시드 학습 ===
+ seed=11 완료 (14s)
+ seed=22 완료 (28s)
+ seed=33 완료 (21s)
+
+=== 배깅 확장 비교 (동일 calib carve-out, v11과 apples-to-apples) ===
+ v11 재현(6/3): raw=2053.51  calibrated=2070.44  (원래 로그값 2053.51/2070.44와 비교)
+ v12(9/6):      raw=2055.54  calibrated=2072.60
+ delta(v12-v11) = +2.16
+
+Saved to /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/model_riskscore_blend_v2  (총 1745s)

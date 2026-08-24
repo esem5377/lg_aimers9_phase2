@@ -1,0 +1,22 @@
+device=cuda
+shape=(1475092, 5)
+
+=== fold0_2022 ===
+    epoch 1/15 loss=0.68602
+    epoch 5/15 loss=0.68330
+    epoch 10/15 loss=0.68327
+    epoch 15/15 loss=0.68327
+  [fold0_2022] auc=0.5510 bss_calib=762.06 pair_seen_rate=0.491 (3s)
+
+=== fold2_2024 ===
+    epoch 1/15 loss=0.68732
+    epoch 5/15 loss=0.68575
+    epoch 10/15 loss=0.68573
+    epoch 15/15 loss=0.68574
+  [fold2_2024] auc=0.5181 bss_calib=0.00 pair_seen_rate=0.511 (4s)
+
+=== SUMMARY (FM 단독 vs CatBoost baseline, 같은 fold) ===
+  fold0_2022: FM=762.06  CatBoost_baseline=2386.49  delta=-1624.44
+  fold2_2024: FM=0.00  CatBoost_baseline=832.41  delta=-832.41
+
+Saved: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/fm_matchup_walkforward.json

@@ -3,8 +3,10 @@ lg_aimers9_ws/es_ws/open/data/*.csv
 
 # 로컬 산출물 (재생성 가능)
 lg_aimers9_ws/es_ws/work/output/
+lg_aimers9_ws/es_ws/catboost_info/
 lg_aimers9_ws/es_ws/work/catboost_info/
 lg_aimers9_ws/es_ws/work/experiments/catboost_info/
+lg_aimers9_ws/es_ws/work/pipeline/catboost_info/
 lg_aimers9_ws/jh_ws/catboost_info/
 lg_aimers9_ws/jh_ws/train.log
 
@@ -19,3 +21,13 @@ lg_aimers9_ws/jh_ws/v25_retrieval_blend_1seed/v25_retrieval_1s.zip
 lg_aimers9_ws/jh_ws/v26_retrieval_blend_w07/model/reference_embeddings.npy
 lg_aimers9_ws/jh_ws/v26_retrieval_blend_w07/v26_retrieval_w07.zip
 lg_aimers9_ws/jh_ws/*/catboost_info/
+lg_aimers9_ws/es_ws/work/model_retrieval_blend_v3/reference_embeddings.npy
+lg_aimers9_ws/es_ws/work/model_v4_cb6_retrieval/reference_embeddings.npy
+lg_aimers9_ws/es_ws/work/model_v5_keep_ing_retrieval/reference_embeddings.npy
+lg_aimers9_ws/es_ws/work/model_v6_keep_both/reference_embeddings.npy
+lg_aimers9_ws/es_ws/work/submissions/submit_v13_cb6_retrieval.zip
+lg_aimers9_ws/es_ws/work/submissions/submit_v13_cb6_retrieval/model/reference_embeddings.npy
+lg_aimers9_ws/es_ws/work/submissions/submit_v14_keep_ing_retrieval.zip
+lg_aimers9_ws/es_ws/work/submissions/submit_v14_keep_ing_retrieval/model/reference_embeddings.npy
+lg_aimers9_ws/es_ws/work/submissions/submit_v15_keep_both.zip
+lg_aimers9_ws/es_ws/work/submissions/submit_v15_keep_both/model/reference_embeddings.npy

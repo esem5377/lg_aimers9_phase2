@@ -1,0 +1,22 @@
+device=cuda
+shape=(1475092, 15)
+
+=== fold0_2022 ===
+    epoch 1/15 loss=0.68293
+    epoch 5/15 loss=0.67560
+    epoch 10/15 loss=0.67260
+    epoch 15/15 loss=0.67141
+  [fold0_2022] auc=0.5607 bss_calib=1242.86 (10s)
+
+=== fold2_2024 ===
+    epoch 1/15 loss=0.68484
+    epoch 5/15 loss=0.67956
+    epoch 10/15 loss=0.67789
+    epoch 15/15 loss=0.67748
+  [fold2_2024] auc=0.5143 bss_calib=0.00 (16s)
+
+=== SUMMARY (multi-field FM 단독 AUC/BSS, CatBoost baseline은 참고용) ===
+  fold0_2022: FM auc=0.5607 bss_calib=1242.86  (CatBoost baseline bss_calib=2386.49, 71피처 참고치)
+  fold2_2024: FM auc=0.5143 bss_calib=0.00  (CatBoost baseline bss_calib=832.41, 71피처 참고치)
+
+Saved: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/fm_multifield_walkforward.json

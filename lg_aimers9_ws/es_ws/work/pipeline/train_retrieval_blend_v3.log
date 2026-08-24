@@ -1,0 +1,128 @@
+Load train data + control_risk_score 추가, 원재료3 제거 (v22/v25/v26과 동일 레시피)...
+ shape=(1475092, 72)  (4s)
+ train_sub=(1401337, 72)  calib=(73755, 72)  (5s)
+
+=== CatBoost 6시드 학습 (GPU, iterations=2000) ===
+ --- CatBoost seed=42 시작 (6s elapsed) ---
+0:	learn: 0.6929773	total: 85ms	remaining: 2m 49s
+200:	learn: 0.6836166	total: 17s	remaining: 2m 31s
+400:	learn: 0.6825008	total: 34.1s	remaining: 2m 15s
+600:	learn: 0.6818255	total: 51s	remaining: 1m 58s
+800:	learn: 0.6812690	total: 1m 7s	remaining: 1m 41s
+1000:	learn: 0.6807704	total: 1m 24s	remaining: 1m 24s
+1200:	learn: 0.6803114	total: 1m 41s	remaining: 1m 7s
+1400:	learn: 0.6798478	total: 1m 58s	remaining: 50.8s
+1600:	learn: 0.6793831	total: 2m 15s	remaining: 33.8s
+1800:	learn: 0.6789133	total: 2m 32s	remaining: 16.9s
+1999:	learn: 0.6784535	total: 2m 49s	remaining: 0us
+ seed=42 완료 (175s)
+ --- CatBoost seed=7 시작 (181s elapsed) ---
+0:	learn: 0.6929831	total: 77.8ms	remaining: 2m 35s
+200:	learn: 0.6836367	total: 17.1s	remaining: 2m 33s
+400:	learn: 0.6825053	total: 34s	remaining: 2m 15s
+600:	learn: 0.6818028	total: 51.1s	remaining: 1m 58s
+800:	learn: 0.6812606	total: 1m 8s	remaining: 1m 41s
+1000:	learn: 0.6807463	total: 1m 25s	remaining: 1m 24s
+1200:	learn: 0.6802810	total: 1m 41s	remaining: 1m 7s
+1400:	learn: 0.6798078	total: 1m 58s	remaining: 50.8s
+1600:	learn: 0.6793166	total: 2m 15s	remaining: 33.8s
+1800:	learn: 0.6788496	total: 2m 32s	remaining: 16.9s
+1999:	learn: 0.6783983	total: 2m 49s	remaining: 0us
+ seed=7 완료 (172s)
+ --- CatBoost seed=123 시작 (353s elapsed) ---
+0:	learn: 0.6929746	total: 76.6ms	remaining: 2m 33s
+200:	learn: 0.6836145	total: 17.1s	remaining: 2m 32s
+400:	learn: 0.6825015	total: 34.2s	remaining: 2m 16s
+600:	learn: 0.6818181	total: 51.3s	remaining: 1m 59s
+800:	learn: 0.6812653	total: 1m 8s	remaining: 1m 42s
+1000:	learn: 0.6807592	total: 1m 25s	remaining: 1m 25s
+1200:	learn: 0.6802880	total: 1m 42s	remaining: 1m 8s
+1400:	learn: 0.6798165	total: 1m 59s	remaining: 51.1s
+1600:	learn: 0.6793297	total: 2m 16s	remaining: 34s
+1800:	learn: 0.6788671	total: 2m 33s	remaining: 17s
+1999:	learn: 0.6784133	total: 2m 50s	remaining: 0us
+ seed=123 완료 (173s)
+ --- CatBoost seed=1 시작 (526s elapsed) ---
+0:	learn: 0.6929820	total: 80.2ms	remaining: 2m 40s
+200:	learn: 0.6836020	total: 17.2s	remaining: 2m 34s
+400:	learn: 0.6824756	total: 34.4s	remaining: 2m 17s
+600:	learn: 0.6817911	total: 48.1s	remaining: 1m 52s
+800:	learn: 0.6812302	total: 1m	remaining: 1m 31s
+1000:	learn: 0.6807336	total: 1m 13s	remaining: 1m 13s
+1200:	learn: 0.6802667	total: 1m 26s	remaining: 57.7s
+1400:	learn: 0.6797915	total: 1m 39s	remaining: 42.6s
+1600:	learn: 0.6793108	total: 1m 52s	remaining: 28.1s
+1800:	learn: 0.6788448	total: 2m 5s	remaining: 13.9s
+1999:	learn: 0.6783893	total: 2m 18s	remaining: 0us
+ seed=1 완료 (141s)
+ --- CatBoost seed=99 시작 (667s elapsed) ---
+0:	learn: 0.6929734	total: 64ms	remaining: 2m 7s
+200:	learn: 0.6836278	total: 13.2s	remaining: 1m 57s
+400:	learn: 0.6824868	total: 26.3s	remaining: 1m 45s
+600:	learn: 0.6818043	total: 39.4s	remaining: 1m 31s
+800:	learn: 0.6812317	total: 52.5s	remaining: 1m 18s
+1000:	learn: 0.6807384	total: 1m 5s	remaining: 1m 5s
+1200:	learn: 0.6802698	total: 1m 18s	remaining: 52.2s
+1400:	learn: 0.6797997	total: 1m 31s	remaining: 39.1s
+1600:	learn: 0.6793198	total: 1m 44s	remaining: 26s
+1800:	learn: 0.6788523	total: 1m 57s	remaining: 13s
+1999:	learn: 0.6783987	total: 2m 10s	remaining: 0us
+ seed=99 완료 (132s)
+ --- CatBoost seed=777 시작 (799s elapsed) ---
+0:	learn: 0.6929771	total: 62.8ms	remaining: 2m 5s
+200:	learn: 0.6836124	total: 13s	remaining: 1m 56s
+400:	learn: 0.6825075	total: 26.1s	remaining: 1m 44s
+600:	learn: 0.6818420	total: 39.1s	remaining: 1m 31s
+800:	learn: 0.6812906	total: 52s	remaining: 1m 17s
+1000:	learn: 0.6807849	total: 1m 5s	remaining: 1m 4s
+1200:	learn: 0.6803182	total: 1m 17s	remaining: 51.9s
+1400:	learn: 0.6798577	total: 1m 30s	remaining: 38.9s
+1600:	learn: 0.6793721	total: 1m 43s	remaining: 25.9s
+1800:	learn: 0.6789018	total: 1m 57s	remaining: 12.9s
+1999:	learn: 0.6784387	total: 2m 10s	remaining: 0us
+ seed=777 완료 (132s)
+ CatBoost 6시드 평균 carve-out BSS(raw)=2045.73
+
+=== LightGBM 3시드 학습 ===
+ seed=42 완료 (23s)
+ seed=7 완료 (15s)
+ seed=123 완료 (15s)
+ LGBM 3시드 평균 carve-out BSS(raw)=1995.78
+
+=== Retrieval encoder(NCA) 학습 ===
+ n_numeric=61 cardinalities={'pitcher_id': 792, 'batter_id': 830, 'pitcher_team_id': 13, 'batter_team_id': 13, 'top_bottom': 2, 'game_type': 2, 'base_state': 8, 'pitcher_hand': 2, 'batter_hand': 2}
+  NCA encoder device=cuda
+    epoch 1/20 train_loss=0.68739
+    epoch 2/20 train_loss=0.68613
+    epoch 3/20 train_loss=0.68557
+    epoch 4/20 train_loss=0.68515
+    epoch 5/20 train_loss=0.68488
+    epoch 6/20 train_loss=0.68470
+    epoch 7/20 train_loss=0.68459
+    epoch 8/20 train_loss=0.68445
+    epoch 9/20 train_loss=0.68427
+    epoch 10/20 train_loss=0.68426
+    epoch 11/20 train_loss=0.68416
+    epoch 12/20 train_loss=0.68404
+    epoch 13/20 train_loss=0.68395
+    epoch 14/20 train_loss=0.68381
+    epoch 15/20 train_loss=0.68378
+    epoch 16/20 train_loss=0.68384
+    epoch 17/20 train_loss=0.68375
+    epoch 18/20 train_loss=0.68363
+    epoch 19/20 train_loss=0.68360
+    epoch 20/20 train_loss=0.68359
+ encoder 학습 완료 (46s)
+ 참조 집합: 1401337/1401337 (서브샘플 없음, v25/v26과 동일)
+ 참조 임베딩 계산 완료 (0s)
+ calib retrieval 추론 완료 (21s)
+ Retrieval 단독 carve-out BSS(raw)=1845.04
+
+=== 블렌드 가중치 탐색 + Platt calibration ===
+ [재현] CB(6시드avg):NCA=0.7:0.3 calibrated BSS=2071.66 (v26 1시드 기준 2082.78과 비교)
+ [그리드서치] best raw BSS=2048.75 at w_cb=0.90 w_lgb=0.00 w_nca=0.10
+ [3-way 최종] calibrated BSS=2069.94
+
+요약: v26(1시드,2way)=2082.78  ->  v3 2way(6시드)=2071.66  ->  v3 3way(6시드+lgb3)=2069.94
+
+Saved all artifacts to /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/model_retrieval_blend_v3  (총 1059s)

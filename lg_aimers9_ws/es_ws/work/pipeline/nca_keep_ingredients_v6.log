@@ -1,0 +1,74 @@
+CB6(keep) raw BSS=2056.07
+n_numeric(keep)=64  (drop 버전은 61)
+  NCA encoder device=cuda
+    epoch 1/20 train_loss=0.68735
+    epoch 2/20 train_loss=0.68609
+    epoch 3/20 train_loss=0.68556
+    epoch 4/20 train_loss=0.68513
+    epoch 5/20 train_loss=0.68489
+    epoch 6/20 train_loss=0.68471
+    epoch 7/20 train_loss=0.68455
+    epoch 8/20 train_loss=0.68445
+    epoch 9/20 train_loss=0.68433
+    epoch 10/20 train_loss=0.68420
+    epoch 11/20 train_loss=0.68406
+    epoch 12/20 train_loss=0.68399
+    epoch 13/20 train_loss=0.68391
+    epoch 14/20 train_loss=0.68382
+    epoch 15/20 train_loss=0.68368
+    epoch 16/20 train_loss=0.68374
+    epoch 17/20 train_loss=0.68363
+    epoch 18/20 train_loss=0.68359
+    epoch 19/20 train_loss=0.68357
+    epoch 20/20 train_loss=0.68349
+ NCA(keep) seed=42 raw BSS=1876.48 (74s)
+  NCA encoder device=cuda
+    epoch 1/20 train_loss=0.68717
+    epoch 2/20 train_loss=0.68594
+    epoch 3/20 train_loss=0.68554
+    epoch 4/20 train_loss=0.68504
+    epoch 5/20 train_loss=0.68481
+    epoch 6/20 train_loss=0.68454
+    epoch 7/20 train_loss=0.68448
+    epoch 8/20 train_loss=0.68446
+    epoch 9/20 train_loss=0.68420
+    epoch 10/20 train_loss=0.68419
+    epoch 11/20 train_loss=0.68420
+    epoch 12/20 train_loss=0.68403
+    epoch 13/20 train_loss=0.68404
+    epoch 14/20 train_loss=0.68386
+    epoch 15/20 train_loss=0.68386
+    epoch 16/20 train_loss=0.68372
+    epoch 17/20 train_loss=0.68380
+    epoch 18/20 train_loss=0.68369
+    epoch 19/20 train_loss=0.68362
+    epoch 20/20 train_loss=0.68350
+ NCA(keep) seed=7 raw BSS=1926.66 (73s)
+  NCA encoder device=cuda
+    epoch 1/20 train_loss=0.68738
+    epoch 2/20 train_loss=0.68607
+    epoch 3/20 train_loss=0.68551
+    epoch 4/20 train_loss=0.68515
+    epoch 5/20 train_loss=0.68491
+    epoch 6/20 train_loss=0.68474
+    epoch 7/20 train_loss=0.68455
+    epoch 8/20 train_loss=0.68447
+    epoch 9/20 train_loss=0.68431
+    epoch 10/20 train_loss=0.68424
+    epoch 11/20 train_loss=0.68415
+    epoch 12/20 train_loss=0.68410
+    epoch 13/20 train_loss=0.68396
+    epoch 14/20 train_loss=0.68383
+    epoch 15/20 train_loss=0.68373
+    epoch 16/20 train_loss=0.68375
+    epoch 17/20 train_loss=0.68374
+    epoch 18/20 train_loss=0.68361
+    epoch 19/20 train_loss=0.68366
+    epoch 20/20 train_loss=0.68354
+ NCA(keep) seed=123 raw BSS=1891.84 (73s)
+NCA(keep) 3시드 앙상블 raw BSS=1951.52  (drop버전 원본=1896.79, drop버전 3시드앙상블=1920.92)
+
+=== w_cb 재탐색 (CB6-keep + NCA-keep 앙상블, calibrated 기준) ===
+BEST: w_cb=0.60  calibrated_bss=2096.73
+v14(2090.34) 대비 delta = +6.39
+v14+LGB(2090.92) 대비 delta = +5.81

@@ -1,0 +1,23 @@
+device=cuda
+shape=(1475092, 72)
+train=1221585 eval(2024)=253507
+
+=== CatBoost 1시드 vs 6시드 (fold=2024) ===
+  seed=42 done (110s)
+  seed=7 done (110s)
+  seed=123 done (110s)
+  seed=1 done (111s)
+  seed=99 done (111s)
+  seed=777 done (111s)
+  CB 1seed: auc=0.5511 bss_calib=824.62
+  CB 6seed: auc=0.5515 bss_calib=842.67  delta=+18.06
+
+=== retrieval (v26과 동일 구성, 이 fold 전용 재학습) ===
+  encoder trained (40s)
+  retrieval only: auc=0.5444 bss_calib=571.80
+
+=== 블렌드: (CB1+retrieval, w=0.7) vs (CB6+retrieval, w=0.7) ===
+  CB1+retrieval(0.7:0.3): auc=0.5514 bss_calib=835.75  (v26 구성과 동일한 원리)
+  CB6+retrieval(0.7:0.3): auc=0.5516 bss_calib=846.62  delta=+10.88
+
+Saved: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/v13_walkforward_check.json

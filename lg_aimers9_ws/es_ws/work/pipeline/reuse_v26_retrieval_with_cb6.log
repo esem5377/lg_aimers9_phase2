@@ -1,0 +1,23 @@
+Load train data (v22/25/26과 동일 레시피)...
+ train_sub=(1401337, 72)  calib=(73755, 72)
+
+=== 저장된 CatBoost 6시드 로드 + calib 예측(재학습 없음) ===
+ CatBoost 6시드 평균 carve-out BSS(raw)=2045.73
+
+=== v26 retrieval_encoder.pt 로드(재학습 없음) + 임베딩 재계산 ===
+/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/pipeline/reuse_v26_retrieval_with_cb6.py:226: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(os.path.join(V26_MODEL_DIR, "retrieval_encoder.pt"), map_location=device)
+ device=cuda  cardinalities_match={'pitcher_id': 792, 'batter_id': 830, 'pitcher_team_id': 13, 'batter_team_id': 13, 'top_bottom': 2, 'game_type': 2, 'base_state': 8, 'pitcher_hand': 2, 'batter_hand': 2}
+ Retrieval(v26 encoder 재사용) carve-out BSS(raw)=1896.79  (원본 v25 단독 1896.79와 비교, 재학습판 1845.04보다 얼마나 근접한지 확인)
+
+=== 블렌드 가중치 재탐색 (2-way, CB=6시드) ===
+ best w_cb=0.80  raw_bss=2054.05  calibrated_bss=2082.28
+ [고정 0.7:0.3] calibrated_bss=2085.15
+
+=== 최종 비교 ===
+ v26(1시드 CB, 원본 encoder): 2082.78
+ v3(6시드 CB, 재학습 encoder): 2071.66
+ v4(6시드 CB, v26 encoder 재사용, 최적가중치 w_cb=0.80): 2082.28
+ delta(v4 - v26) = -0.50
+
+Saved metrics to /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/metrics_reuse_v26_retrieval_cb6.json

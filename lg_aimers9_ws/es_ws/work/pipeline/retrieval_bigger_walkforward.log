@@ -1,0 +1,24 @@
+device=cuda
+shape=(1475092, 72)
+
+=== fold2_2024 (train=1221585 eval=253507) ===
+    [current_v26] encoder 학습 시작 (train_sub=1160505)
+      epoch 1/20 loss=0.68625
+      epoch 5/20 loss=0.68380
+      epoch 10/20 loss=0.68286
+      epoch 15/20 loss=0.68238
+      epoch 20/20 loss=0.68186
+    [current_v26] auc=0.5449 bss_calib=541.57 (train 40s, infer 75s)
+    [bigger] encoder 학습 시작 (train_sub=1160505)
+      epoch 1/20 loss=0.68632
+      epoch 5/20 loss=0.68386
+      epoch 10/20 loss=0.68309
+      epoch 15/20 loss=0.68262
+      epoch 20/20 loss=0.68220
+    [bigger] auc=0.5466 bss_calib=541.22 (train 44s, infer 77s)
+
+=== SUMMARY ===
+  fold2_2024/current_v26: auc=0.5449 bss_calib=541.57
+  fold2_2024/bigger: auc=0.5466 bss_calib=541.22
+
+Saved: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/retrieval_bigger_walkforward.json
