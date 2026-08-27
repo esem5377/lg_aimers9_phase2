@@ -1,0 +1,100 @@
+{
+  "w_catboost_retrieval": 0.7,
+  "best_w_ebglmm": 0.0,
+  "carveout_calib_bss": 2082.7818915293506,
+  "calib_bss_no_ebglmm_reference": 2082.7818915293506,
+  "calibration_a": 4.774794369719763,
+  "calibration_b": -2.40192142901094,
+  "grid_log": [
+    {
+      "w_ebglmm": 0.0,
+      "calib_bss": 2082.7818915293506
+    },
+    {
+      "w_ebglmm": 0.05,
+      "calib_bss": 2077.9053548260817
+    },
+    {
+      "w_ebglmm": 0.1,
+      "calib_bss": 2067.7599500600218
+    },
+    {
+      "w_ebglmm": 0.15,
+      "calib_bss": 2051.3347853632904
+    },
+    {
+      "w_ebglmm": 0.2,
+      "calib_bss": 2027.5144314344739
+    },
+    {
+      "w_ebglmm": 0.25,
+      "calib_bss": 1995.101908351149
+    },
+    {
+      "w_ebglmm": 0.3,
+      "calib_bss": 1952.8613596109135
+    },
+    {
+      "w_ebglmm": 0.35,
+      "calib_bss": 1899.5917509739725
+    },
+    {
+      "w_ebglmm": 0.4,
+      "calib_bss": 1834.2427705388297
+    },
+    {
+      "w_ebglmm": 0.45,
+      "calib_bss": 1755.8570712109422
+    },
+    {
+      "w_ebglmm": 0.5,
+      "calib_bss": 1663.882910204828
+    },
+    {
+      "w_ebglmm": 0.55,
+      "calib_bss": 1558.3933381709492
+    },
+    {
+      "w_ebglmm": 0.6,
+      "calib_bss": 1440.2695602891201
+    },
+    {
+      "w_ebglmm": 0.65,
+      "calib_bss": 1311.2301014948869
+    },
+    {
+      "w_ebglmm": 0.7,
+      "calib_bss": 1173.8500865765222
+    },
+    {
+      "w_ebglmm": 0.75,
+      "calib_bss": 1031.402439328022
+    },
+    {
+      "w_ebglmm": 0.8,
+      "calib_bss": 887.9405581581956
+    },
+    {
+      "w_ebglmm": 0.85,
+      "calib_bss": 747.5729645449625
+    },
+    {
+      "w_ebglmm": 0.9,
+      "calib_bss": 614.267321377271
+    },
+    {
+      "w_ebglmm": 0.95,
+      "calib_bss": 491.4002487632296
+    },
+    {
+      "w_ebglmm": 1.0,
+      "calib_bss": 381.50809191501713
+    }
+  ],
+  "ebglmm_season_window": [
+    2024,
+    2024
+  ],
+  "n_train_sub": 1401337,
+  "n_calib": 73755
+}

@@ -1,0 +1,26 @@
+=== v34: CatBoost+retrieval(0.7:0.3, 고정) + EB-GLMM(last1season) 3-way ===
+Load data(전체 이력 2019~2024) + split(재현, v26과 동일 split)...
+ train_sub=1401337 calib=73755
+
+CatBoost raw 예측(calib, 재학습 없음)...
+
+Retrieval raw 예측(calib, 재학습 없음, 참조=1,401,337행)...
+ retrieval calib 예측 완료(209.6s)
+
+EB-GLMM(last1season=2024) 학습...
+  [EB-GLMM] season_window=(2024, 2024) n_train=240926
+    round 1/4 done
+    round 2/4 done
+    round 3/4 done
+    round 4/4 done
+C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v34_threeway_ebglmm_blend\01_build_v34.py:110: Pandas4Warning: Constructing a Categorical with a dtype and values containing non-null entries not in that dtype's categories is deprecated and will raise in a future version.
+  s = pd.Categorical(s, categories=cats)
+C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v34_threeway_ebglmm_blend\01_build_v34.py:110: Pandas4Warning: Constructing a Categorical with a dtype and values containing non-null entries not in that dtype's categories is deprecated and will raise in a future version.
+  s = pd.Categorical(s, categories=cats)
+ EB-GLMM 학습+calib예측 완료(4.8s)
+ raw 예측 캐시 저장 완료(향후 가중치 재선택 시 재계산 불필요)
+
+저자유도 그리드서치(CatBoost:retrieval=0.7:0.3 고정, w_ebglmm만 탐색)...
+ best_w_ebglmm=0.00  calib_bss=2082.78  (참고: w_ebglmm=0.00일 때 calib_bss=2082.78 == 순수 CatBoost+retrieval(0.7:0.3))
+
+Saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v34_threeway_ebglmm_blend\model\ebglmm_state.pkl, feature_meta.json / C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v34_threeway_ebglmm_blend\output\metrics_v34.json

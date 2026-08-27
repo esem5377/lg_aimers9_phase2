@@ -1,0 +1,10 @@
+{
+  "w_catboost_retrieval": 0.7,
+  "w_ebglmm_fixed": 0.05,
+  "calib_bss": 2077.9053548260817,
+  "calib_bss_reference_no_ebglmm": 2082.7818915293506,
+  "calib_delta": -4.876536703268812,
+  "calibration_a": 4.9348389223213545,
+  "calibration_b": -2.4782062789969164,
+  "note": "grid search best was w_ebglmm=0.00 (identical to v26); 0.05 chosen deliberately by user to test on real leaderboard despite weak/negative local signal."
+}
