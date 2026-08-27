@@ -1,0 +1,96 @@
+{
+  "best_w_catboost": 0.7,
+  "carveout_calib_bss": 2082.0691796128112,
+  "calibration_a": 4.754943590460349,
+  "calibration_b": -2.39161508280818,
+  "grid_log": [
+    {
+      "w_catboost": 0.0,
+      "calib_bss": 1948.0741596383243
+    },
+    {
+      "w_catboost": 0.05,
+      "calib_bss": 1967.150164373399
+    },
+    {
+      "w_catboost": 0.1,
+      "calib_bss": 1984.816979572257
+    },
+    {
+      "w_catboost": 0.15,
+      "calib_bss": 2001.0430302414895
+    },
+    {
+      "w_catboost": 0.2,
+      "calib_bss": 2015.8033339711778
+    },
+    {
+      "w_catboost": 0.25,
+      "calib_bss": 2029.0796453665162
+    },
+    {
+      "w_catboost": 0.3,
+      "calib_bss": 2040.8605242934086
+    },
+    {
+      "w_catboost": 0.35,
+      "calib_bss": 2051.1413267555236
+    },
+    {
+      "w_catboost": 0.4,
+      "calib_bss": 2059.924118931744
+    },
+    {
+      "w_catboost": 0.45,
+      "calib_bss": 2067.217516590314
+    },
+    {
+      "w_catboost": 0.5,
+      "calib_bss": 2073.036453676591
+    },
+    {
+      "w_catboost": 0.55,
+      "calib_bss": 2077.4018852752097
+    },
+    {
+      "w_catboost": 0.6,
+      "calib_bss": 2080.3404313358365
+    },
+    {
+      "w_catboost": 0.65,
+      "calib_bss": 2081.883968619169
+    },
+    {
+      "w_catboost": 0.7,
+      "calib_bss": 2082.0691796128112
+    },
+    {
+      "w_catboost": 0.75,
+      "calib_bss": 2080.8074833058354
+    },
+    {
+      "w_catboost": 0.8,
+      "calib_bss": 2078.4427574112697
+    },
+    {
+      "w_catboost": 0.85,
+      "calib_bss": 2074.8483374416483
+    },
+    {
+      "w_catboost": 0.9,
+      "calib_bss": 2070.073002574746
+    },
+    {
+      "w_catboost": 0.95,
+      "calib_bss": 2064.1692685902544
+    },
+    {
+      "w_catboost": 1.0,
+      "calib_bss": 2057.200030584139
+    }
+  ],
+  "encoder_train_elapsed_sec": 1469.7130863666534,
+  "n_train_sub": 1401337,
+  "n_calib": 73755,
+  "encoder_param_count": 358221
+}

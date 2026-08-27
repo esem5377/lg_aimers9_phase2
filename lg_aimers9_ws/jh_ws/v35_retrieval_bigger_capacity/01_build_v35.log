@@ -1,0 +1,104 @@
+=== v35: CatBoost(v26 재사용) + retrieval(용량확대, 전체 재학습) ===
+Load data(전체 이력 2019~2024) + split(재현, v26/v34와 동일 split)...
+ train_sub=1401337 calib=73755
+
+CatBoost raw 예측(calib, v26 모델 재사용, 재학습 없음)...
+
+용량확대 retrieval encoder 학습(전체 프로덕션 데이터, 처음부터)...
+ n_numeric=61 cardinalities={'pitcher_id': 792, 'batter_id': 830, 'pitcher_team_id': 13, 'batter_team_id': 13, 'top_bottom': 2, 'game_type': 2, 'base_state': 8, 'pitcher_hand': 2, 'batter_hand': 2}
+  모델 파라미터 수: 358,221
+    epoch 1/20 train_loss=0.68709 val_loss(ref=20000)=0.68466 temp=0.1111
+    epoch 2/20 train_loss=0.68587 val_loss(ref=20000)=0.68402 temp=0.1198
+    epoch 3/20 train_loss=0.68549 val_loss(ref=20000)=0.68379 temp=0.1223
+    epoch 4/20 train_loss=0.68512 val_loss(ref=20000)=0.68313 temp=0.1235
+    epoch 5/20 train_loss=0.68489 val_loss(ref=20000)=0.68310 temp=0.1239
+    epoch 6/20 train_loss=0.68478 val_loss(ref=20000)=0.68334 temp=0.1255
+    epoch 7/20 train_loss=0.68463 val_loss(ref=20000)=0.68294 temp=0.1244
+    epoch 8/20 train_loss=0.68452 val_loss(ref=20000)=0.68280 temp=0.1238
+    epoch 9/20 train_loss=0.68440 val_loss(ref=20000)=0.68264 temp=0.1237
+    epoch 10/20 train_loss=0.68432 val_loss(ref=20000)=0.68259 temp=0.1244
+    epoch 11/20 train_loss=0.68416 val_loss(ref=20000)=0.68258 temp=0.1211
+    epoch 12/20 train_loss=0.68405 val_loss(ref=20000)=0.68246 temp=0.1221
+    epoch 13/20 train_loss=0.68401 val_loss(ref=20000)=0.68262 temp=0.1227
+=== v35: CatBoost(v26 재사용) + retrieval(용량확대, 전체 재학습) ===
+Load data(전체 이력 2019~2024) + split(재현, v26/v34와 동일 split)...
+ train_sub=1401337 calib=73755
+
+CatBoost raw 예측(calib, v26 모델 재사용, 재학습 없음)...
+
+용량확대 retrieval encoder 학습(전체 프로덕션 데이터, 처음부터)...
+ n_numeric=61 cardinalities={'pitcher_id': 792, 'batter_id': 830, 'pitcher_team_id': 13, 'batter_team_id': 13, 'top_bottom': 2, 'game_type': 2, 'base_state': 8, 'pitcher_hand': 2, 'batter_hand': 2}
+  모델 파라미터 수: 358,221
+  체크포인트 발견, 재개: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v35_retrieval_bigger_capacity\output\encoder_train_checkpoint.pt
+  epoch 13부터 재개 (best_val_loss=0.68246, patience_ctr=1)
+=== v35: CatBoost(v26 재사용) + retrieval(용량확대, 전체 재학습) ===
+Load data(전체 이력 2019~2024) + split(재현, v26/v34와 동일 split)...
+ train_sub=1401337 calib=73755
+
+CatBoost raw 예측(calib, v26 모델 재사용, 재학습 없음)...
+
+용량확대 retrieval encoder 학습(전체 프로덕션 데이터, 처음부터)...
+ n_numeric=61 cardinalities={'pitcher_id': 792, 'batter_id': 830, 'pitcher_team_id': 13, 'batter_team_id': 13, 'top_bottom': 2, 'game_type': 2, 'base_state': 8, 'pitcher_hand': 2, 'batter_hand': 2}
+  모델 파라미터 수: 358,221
+  체크포인트 발견, 재개: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v35_retrieval_bigger_capacity\output\encoder_train_checkpoint.pt
+  epoch 13부터 재개 (best_val_loss=0.68246, patience_ctr=1)
+=== v35: CatBoost(v26 재사용) + retrieval(용량확대, 전체 재학습) ===
+Load data(전체 이력 2019~2024) + split(재현, v26/v34와 동일 split)...
+ train_sub=1401337 calib=73755
+
+CatBoost raw 예측(calib, v26 모델 재사용, 재학습 없음)...
+
+용량확대 retrieval encoder 학습(전체 프로덕션 데이터, 처음부터)...
+ n_numeric=61 cardinalities={'pitcher_id': 792, 'batter_id': 830, 'pitcher_team_id': 13, 'batter_team_id': 13, 'top_bottom': 2, 'game_type': 2, 'base_state': 8, 'pitcher_hand': 2, 'batter_hand': 2}
+  모델 파라미터 수: 358,221
+  체크포인트 발견, 재개: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v35_retrieval_bigger_capacity\output\encoder_train_checkpoint.pt
+  epoch 13부터 재개 (best_val_loss=0.68246, patience_ctr=1)
+=== v35: CatBoost(v26 재사용) + retrieval(용량확대, 전체 재학습) ===
+Load data(전체 이력 2019~2024) + split(재현, v26/v34와 동일 split)...
+ train_sub=1401337 calib=73755
+
+CatBoost raw 예측(calib, v26 모델 재사용, 재학습 없음)...
+
+용량확대 retrieval encoder 학습(전체 프로덕션 데이터, 처음부터)...
+ n_numeric=61 cardinalities={'pitcher_id': 792, 'batter_id': 830, 'pitcher_team_id': 13, 'batter_team_id': 13, 'top_bottom': 2, 'game_type': 2, 'base_state': 8, 'pitcher_hand': 2, 'batter_hand': 2}
+  모델 파라미터 수: 358,221
+  체크포인트 발견, 재개: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v35_retrieval_bigger_capacity\output\encoder_train_checkpoint.pt
+  epoch 13부터 재개 (best_val_loss=0.68246, patience_ctr=1)
+=== v35: CatBoost(v26 재사용) + retrieval(용량확대, 전체 재학습) ===
+Load data(전체 이력 2019~2024) + split(재현, v26/v34와 동일 split)...
+ train_sub=1401337 calib=73755
+
+CatBoost raw 예측(calib, v26 모델 재사용, 재학습 없음)...
+
+용량확대 retrieval encoder 학습(전체 프로덕션 데이터, 처음부터)...
+ n_numeric=61 cardinalities={'pitcher_id': 792, 'batter_id': 830, 'pitcher_team_id': 13, 'batter_team_id': 13, 'top_bottom': 2, 'game_type': 2, 'base_state': 8, 'pitcher_hand': 2, 'batter_hand': 2}
+  모델 파라미터 수: 358,221
+  체크포인트 발견, 재개: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v35_retrieval_bigger_capacity\output\encoder_train_checkpoint.pt
+  epoch 13부터 재개 (best_val_loss=0.68246, patience_ctr=1)
+    epoch 14/20 train_loss=0.68391 val_loss(ref=20000)=0.68229 temp=0.1207
+=== v35: CatBoost(v26 재사용) + retrieval(용량확대, 전체 재학습) ===
+Load data(전체 이력 2019~2024) + split(재현, v26/v34와 동일 split)...
+ train_sub=1401337 calib=73755
+
+CatBoost raw 예측(calib, v26 모델 재사용, 재학습 없음)...
+
+용량확대 retrieval encoder 학습(전체 프로덕션 데이터, 처음부터)...
+ n_numeric=61 cardinalities={'pitcher_id': 792, 'batter_id': 830, 'pitcher_team_id': 13, 'batter_team_id': 13, 'top_bottom': 2, 'game_type': 2, 'base_state': 8, 'pitcher_hand': 2, 'batter_hand': 2}
+  모델 파라미터 수: 358,221
+  체크포인트 발견, 재개: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v35_retrieval_bigger_capacity\output\encoder_train_checkpoint.pt
+  epoch 14부터 재개 (best_val_loss=0.68229, patience_ctr=0)
+    epoch 15/20 train_loss=0.68374 val_loss(ref=20000)=0.68256 temp=0.1194
+    epoch 16/20 train_loss=0.68386 val_loss(ref=20000)=0.68230 temp=0.1204
+    epoch 17/20 train_loss=0.68377 val_loss(ref=20000)=0.68253 temp=0.1165
+    epoch 18/20 train_loss=0.68366 val_loss(ref=20000)=0.68220 temp=0.1163
+    epoch 19/20 train_loss=0.68361 val_loss(ref=20000)=0.68245 temp=0.1172
+    epoch 20/20 train_loss=0.68359 val_loss(ref=20000)=0.68231 temp=0.1156
+ encoder 학습 완료 (1469.7s)
+ 참조집합 인코딩 완료(reference=1401337행, 100.1s)
+ retrieval calib 예측 완료(313.6s)
+
+저자유도 그리드서치(CatBoost:retrieval 가중치, raw 가중합->calibration 1회)...
+ best_w_catboost=0.70  calib_bss=2082.07  (참고: v26은 w=0.70, carve-out calibrated BSS=2082.78)
+
+Saved model artifacts to C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v35_retrieval_bigger_capacity\model
+Saved metrics to C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v35_retrieval_bigger_capacity\output\metrics_v35.json
