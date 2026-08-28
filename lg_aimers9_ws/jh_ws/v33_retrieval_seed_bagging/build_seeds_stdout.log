@@ -1,0 +1,79 @@
+Load train data + control_risk_score(원재료 제거)...
+ shape=(1475092, 72)
+ train_sub=(1401337, 72)  calib=(73755, 72) (v26과 동일 split)
+
+########## seed=7 학습 ##########
+0:	learn: 0.6929783	total: 1.03s	remaining: 34m 20s
+200:	learn: 0.6837192	total: 2m 52s	remaining: 25m 47s
+400:	learn: 0.6826009	total: 5m 49s	remaining: 23m 13s
+600:	learn: 0.6819316	total: 8m 45s	remaining: 20m 22s
+800:	learn: 0.6813976	total: 11m 39s	remaining: 17m 27s
+1000:	learn: 0.6809178	total: 14m 35s	remaining: 14m 33s
+1200:	learn: 0.6804720	total: 17m 31s	remaining: 11m 39s
+1400:	learn: 0.6800388	total: 20m 25s	remaining: 8m 44s
+1600:	learn: 0.6795728	total: 23m 18s	remaining: 5m 48s
+1800:	learn: 0.6791215	total: 26m 10s	remaining: 2m 53s
+1999:	learn: 0.6786892	total: 29m 2s	remaining: 0us
+ CatBoost(seed=7) 학습 완료 (1747.6s)
+      epoch 1/20 train_loss=0.68724
+      epoch 2/20 train_loss=0.68600
+      epoch 3/20 train_loss=0.68560
+      epoch 4/20 train_loss=0.68510
+      epoch 5/20 train_loss=0.68484
+      epoch 6/20 train_loss=0.68461
+      epoch 7/20 train_loss=0.68451
+      epoch 8/20 train_loss=0.68440
+      epoch 9/20 train_loss=0.68431
+      epoch 10/20 train_loss=0.68422
+      epoch 11/20 train_loss=0.68418
+      epoch 12/20 train_loss=0.68401
+      epoch 13/20 train_loss=0.68405
+      epoch 14/20 train_loss=0.68385
+      epoch 15/20 train_loss=0.68387
+      epoch 16/20 train_loss=0.68383
+      epoch 17/20 train_loss=0.68383
+      epoch 18/20 train_loss=0.68367
+      epoch 19/20 train_loss=0.68367
+      epoch 20/20 train_loss=0.68357
+ encoder(seed=7) 학습 완료 (1176.3s)
+ 참조 임베딩 계산 완료 (31.8s)
+ 체크포인트 저장 완료 (seed=7)
+
+########## seed=123 학습 ##########
+0:	learn: 0.6929824	total: 866ms	remaining: 28m 51s
+200:	learn: 0.6836810	total: 2m 55s	remaining: 26m 12s
+400:	learn: 0.6825744	total: 5m 52s	remaining: 23m 25s
+600:	learn: 0.6819057	total: 8m 49s	remaining: 20m 33s
+800:	learn: 0.6813763	total: 11m 45s	remaining: 17m 35s
+1000:	learn: 0.6808964	total: 14m 42s	remaining: 14m 40s
+1200:	learn: 0.6804459	total: 17m 43s	remaining: 11m 47s
+1400:	learn: 0.6799924	total: 20m 38s	remaining: 8m 49s
+1600:	learn: 0.6795151	total: 23m 32s	remaining: 5m 52s
+1800:	learn: 0.6790146	total: 26m 28s	remaining: 2m 55s
+1999:	learn: 0.6785359	total: 29m 24s	remaining: 0us
+ CatBoost(seed=123) 학습 완료 (1769.2s)
+      epoch 1/20 train_loss=0.68733
+      epoch 2/20 train_loss=0.68606
+      epoch 3/20 train_loss=0.68548
+      epoch 4/20 train_loss=0.68509
+      epoch 5/20 train_loss=0.68489
+      epoch 6/20 train_loss=0.68468
+      epoch 7/20 train_loss=0.68457
+      epoch 8/20 train_loss=0.68444
+      epoch 9/20 train_loss=0.68434
+      epoch 10/20 train_loss=0.68428
+      epoch 11/20 train_loss=0.68410
+      epoch 12/20 train_loss=0.68411
+      epoch 13/20 train_loss=0.68404
+      epoch 14/20 train_loss=0.68389
+      epoch 15/20 train_loss=0.68380
+      epoch 16/20 train_loss=0.68382
+      epoch 17/20 train_loss=0.68370
+      epoch 18/20 train_loss=0.68361
+      epoch 19/20 train_loss=0.68359
+      epoch 20/20 train_loss=0.68350
+ encoder(seed=123) 학습 완료 (1397.3s)
+ 참조 임베딩 계산 완료 (36.4s)
+ 체크포인트 저장 완료 (seed=123)
+
+########## seed=1 학습 ##########

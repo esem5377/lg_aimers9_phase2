@@ -1,0 +1,83 @@
+Load train data + trackman context...
+ shape=(1475092, 73)
+
+=== fold2_2024 ===
+ encoder_train=549731 feature_pool=610774 calib=61080 eval=253507
+    [fold2_2024] epoch 1/20 train_loss=0.68698
+    [fold2_2024] epoch 2/20 train_loss=0.68546
+    [fold2_2024] epoch 3/20 train_loss=0.68471
+    [fold2_2024] epoch 4/20 train_loss=0.68438
+    [fold2_2024] epoch 5/20 train_loss=0.68397
+    [fold2_2024] epoch 6/20 train_loss=0.68364
+    [fold2_2024] epoch 7/20 train_loss=0.68321
+    [fold2_2024] epoch 8/20 train_loss=0.68302
+    [fold2_2024] epoch 9/20 train_loss=0.68281
+    [fold2_2024] epoch 10/20 train_loss=0.68248
+    [fold2_2024] epoch 11/20 train_loss=0.68219
+    [fold2_2024] epoch 12/20 train_loss=0.68200
+    [fold2_2024] epoch 13/20 train_loss=0.68170
+    [fold2_2024] epoch 14/20 train_loss=0.68133
+    [fold2_2024] epoch 15/20 train_loss=0.68115
+    [fold2_2024] epoch 16/20 train_loss=0.68091
+    [fold2_2024] epoch 17/20 train_loss=0.68070
+    [fold2_2024] epoch 18/20 train_loss=0.68038
+    [fold2_2024] epoch 19/20 train_loss=0.67998
+    [fold2_2024] epoch 20/20 train_loss=0.67948
+ encoder 학습 완료 (344.5s)
+ retrieval_score 계산 완료 (1069.4s)
+ CatBoost baseline 학습 완료 (825.9s)
+ [baseline] eval_auc=0.5501 eval_bss=805.99
+ CatBoost+retrieval 학습 완료 (837.1s)
+ [v32] eval_auc=0.5483 eval_bss=716.23 (delta -89.76) retrieval_importance_rank=1/71
+
+=== fold0_2022 ===
+ encoder_train=327875 feature_pool=364283 calib=36430 eval=247472
+    [fold0_2022] epoch 1/20 train_loss=0.68594
+    [fold0_2022] epoch 2/20 train_loss=0.68348
+    [fold0_2022] epoch 3/20 train_loss=0.68265
+    [fold0_2022] epoch 4/20 train_loss=0.68218
+    [fold0_2022] epoch 5/20 train_loss=0.68158
+    [fold0_2022] epoch 6/20 train_loss=0.68133
+    [fold0_2022] epoch 7/20 train_loss=0.68083
+    [fold0_2022] epoch 8/20 train_loss=0.68050
+    [fold0_2022] epoch 9/20 train_loss=0.68019
+    [fold0_2022] epoch 10/20 train_loss=0.67969
+    [fold0_2022] epoch 11/20 train_loss=0.67937
+    [fold0_2022] epoch 12/20 train_loss=0.67893
+    [fold0_2022] epoch 13/20 train_loss=0.67851
+    [fold0_2022] epoch 14/20 train_loss=0.67781
+    [fold0_2022] epoch 15/20 train_loss=0.67744
+    [fold0_2022] epoch 16/20 train_loss=0.67685
+    [fold0_2022] epoch 17/20 train_loss=0.67648
+    [fold0_2022] epoch 18/20 train_loss=0.67558
+    [fold0_2022] epoch 19/20 train_loss=0.67518
+    [fold0_2022] epoch 20/20 train_loss=0.67450
+ encoder 학습 완료 (230.6s)
+Load train data + trackman context...
+ shape=(1475092, 73)
+
+=== fold2_2024: 이미 완료됨, 스킵 ===
+
+=== fold0_2022 ===
+ encoder_train=327875 feature_pool=364283 calib=36430 eval=247472
+    [fold0_2022] epoch 1/20 train_loss=0.68595
+    [fold0_2022] epoch 2/20 train_loss=0.68336
+    [fold0_2022] epoch 3/20 train_loss=0.68242
+    [fold0_2022] epoch 4/20 train_loss=0.68224
+    [fold0_2022] epoch 5/20 train_loss=0.68128
+    [fold0_2022] epoch 6/20 train_loss=0.68144
+    [fold0_2022] epoch 7/20 train_loss=0.68095
+    [fold0_2022] epoch 8/20 train_loss=0.68042
+    [fold0_2022] epoch 9/20 train_loss=0.68016
+    [fold0_2022] epoch 10/20 train_loss=0.67960
+    [fold0_2022] epoch 11/20 train_loss=0.67952
+    [fold0_2022] epoch 12/20 train_loss=0.67881
+    [fold0_2022] epoch 13/20 train_loss=0.67828
+    [fold0_2022] epoch 14/20 train_loss=0.67774
+    [fold0_2022] epoch 15/20 train_loss=0.67725
+    [fold0_2022] epoch 16/20 train_loss=0.67683
+    [fold0_2022] epoch 17/20 train_loss=0.67616
+    [fold0_2022] epoch 18/20 train_loss=0.67564
+    [fold0_2022] epoch 19/20 train_loss=0.67506
+    [fold0_2022] epoch 20/20 train_loss=0.67426
+ encoder 학습 완료 (231.5s)

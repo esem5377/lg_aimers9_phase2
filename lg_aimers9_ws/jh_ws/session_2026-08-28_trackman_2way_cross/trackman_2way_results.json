@@ -1,0 +1,102 @@
+{
+  "fold2_2024": {
+    "n_feature_pool": 610774,
+    "n_calib": 61080,
+    "n_eval": 253507,
+    "baseline": {
+      "eval_auc": 0.5500813845335559,
+      "eval_bss": 805.9859932130764,
+      "train_seconds": 815.980829000473
+    },
+    "treatment_2way_cross": {
+      "eval_auc": 0.5503619541912446,
+      "eval_bss": 810.5488372125991,
+      "train_seconds": 887.2080428600311
+    },
+    "delta": 4.56284399952267,
+    "n_features_total": 94,
+    "cross_feature_importance_ranks": {
+      "tk_cnthand_rel_speed_mean": 73,
+      "tk_cnthand_spin_rate_mean": 35,
+      "tk_cnthand_induced_vert_break_mean": 54,
+      "tk_cnthand_horz_break_mean": 47,
+      "tk_cnthand_fastball_rate": 71,
+      "tk_cnthand_breaking_rate": 70,
+      "tk_cnthand_offspeed_rate": 33,
+      "tk_cnthand_n": 41,
+      "tk_cntinn_rel_speed_mean": 60,
+      "tk_cntinn_spin_rate_mean": 46,
+      "tk_cntinn_induced_vert_break_mean": 59,
+      "tk_cntinn_horz_break_mean": 43,
+      "tk_cntinn_fastball_rate": 77,
+      "tk_cntinn_breaking_rate": 78,
+      "tk_cntinn_offspeed_rate": 52,
+      "tk_cntinn_n": 38,
+      "tk_handinn_rel_speed_mean": 69,
+      "tk_handinn_spin_rate_mean": 36,
+      "tk_handinn_induced_vert_break_mean": 53,
+      "tk_handinn_horz_break_mean": 56,
+      "tk_handinn_fastball_rate": 45,
+      "tk_handinn_breaking_rate": 42,
+      "tk_handinn_offspeed_rate": 34,
+      "tk_handinn_n": 50
+    },
+    "top5_cross_features": {
+      "tk_cnthand_offspeed_rate": 0.8676494928686529,
+      "tk_handinn_offspeed_rate": 0.7372139110774273,
+      "tk_cnthand_spin_rate_mean": 0.7046776033354563,
+      "tk_handinn_spin_rate_mean": 0.6942571373064736,
+      "tk_cntinn_n": 0.6624163764872751
+    }
+  },
+  "fold0_2022": {
+    "n_feature_pool": 364283,
+    "n_calib": 36430,
+    "n_eval": 247472,
+    "baseline": {
+      "eval_auc": 0.5773840924915304,
+      "eval_bss": 2314.897198585908,
+      "train_seconds": 543.5753598213196
+    },
+    "treatment_2way_cross": {
+      "eval_auc": 0.577659625269711,
+      "eval_bss": 2312.738895696098,
+      "train_seconds": 578.9133777618408
+    },
+    "delta": -2.1583028898098746,
+    "n_features_total": 94,
+    "cross_feature_importance_ranks": {
+      "tk_cnthand_rel_speed_mean": 62,
+      "tk_cnthand_spin_rate_mean": 49,
+      "tk_cnthand_induced_vert_break_mean": 59,
+      "tk_cnthand_horz_break_mean": 63,
+      "tk_cnthand_fastball_rate": 57,
+      "tk_cnthand_breaking_rate": 67,
+      "tk_cnthand_offspeed_rate": 45,
+      "tk_cnthand_n": 44,
+      "tk_cntinn_rel_speed_mean": 52,
+      "tk_cntinn_spin_rate_mean": 48,
+      "tk_cntinn_induced_vert_break_mean": 54,
+      "tk_cntinn_horz_break_mean": 42,
+      "tk_cntinn_fastball_rate": 66,
+      "tk_cntinn_breaking_rate": 65,
+      "tk_cntinn_offspeed_rate": 43,
+      "tk_cntinn_n": 30,
+      "tk_handinn_rel_speed_mean": 55,
+      "tk_handinn_spin_rate_mean": 32,
+      "tk_handinn_induced_vert_break_mean": 53,
+      "tk_handinn_horz_break_mean": 61,
+      "tk_handinn_fastball_rate": 68,
+      "tk_handinn_breaking_rate": 46,
+      "tk_handinn_offspeed_rate": 34,
+      "tk_handinn_n": 50
+    },
+    "top5_cross_features": {
+      "tk_cntinn_n": 0.9442203016422069,
+      "tk_handinn_spin_rate_mean": 0.8662808849998314,
+      "tk_handinn_offspeed_rate": 0.8099525975102773,
+      "tk_cntinn_horz_break_mean": 0.747838685977529,
+      "tk_cntinn_offspeed_rate": 0.7401380787074409
+    }
+  }
+}

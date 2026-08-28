@@ -1,0 +1,16 @@
+{
+  "fold2_2024": {
+    "n_encoder_train": 549731,
+    "n_feature_pool": 610774,
+    "n_calib": 61080,
+    "n_eval": 253507,
+    "baseline_eval_auc": 0.5500813845335559,
+    "baseline_eval_bss": 805.9859932130764,
+    "v32_eval_auc": 0.5483025092238959,
+    "v32_eval_bss": 716.2267252860954,
+    "delta_v32_vs_baseline": -89.75926792698101,
+    "retrieval_importance": 12.369842904977089,
+    "retrieval_importance_rank": 1,
+    "n_features": 71
+  }
+}

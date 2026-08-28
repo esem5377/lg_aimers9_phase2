@@ -1,0 +1,30 @@
+Load train data + base trackman context + 2-way cross context...
+Load trackman_history for 2-way cross...
+ shape=(1793078, 30)
+ [cnt_hand] keys=['balls_before', 'strikes_before', 'outs_before', 'pitcher_hand', 'batter_hand'] rows=181 new_cols=8
+ [cnt_inn] keys=['balls_before', 'strikes_before', 'outs_before', 'inning', 'top_bottom'] rows=992 new_cols=8
+ [hand_inn] keys=['pitcher_hand', 'batter_hand', 'inning', 'top_bottom'] rows=102 new_cols=8
+ shape=(1475092, 97)  new_cross_cols(24)=['tk_cnthand_rel_speed_mean', 'tk_cnthand_spin_rate_mean', 'tk_cnthand_induced_vert_break_mean', 'tk_cnthand_horz_break_mean', 'tk_cnthand_fastball_rate', 'tk_cnthand_breaking_rate', 'tk_cnthand_offspeed_rate', 'tk_cnthand_n', 'tk_cntinn_rel_speed_mean', 'tk_cntinn_spin_rate_mean', 'tk_cntinn_induced_vert_break_mean', 'tk_cntinn_horz_break_mean', 'tk_cntinn_fastball_rate', 'tk_cntinn_breaking_rate', 'tk_cntinn_offspeed_rate', 'tk_cntinn_n', 'tk_handinn_rel_speed_mean', 'tk_handinn_spin_rate_mean', 'tk_handinn_induced_vert_break_mean', 'tk_handinn_horz_break_mean', 'tk_handinn_fastball_rate', 'tk_handinn_breaking_rate', 'tk_handinn_offspeed_rate', 'tk_handinn_n']
+
+=== fold2_2024 ===
+ feature_pool=610774 calib=61080 eval=253507
+ [baseline] CatBoost 학습 완료 (816.0s)
+ [baseline] eval_auc=0.5501 eval_bss=805.99
+ [treatment(2way_cross)] CatBoost 학습 완료 (887.2s)
+ [treatment(2way_cross)] eval_auc=0.5504 eval_bss=810.55
+ [delta] treatment - baseline = +4.56
+ [top cross features by importance] {'tk_cnthand_offspeed_rate': 0.8676494928686529, 'tk_handinn_offspeed_rate': 0.7372139110774273, 'tk_cnthand_spin_rate_mean': 0.7046776033354563, 'tk_handinn_spin_rate_mean': 0.6942571373064736, 'tk_cntinn_n': 0.6624163764872751}
+
+=== fold0_2022 ===
+ feature_pool=364283 calib=36430 eval=247472
+ [baseline] CatBoost 학습 완료 (543.6s)
+ [baseline] eval_auc=0.5774 eval_bss=2314.90
+ [treatment(2way_cross)] CatBoost 학습 완료 (578.9s)
+ [treatment(2way_cross)] eval_auc=0.5777 eval_bss=2312.74
+ [delta] treatment - baseline = -2.16
+ [top cross features by importance] {'tk_cntinn_n': 0.9442203016422069, 'tk_handinn_spin_rate_mean': 0.8662808849998314, 'tk_handinn_offspeed_rate': 0.8099525975102773, 'tk_cntinn_horz_break_mean': 0.747838685977529, 'tk_cntinn_offspeed_rate': 0.7401380787074409}
+
+=== SUMMARY ===
+  fold2_2024: baseline=805.99 treatment=810.55 delta=+4.56
+  fold0_2022: baseline=2314.90 treatment=2312.74 delta=-2.16
+Saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\session_2026-08-28_trackman_2way_cross\trackman_2way_results.json

@@ -1,0 +1,15 @@
+{
+  "seeds": [
+    42,
+    7,
+    123,
+    1,
+    99,
+    777
+  ],
+  "w_catboost": 0.7,
+  "carveout_bss_cb_avg_only": 2050.9094242267656,
+  "carveout_bss_retr_avg_only": 1814.7424085598996,
+  "carveout_bss_blend_raw": 2031.553384110596,
+  "carveout_bss_blend_calibrated": 2088.7826991714987
+}

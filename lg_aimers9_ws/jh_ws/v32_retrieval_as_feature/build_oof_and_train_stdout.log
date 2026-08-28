@@ -1,0 +1,124 @@
+Load train data + control_risk_score(원재료 제거)...
+ shape=(1475092, 72)
+ train_sub=(1401337, 72)  calib=(73755, 72) (v26과 동일 split)
+
+########## PHASE 1: train_sub OOF retrieval_score (K=3) ##########
+
+=== OOF fold 1/3: train=934224  oof_query=467113 ===
+   encoder 학습...
+      epoch 1/20 train_loss=0.68756
+      epoch 2/20 train_loss=0.68629
+      epoch 3/20 train_loss=0.68571
+      epoch 4/20 train_loss=0.68533
+      epoch 5/20 train_loss=0.68501
+      epoch 6/20 train_loss=0.68467
+      epoch 7/20 train_loss=0.68452
+      epoch 8/20 train_loss=0.68432
+      epoch 9/20 train_loss=0.68411
+      epoch 10/20 train_loss=0.68404
+      epoch 11/20 train_loss=0.68394
+      epoch 12/20 train_loss=0.68366
+      epoch 13/20 train_loss=0.68359
+      epoch 14/20 train_loss=0.68351
+      epoch 15/20 train_loss=0.68338
+      epoch 16/20 train_loss=0.68321
+      epoch 17/20 train_loss=0.68322
+      epoch 18/20 train_loss=0.68305
+      epoch 19/20 train_loss=0.68303
+      epoch 20/20 train_loss=0.68300
+   encoder 학습 완료 (588.8s)
+   참조 임베딩 계산 완료 (6.3s)
+   OOF 추론 완료 (912.2s)
+   체크포인트 저장 완료 (fold 1/3)
+
+=== OOF fold 2/3: train=934225  oof_query=467112 ===
+   encoder 학습...
+      epoch 1/20 train_loss=0.68768
+      epoch 2/20 train_loss=0.68630
+      epoch 3/20 train_loss=0.68569
+      epoch 4/20 train_loss=0.68535
+      epoch 5/20 train_loss=0.68505
+      epoch 6/20 train_loss=0.68464
+      epoch 7/20 train_loss=0.68452
+      epoch 8/20 train_loss=0.68421
+      epoch 9/20 train_loss=0.68407
+      epoch 10/20 train_loss=0.68385
+      epoch 11/20 train_loss=0.68377
+      epoch 12/20 train_loss=0.68369
+      epoch 13/20 train_loss=0.68350
+      epoch 14/20 train_loss=0.68331
+      epoch 15/20 train_loss=0.68336
+      epoch 16/20 train_loss=0.68313
+      epoch 17/20 train_loss=0.68301
+      epoch 18/20 train_loss=0.68296
+      epoch 19/20 train_loss=0.68283
+      epoch 20/20 train_loss=0.68279
+   encoder 학습 완료 (581.4s)
+   참조 임베딩 계산 완료 (7.3s)
+   OOF 추론 완료 (903.4s)
+   체크포인트 저장 완료 (fold 2/3)
+
+=== OOF fold 3/3: train=934225  oof_query=467112 ===
+   encoder 학습...
+      epoch 1/20 train_loss=0.68775
+      epoch 2/20 train_loss=0.68638
+      epoch 3/20 train_loss=0.68590
+      epoch 4/20 train_loss=0.68554
+      epoch 5/20 train_loss=0.68519
+      epoch 6/20 train_loss=0.68486
+      epoch 7/20 train_loss=0.68472
+      epoch 8/20 train_loss=0.68447
+      epoch 9/20 train_loss=0.68426
+      epoch 10/20 train_loss=0.68416
+      epoch 11/20 train_loss=0.68397
+      epoch 12/20 train_loss=0.68398
+      epoch 13/20 train_loss=0.68373
+      epoch 14/20 train_loss=0.68368
+      epoch 15/20 train_loss=0.68351
+      epoch 16/20 train_loss=0.68344
+      epoch 17/20 train_loss=0.68330
+      epoch 18/20 train_loss=0.68324
+      epoch 19/20 train_loss=0.68311
+      epoch 20/20 train_loss=0.68300
+   encoder 학습 완료 (563.9s)
+   참조 임베딩 계산 완료 (5.3s)
+   OOF 추론 완료 (914.2s)
+   체크포인트 저장 완료 (fold 3/3)
+ OOF 생성 완료. mean=0.5226 std=0.0626
+
+########## PHASE 2: calib retrieval_score (v26 encoder+참조집합 재사용) ##########
+ calib retrieval 추론 완료 (214.3s)
+
+########## PHASE 3: CatBoost 재학습 (retrieval_score 피처 추가) ##########
+ n_features=71 (기존 70 + retrieval_score 1)
+0:	learn: 0.6929501	total: 1.01s	remaining: 33m 48s
+200:	learn: 0.6829029	total: 2m 59s	remaining: 26m 43s
+400:	learn: 0.6821540	total: 5m 57s	remaining: 23m 46s
+600:	learn: 0.6816993	total: 8m 54s	remaining: 20m 43s
+800:	learn: 0.6813054	total: 11m 50s	remaining: 17m 43s
+1000:	learn: 0.6809361	total: 14m 42s	remaining: 14m 40s
+1200:	learn: 0.6805813	total: 17m 35s	remaining: 11m 42s
+1400:	learn: 0.6802173	total: 20m 27s	remaining: 8m 44s
+1600:	learn: 0.6798167	total: 23m 18s	remaining: 5m 48s
+1800:	learn: 0.6794009	total: 26m 9s	remaining: 2m 53s
+1999:	learn: 0.6789809	total: 29m	remaining: 0us
+ CatBoost 학습 완료 (1746.6s)
+
+ retrieval_score importance=20.8774  (전체 71개 피처 중 1위)
+ 상위 10개 피처:
+retrieval_score                         20.877428
+season                                   5.104302
+game_type                                3.267441
+game_month                               2.564527
+pitcher_team_id                          2.341162
+batter_team_id                           2.230316
+pitcher_id                               2.139007
+asof_pitcher_prev1_game_success_rate     2.050351
+asof_pitcher_prev3_game_success_rate     2.034382
+asof_pitcher_prev5_game_success_rate     2.006905
+dtype: float64
+
+ carve-out BSS: raw=2080.96  calibrated=2089.57
+ (참고: v22(987, retrieval_score 없음) 동일 방식 carve-out은 이전 세션에서 2057.20)
+
+Saved model + feature_meta.json to C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v32_retrieval_as_feature\model

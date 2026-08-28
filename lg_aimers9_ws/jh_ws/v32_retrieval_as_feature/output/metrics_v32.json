@@ -1,0 +1,9 @@
+{
+  "k_folds": 3,
+  "cb_elapsed_sec": 1746.6255807876587,
+  "carveout_bss_raw": 2080.9558132704574,
+  "carveout_bss_calibrated": 2089.5658691542194,
+  "retrieval_score_importance": 20.877427811084367,
+  "retrieval_score_importance_rank": 1,
+  "n_features": 71
+}

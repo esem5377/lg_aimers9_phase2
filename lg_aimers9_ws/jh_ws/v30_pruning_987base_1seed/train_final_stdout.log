@@ -1,0 +1,31 @@
+Load train data (전체) + control_risk_score(*2) 추가, 원재료 3개 제거...
+ shape=(1475092, 72)
+ id_mappings: pitcher_id n=792  batter_id n=830
+ n_features(pruning 전)=70 (v22의 70)
+
+Calibration carve-out(5%) 분리...
+ train=(1401337, 70)  calibration carve-out=(73755, 70)
+
+Pruning (corr>0.95 + LGBM importance==0), train_final(95%)에만 fit...
+ corr>0.95 제거 대상(13개): ['away_win_expectancy', 'asof_pitcher_pitchmix_n', 'tk_cnt_horz_break_mean', 'tk_cnt_fastball_rate', 'tk_cnt_breaking_rate', 'tk_cnt_offspeed_rate', 'tk_hand_horz_break_mean', 'tk_hand_breaking_rate', 'tk_hand_offspeed_rate', 'tk_inn_induced_vert_break_mean', 'tk_inn_fastball_rate', 'tk_inn_breaking_rate', 'control_risk_score_weighted']
+ LGBM importance==0 제거 대상(4개): ['runner_on_1b', 'runner_on_2b', 'tk_hand_fastball_rate', 'tk_hand_n']
+ pruning 완료 (31.5s): 70 -> 53피처 (corr제거 13개 + importance0제거 4개)
+ 최종 선택 피처: ['season', 'game_month', 'game_dayofweek', 'inning', 'top_bottom', 'game_type', 'balls_before', 'strikes_before', 'outs_before', 'run_top_before', 'run_bot_before', 'run_total_before', 'score_diff_home', 'score_diff_pitcher_team', 'runner_on_3b', 'num_runners_on', 'base_state', 'home_win_expectancy', 'li', 'pitcher_id', 'batter_id', 'pitcher_hand', 'batter_hand', 'pitcher_team_id', 'batter_team_id', 'asof_pitcher_n', 'asof_pitcher_success_rate', 'asof_pitcher_strike_rate', 'asof_pitcher_prev1_game_success_rate', 'asof_pitcher_prev3_game_success_rate', 'asof_pitcher_prev5_game_success_rate', 'asof_pitcher_prev1_game_middle_rate', 'asof_pitcher_prev3_game_middle_rate', 'asof_pitcher_prev5_game_middle_rate', 'asof_batter_n', 'asof_batter_success_rate', 'asof_batter_middle_rate', 'asof_pitcher_fastball_rate', 'asof_pitcher_breaking_rate', 'asof_pitcher_offspeed_rate', 'tk_cnt_rel_speed_mean', 'tk_cnt_spin_rate_mean', 'tk_cnt_induced_vert_break_mean', 'tk_cnt_n', 'tk_hand_rel_speed_mean', 'tk_hand_spin_rate_mean', 'tk_hand_induced_vert_break_mean', 'tk_inn_rel_speed_mean', 'tk_inn_spin_rate_mean', 'tk_inn_horz_break_mean', 'tk_inn_offspeed_rate', 'tk_inn_n', 'control_risk_score']
+
+=== seed=42 학습 (iterations=2000, n_features=53) ===
+0:	learn: 0.6929778	total: 922ms	remaining: 30m 43s
+200:	learn: 0.6836763	total: 2m 42s	remaining: 24m 15s
+400:	learn: 0.6825695	total: 5m 29s	remaining: 21m 53s
+600:	learn: 0.6819156	total: 8m 15s	remaining: 19m 13s
+800:	learn: 0.6813916	total: 10m 59s	remaining: 16m 27s
+1000:	learn: 0.6809162	total: 13m 44s	remaining: 13m 43s
+1200:	learn: 0.6804953	total: 16m 26s	remaining: 10m 56s
+1400:	learn: 0.6800792	total: 19m 10s	remaining: 8m 11s
+1600:	learn: 0.6796240	total: 21m 53s	remaining: 5m 27s
+1800:	learn: 0.6791690	total: 24m 35s	remaining: 2m 43s
+1999:	learn: 0.6787168	total: 27m 20s	remaining: 0us
+ 학습 완료 (1648.5s)
+ carve-out BSS: raw=2045.93  calibrated=2057.40
+ saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v30_pruning_987base_1seed\model\catboost_seed42.cbm
+
+Saved 1 model + feature_meta.json to C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v30_pruning_987base_1seed\model

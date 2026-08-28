@@ -1,0 +1,29 @@
+{
+  "seed": 42,
+  "elapsed_sec": 1648.5112431049347,
+  "n_features_before_pruning": 70,
+  "n_features_after_pruning": 53,
+  "dropped_corr": [
+    "away_win_expectancy",
+    "asof_pitcher_pitchmix_n",
+    "tk_cnt_horz_break_mean",
+    "tk_cnt_fastball_rate",
+    "tk_cnt_breaking_rate",
+    "tk_cnt_offspeed_rate",
+    "tk_hand_horz_break_mean",
+    "tk_hand_breaking_rate",
+    "tk_hand_offspeed_rate",
+    "tk_inn_induced_vert_break_mean",
+    "tk_inn_fastball_rate",
+    "tk_inn_breaking_rate",
+    "control_risk_score_weighted"
+  ],
+  "dropped_importance0": [
+    "runner_on_1b",
+    "runner_on_2b",
+    "tk_hand_fastball_rate",
+    "tk_hand_n"
+  ],
+  "carveout_bss_raw": 2045.9275121338937,
+  "carveout_bss_calibrated": 2057.4038676909545
+}

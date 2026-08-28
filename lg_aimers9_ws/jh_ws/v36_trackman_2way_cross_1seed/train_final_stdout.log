@@ -1,0 +1,31 @@
+Load train data (전체) + base trackman context + 2-way 교차 context + control_risk_score(*2) 추가, 원재료 3개 제거...
+Load trackman_history for 2-way cross...
+ shape=(1793078, 30)
+ [cnt_hand] keys=['balls_before', 'strikes_before', 'outs_before', 'pitcher_hand', 'batter_hand'] rows=181 new_cols=8
+ [cnt_inn] keys=['balls_before', 'strikes_before', 'outs_before', 'inning', 'top_bottom'] rows=992 new_cols=8
+ [hand_inn] keys=['pitcher_hand', 'batter_hand', 'inning', 'top_bottom'] rows=102 new_cols=8
+ shape=(1475092, 96)
+ saved combined trackman context (base 3축 + cross 3축): C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v36_trackman_2way_cross_1seed\model\trackman_context.pkl
+ id_mappings: pitcher_id n=792  batter_id n=830
+ n_features=94 (987베이스 70 + 교차 24)
+
+Calibration carve-out(5%) 분리...
+ train=(1401337, 94)  calibration carve-out=(73755, 94)
+
+=== seed=42 학습 (iterations=2000, n_features=94) ===
+0:	learn: 0.6929850	total: 1.01s	remaining: 33m 46s
+200:	learn: 0.6836970	total: 3m 8s	remaining: 28m 8s
+400:	learn: 0.6825548	total: 6m 19s	remaining: 25m 14s
+600:	learn: 0.6819035	total: 9m 31s	remaining: 22m 11s
+800:	learn: 0.6813714	total: 12m 43s	remaining: 19m 2s
+1000:	learn: 0.6809325	total: 15m 52s	remaining: 15m 50s
+1200:	learn: 0.6805138	total: 19m 1s	remaining: 12m 39s
+1400:	learn: 0.6800789	total: 22m 9s	remaining: 9m 28s
+1600:	learn: 0.6796114	total: 25m 18s	remaining: 6m 18s
+1800:	learn: 0.6791436	total: 33m 53s	remaining: 3m 44s
+1999:	learn: 0.6786930	total: 44m 37s	remaining: 0us
+ 학습 완료 (2685.4s)
+ carve-out BSS: raw=2014.87  calibrated=2024.09
+ saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v36_trackman_2way_cross_1seed\model\catboost_seed42.cbm
+
+Saved 1 model + feature_meta.json + trackman_context.pkl to C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v36_trackman_2way_cross_1seed\model
