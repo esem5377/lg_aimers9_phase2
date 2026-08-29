@@ -1,0 +1,38 @@
+=== v40: CatBoost(pitcher_id/batter_id as categorical) + retrieval(v26 재사용,0.7:0.3) + EB-GLMM(last1season) ===
+Load data(전체 이력 2019~2024) + split(재현, v26/v34와 동일 split)...
+ train_sub=1401337 calib=73755
+
+CatBoost 학습(pitcher_id/batter_id를 cat_features에 추가)...
+0:	learn: 0.6929803	total: 1.26s	remaining: 41m 59s
+200:	learn: 0.6833798	total: 3m 44s	remaining: 33m 31s
+400:	learn: 0.6820898	total: 7m 38s	remaining: 30m 27s
+600:	learn: 0.6814041	total: 11m 32s	remaining: 26m 51s
+800:	learn: 0.6808990	total: 15m 26s	remaining: 23m 7s
+1000:	learn: 0.6804660	total: 19m 22s	remaining: 19m 20s
+1200:	learn: 0.6800513	total: 23m 12s	remaining: 15m 26s
+1400:	learn: 0.6796775	total: 26m 58s	remaining: 11m 32s
+1600:	learn: 0.6792626	total: 30m 49s	remaining: 7m 40s
+1800:	learn: 0.6788390	total: 34m 43s	remaining: 3m 50s
+1999:	learn: 0.6784361	total: 38m 34s	remaining: 0us
+ CatBoost 학습 완료 (2328.9s)
+ CatBoost 체크포인트 저장 완료
+
+Retrieval raw 예측(calib, v26 재사용, 재학습 없음, 참조=1,401,337행)...
+ retrieval calib 예측 완료(209.4s)
+
+EB-GLMM(last1season=2024) 학습...
+  [EB-GLMM] season_window=(2024, 2024) n_train=240926
+    round 1/4 done
+    round 2/4 done
+    round 3/4 done
+    round 4/4 done
+C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v40_id_as_cat_1seed\01_build_v40.py:114: Pandas4Warning: Constructing a Categorical with a dtype and values containing non-null entries not in that dtype's categories is deprecated and will raise in a future version.
+  s = pd.Categorical(s, categories=cats)
+C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v40_id_as_cat_1seed\01_build_v40.py:114: Pandas4Warning: Constructing a Categorical with a dtype and values containing non-null entries not in that dtype's categories is deprecated and will raise in a future version.
+  s = pd.Categorical(s, categories=cats)
+ EB-GLMM 학습+calib예측 완료(5.0s)
+
+저자유도 그리드서치(CatBoost:retrieval=0.7:0.3 고정, w_ebglmm만 탐색)...
+ best_w_ebglmm=0.00  calib_bss=2268.86  (참고: w_ebglmm=0.00일 때 calib_bss=2268.86 == 순수 CatBoost(id_as_cat)+retrieval(0.7:0.3), v34 기준값=2082.78)
+
+Saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v40_id_as_cat_1seed\model (catboost_seed42.cbm, ebglmm_state.pkl, feature_meta.json + v26 retrieval 아티팩트 복사) / C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v40_id_as_cat_1seed\output\metrics_v40.json

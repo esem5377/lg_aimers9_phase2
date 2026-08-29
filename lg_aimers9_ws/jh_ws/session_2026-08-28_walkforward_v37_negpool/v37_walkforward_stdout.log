@@ -1,0 +1,89 @@
+Load train data + trackman context...
+ shape=(1475092, 73)
+
+=== fold2_2024 ===
+ train_sub=1160505 calib=61080 eval=253507
+Load train data + trackman context...
+ shape=(1475092, 73)
+
+=== fold2_2024 ===
+ train_sub=1160505 calib=61080 eval=253507
+ CatBoost 학습 완료 (1628.2s)
+ CatBoost 체크포인트 저장 완료 (C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\session_2026-08-28_walkforward_v37_negpool\checkpoints\fold2_2024\cb_model.cbm)
+
+ --- fold2_2024 / batch1024_baseline (batch_size=1024) ---
+    [fold2_2024/batch1024_baseline] epoch 1/20 train_loss=0.68635 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 2/20 train_loss=0.68496 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 3/20 train_loss=0.68449 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 4/20 train_loss=0.68410 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 5/20 train_loss=0.68381 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 6/20 train_loss=0.68352 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 7/20 train_loss=0.68331 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 8/20 train_loss=0.68320 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 9/20 train_loss=0.68299 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 10/20 train_loss=0.68289 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 11/20 train_loss=0.68279 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 12/20 train_loss=0.68259 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 13/20 train_loss=0.68257 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 14/20 train_loss=0.68248 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 15/20 train_loss=0.68242 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 16/20 train_loss=0.68235 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 17/20 train_loss=0.68224 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 18/20 train_loss=0.68209 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 19/20 train_loss=0.68203 n_batches=1134
+Load train data + trackman context...
+ shape=(1475092, 73)
+
+=== fold2_2024 ===
+ train_sub=1160505 calib=61080 eval=253507
+ CatBoost 체크포인트 발견, 재학습 스킵 (C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\session_2026-08-28_walkforward_v37_negpool\checkpoints\fold2_2024\cb_model.cbm)
+
+ --- fold2_2024 / batch1024_baseline (batch_size=1024) ---
+    [fold2_2024/batch1024_baseline] epoch 1/20 train_loss=0.68635 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 2/20 train_loss=0.68496 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 3/20 train_loss=0.68449 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 4/20 train_loss=0.68410 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 5/20 train_loss=0.68381 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 6/20 train_loss=0.68352 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 7/20 train_loss=0.68331 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 8/20 train_loss=0.68320 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 9/20 train_loss=0.68299 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 10/20 train_loss=0.68289 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 11/20 train_loss=0.68279 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 12/20 train_loss=0.68259 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 13/20 train_loss=0.68257 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 14/20 train_loss=0.68248 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 15/20 train_loss=0.68242 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 16/20 train_loss=0.68235 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 17/20 train_loss=0.68224 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 18/20 train_loss=0.68209 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 19/20 train_loss=0.68203 n_batches=1134
+    [fold2_2024/batch1024_baseline] epoch 20/20 train_loss=0.68195 n_batches=1134
+  encoder 학습 완료 (941.2s)
+  encoder 체크포인트 저장 완료 (C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\session_2026-08-28_walkforward_v37_negpool\checkpoints\fold2_2024\encoder_batch1024_baseline.pt)
+  retrieval 추론 완료 (826.4s)
+  [batch1024_baseline] eval_bss=848.21
+
+ --- fold2_2024 / batch4096_treatment (batch_size=4096) ---
+    [fold2_2024/batch4096_treatment] epoch 1/20 train_loss=0.68564 n_batches=284
+    [fold2_2024/batch4096_treatment] epoch 2/20 train_loss=0.68391 n_batches=284
+    [fold2_2024/batch4096_treatment] epoch 3/20 train_loss=0.68329 n_batches=284
+    [fold2_2024/batch4096_treatment] epoch 4/20 train_loss=0.68289 n_batches=284
+    [fold2_2024/batch4096_treatment] epoch 5/20 train_loss=0.68257 n_batches=284
+    [fold2_2024/batch4096_treatment] epoch 6/20 train_loss=0.68218 n_batches=284
+    [fold2_2024/batch4096_treatment] epoch 7/20 train_loss=0.68192 n_batches=284
+    [fold2_2024/batch4096_treatment] epoch 8/20 train_loss=0.68167 n_batches=284
+    [fold2_2024/batch4096_treatment] epoch 9/20 train_loss=0.68143 n_batches=284
+    [fold2_2024/batch4096_treatment] epoch 10/20 train_loss=0.68117 n_batches=284
+    [fold2_2024/batch4096_treatment] epoch 11/20 train_loss=0.68093 n_batches=284
+    [fold2_2024/batch4096_treatment] epoch 12/20 train_loss=0.68067 n_batches=284
+    [fold2_2024/batch4096_treatment] epoch 13/20 train_loss=0.68047 n_batches=284
+    [fold2_2024/batch4096_treatment] epoch 14/20 train_loss=0.68025 n_batches=284
+    [fold2_2024/batch4096_treatment] epoch 15/20 train_loss=0.68002 n_batches=284
+    [fold2_2024/batch4096_treatment] epoch 16/20 train_loss=0.67976 n_batches=284
+    [fold2_2024/batch4096_treatment] epoch 17/20 train_loss=0.67957 n_batches=284
+    [fold2_2024/batch4096_treatment] epoch 18/20 train_loss=0.67932 n_batches=284
+    [fold2_2024/batch4096_treatment] epoch 19/20 train_loss=0.67900 n_batches=284
+    [fold2_2024/batch4096_treatment] epoch 20/20 train_loss=0.67883 n_batches=284
+  encoder 학습 완료 (1356.1s)
+  encoder 체크포인트 저장 완료 (C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\session_2026-08-28_walkforward_v37_negpool\checkpoints\fold2_2024\encoder_batch4096_treatment.pt)

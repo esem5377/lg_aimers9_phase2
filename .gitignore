@@ -41,6 +41,18 @@ lg_aimers9_ws/jh_ws/v33_retrieval_seed_bagging/model/reference_embeddings_seed99
 lg_aimers9_ws/jh_ws/v33_retrieval_seed_bagging/model/reference_embeddings_seed123.npy
 lg_aimers9_ws/jh_ws/v33_retrieval_seed_bagging/model/reference_embeddings_seed777.npy
 lg_aimers9_ws/jh_ws/v33_retrieval_seed_bagging/v33_retrieval_6seed.zip
+lg_aimers9_ws/jh_ws/v37_negpool_batch4096/model/reference_embeddings.npy
+lg_aimers9_ws/jh_ws/v37_negpool_batch4096/v37_negpool_batch4096.zip
+lg_aimers9_ws/jh_ws/v38_confidence_weighted_catboost/model/reference_embeddings.npy
+lg_aimers9_ws/jh_ws/v38b_confidence_weighted_v2/model/reference_embeddings.npy
+lg_aimers9_ws/jh_ws/v38b_confidence_weighted_v2/v38b_confidence_weighted.zip
+lg_aimers9_ws/jh_ws/v40_id_as_cat_1seed/model/catboost_seed42.cbm
+lg_aimers9_ws/jh_ws/v40_id_as_cat_1seed/model/reference_embeddings.npy
+lg_aimers9_ws/jh_ws/v40_id_as_cat_1seed/v40_id_as_cat.zip
+
+# CatBoost 학습 재개용 스냅샷(로컬 재생성 가능, git에 불필요)
+lg_aimers9_ws/jh_ws/v38_confidence_weighted_catboost/catboost_snapshot.bin
+lg_aimers9_ws/jh_ws/v38b_confidence_weighted_v2/catboost_snapshot.bin
 lg_aimers9_ws/jh_ws/*/catboost_info/
 lg_aimers9_ws/es_ws/work/model_retrieval_blend_v3/reference_embeddings.npy
 lg_aimers9_ws/es_ws/work/model_v4_cb6_retrieval/reference_embeddings.npy

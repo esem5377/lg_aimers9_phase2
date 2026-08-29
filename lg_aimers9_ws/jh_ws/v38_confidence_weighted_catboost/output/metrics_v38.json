@@ -1,0 +1,100 @@
+{
+  "confidence_k": 100.0,
+  "confidence_floor": 0.3,
+  "w_catboost_retrieval": 0.7,
+  "best_w_ebglmm": 0.0,
+  "carveout_calib_bss": 2080.303312451448,
+  "calib_bss_no_ebglmm_reference": 2080.303312451448,
+  "calib_bss_v34_unweighted_reference": 2082.78,
+  "delta_vs_v34_2way": -2.476687548552036,
+  "calibration_a": 4.768461154929736,
+  "calibration_b": -2.398656190416153,
+  "grid_log": [
+    {
+      "w_ebglmm": 0.0,
+      "calib_bss": 2080.303312451448
+    },
+    {
+      "w_ebglmm": 0.05,
+      "calib_bss": 2075.202499243456
+    },
+    {
+      "w_ebglmm": 0.1,
+      "calib_bss": 2064.8457785717887
+    },
+    {
+      "w_ebglmm": 0.15,
+      "calib_bss": 2048.229091966869
+    },
+    {
+      "w_ebglmm": 0.2,
+      "calib_bss": 2024.2449283725316
+    },
+    {
+      "w_ebglmm": 0.25,
+      "calib_bss": 1991.705175976388
+    },
+    {
+      "w_ebglmm": 0.3,
+      "calib_bss": 1949.383391081605
+    },
+    {
+      "w_ebglmm": 0.35,
+      "calib_bss": 1896.0875834871715
+    },
+    {
+      "w_ebglmm": 0.4,
+      "calib_bss": 1830.774897813625
+    },
+    {
+      "w_ebglmm": 0.45,
+      "calib_bss": 1752.4913094597362
+    },
+    {
+      "w_ebglmm": 0.5,
+      "calib_bss": 1660.71764362945
+    },
+    {
+      "w_ebglmm": 0.55,
+      "calib_bss": 1555.4920459625475
+    },
+    {
+      "w_ebglmm": 0.6,
+      "calib_bss": 1437.695407514683
+    },
+    {
+      "w_ebglmm": 0.65,
+      "calib_bss": 1309.0378561518178
+    },
+    {
+      "w_ebglmm": 0.7,
+      "calib_bss": 1172.0716874808468
+    },
+    {
+      "w_ebglmm": 0.75,
+      "calib_bss": 1030.0430831806539
+    },
+    {
+      "w_ebglmm": 0.8,
+      "calib_bss": 886.9733294442627
+    },
+    {
+      "w_ebglmm": 0.85,
+      "calib_bss": 746.9509128399054
+    },
+    {
+      "w_ebglmm": 0.9,
+      "calib_bss": 613.9249071616781
+    },
+    {
+      "w_ebglmm": 0.95,
+      "calib_bss": 491.2645078929967
+    },
+    {
+      "w_ebglmm": 1.0,
+      "calib_bss": 381.50809191501713
+    }
+  ],
+  "n_train_sub": 1401337,
+  "n_calib": 73755
+}

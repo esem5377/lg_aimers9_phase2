@@ -1,0 +1,38 @@
+=== v37: CatBoost(v26 재사용) + retrieval(negative pool 4배 확대, 전체 재학습) ===
+Load data(전체 이력 2019~2024) + split(재현, v26/v34/v35와 동일 split)...
+ train_sub=1401337 calib=73755
+
+CatBoost raw 예측(calib, v26 모델 재사용, 재학습 없음)...
+
+negative pool 확대 retrieval encoder 학습(BATCH_SIZE=4096, 전체 프로덕션 데이터, 처음부터)...
+ n_numeric=61 cardinalities={'pitcher_id': 792, 'batter_id': 830, 'pitcher_team_id': 13, 'batter_team_id': 13, 'top_bottom': 2, 'game_type': 2, 'base_state': 8, 'pitcher_hand': 2, 'batter_hand': 2}
+  모델 파라미터 수: 126,917
+    epoch 1/20 train_loss=0.68674 val_loss(ref=20000)=0.68478 temp=0.1027 n_batches=343
+    epoch 2/20 train_loss=0.68522 val_loss(ref=20000)=0.68393 temp=0.1035 n_batches=343
+    epoch 3/20 train_loss=0.68457 val_loss(ref=20000)=0.68350 temp=0.1001 n_batches=343
+    epoch 4/20 train_loss=0.68415 val_loss(ref=20000)=0.68318 temp=0.0977 n_batches=343
+    epoch 5/20 train_loss=0.68377 val_loss(ref=20000)=0.68294 temp=0.0945 n_batches=343
+    epoch 6/20 train_loss=0.68353 val_loss(ref=20000)=0.68280 temp=0.0917 n_batches=343
+    epoch 7/20 train_loss=0.68329 val_loss(ref=20000)=0.68248 temp=0.0879 n_batches=343
+    epoch 8/20 train_loss=0.68302 val_loss(ref=20000)=0.68233 temp=0.0833 n_batches=343
+    epoch 9/20 train_loss=0.68278 val_loss(ref=20000)=0.68251 temp=0.0825 n_batches=343
+    epoch 10/20 train_loss=0.68266 val_loss(ref=20000)=0.68231 temp=0.0782 n_batches=343
+    epoch 11/20 train_loss=0.68240 val_loss(ref=20000)=0.68256 temp=0.0761 n_batches=343
+    epoch 12/20 train_loss=0.68226 val_loss(ref=20000)=0.68229 temp=0.0735 n_batches=343
+    epoch 13/20 train_loss=0.68208 val_loss(ref=20000)=0.68221 temp=0.0723 n_batches=343
+    epoch 14/20 train_loss=0.68191 val_loss(ref=20000)=0.68220 temp=0.0702 n_batches=343
+    epoch 15/20 train_loss=0.68179 val_loss(ref=20000)=0.68234 temp=0.0686 n_batches=343
+    epoch 16/20 train_loss=0.68157 val_loss(ref=20000)=0.68221 temp=0.0667 n_batches=343
+    epoch 17/20 train_loss=0.68139 val_loss(ref=20000)=0.68210 temp=0.0656 n_batches=343
+    epoch 18/20 train_loss=0.68131 val_loss(ref=20000)=0.68189 temp=0.0643 n_batches=343
+    epoch 19/20 train_loss=0.68109 val_loss(ref=20000)=0.68189 temp=0.0617 n_batches=343
+    epoch 20/20 train_loss=0.68094 val_loss(ref=20000)=0.68196 temp=0.0598 n_batches=343
+ encoder 학습 완료 (1715.8s)
+ 참조집합 인코딩 완료(reference=1401337행, 2.2s)
+ retrieval calib 예측 완료(279.3s)
+
+저자유도 그리드서치(CatBoost:retrieval 가중치, raw 가중합->calibration 1회)...
+ best_w_catboost=0.60  calib_bss=2122.76  (참고: v26 w=0.70 calib_bss=2082.78, v35 w=0.70 calib_bss=2082.07)
+
+Saved model artifacts to C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v37_negpool_batch4096\model
+Saved metrics to C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v37_negpool_batch4096\output\metrics_v37.json

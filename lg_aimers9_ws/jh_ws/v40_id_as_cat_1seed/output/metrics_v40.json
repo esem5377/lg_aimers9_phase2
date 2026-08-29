@@ -1,0 +1,101 @@
+{
+  "w_catboost_retrieval": 0.7,
+  "best_w_ebglmm": 0.0,
+  "carveout_calib_bss": 2268.8610147338695,
+  "calib_bss_no_ebglmm_reference": 2268.8610147338695,
+  "v34_reference_calib_bss": 2082.78,
+  "calibration_a": 4.802974091822955,
+  "calibration_b": -2.4150807809827857,
+  "grid_log": [
+    {
+      "w_ebglmm": 0.0,
+      "calib_bss": 2268.8610147338695
+    },
+    {
+      "w_ebglmm": 0.05,
+      "calib_bss": 2259.856600401766
+    },
+    {
+      "w_ebglmm": 0.1,
+      "calib_bss": 2245.3961893899364
+    },
+    {
+      "w_ebglmm": 0.15,
+      "calib_bss": 2224.303219210677
+    },
+    {
+      "w_ebglmm": 0.2,
+      "calib_bss": 2195.489607979828
+    },
+    {
+      "w_ebglmm": 0.25,
+      "calib_bss": 2157.7082768058144
+    },
+    {
+      "w_ebglmm": 0.3,
+      "calib_bss": 2109.651043430982
+    },
+    {
+      "w_ebglmm": 0.35,
+      "calib_bss": 2050.010017380699
+    },
+    {
+      "w_ebglmm": 0.4,
+      "calib_bss": 1977.5755300938004
+    },
+    {
+      "w_ebglmm": 0.45,
+      "calib_bss": 1891.3855746778618
+    },
+    {
+      "w_ebglmm": 0.5,
+      "calib_bss": 1790.7914627247058
+    },
+    {
+      "w_ebglmm": 0.55,
+      "calib_bss": 1675.5461047090803
+    },
+    {
+      "w_ebglmm": 0.6,
+      "calib_bss": 1546.4413193566618
+    },
+    {
+      "w_ebglmm": 0.65,
+      "calib_bss": 1405.1312793660563
+    },
+    {
+      "w_ebglmm": 0.7,
+      "calib_bss": 1254.3368188877691
+    },
+    {
+      "w_ebglmm": 0.75,
+      "calib_bss": 1097.6566475510374
+    },
+    {
+      "w_ebglmm": 0.8,
+      "calib_bss": 939.4340527044353
+    },
+    {
+      "w_ebglmm": 0.85,
+      "calib_bss": 784.4196914401191
+    },
+    {
+      "w_ebglmm": 0.9,
+      "calib_bss": 637.2276561269707
+    },
+    {
+      "w_ebglmm": 0.95,
+      "calib_bss": 501.89121939572254
+    },
+    {
+      "w_ebglmm": 1.0,
+      "calib_bss": 381.50809191501713
+    }
+  ],
+  "ebglmm_season_window": [
+    2024,
+    2024
+  ],
+  "n_train_sub": 1401337,
+  "n_calib": 73755
+}

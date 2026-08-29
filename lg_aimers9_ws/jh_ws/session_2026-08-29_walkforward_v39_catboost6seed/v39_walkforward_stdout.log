@@ -1,0 +1,6 @@
+Load train data + trackman context...
+ shape=(1475092, 73)
+
+=== fold2_2024 ===
+ train_sub=1160505 calib=61080 eval=253507
+ CatBoost seed=42 체크포인트 발견, 재학습 스킵

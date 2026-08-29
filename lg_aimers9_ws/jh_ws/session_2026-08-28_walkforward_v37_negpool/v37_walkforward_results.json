@@ -1,0 +1,11 @@
+{
+  "fold2_2024": {
+    "n_train_sub": 1160505,
+    "n_calib": 61080,
+    "n_eval": 253507,
+    "batch1024_baseline": {
+      "batch_size": 1024,
+      "eval_bss": 848.2066862778304
+    }
+  }
+}

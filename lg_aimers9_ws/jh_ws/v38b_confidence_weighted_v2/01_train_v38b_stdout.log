@@ -1,0 +1,37 @@
+Load data(전체 이력 2019~2024) + split(v26/v34와 동일 split)...
+ train_sub=1401337 calib=73755
+ sample_weight: min=0.400 p10=0.476 median=0.673 max=0.925
+
+=== CatBoost 학습(confidence-weighted, snapshot 재개 가능) ===
+0:	learn: 0.6929978	total: 1.07s	remaining: 35m 40s
+200:	learn: 0.6847126	total: 2m 54s	remaining: 26m 1s
+400:	learn: 0.6836777	total: 5m 54s	remaining: 23m 32s
+600:	learn: 0.6830324	total: 8m 54s	remaining: 20m 43s
+800:	learn: 0.6825018	total: 11m 54s	remaining: 17m 50s
+1000:	learn: 0.6820307	total: 14m 51s	remaining: 14m 50s
+1200:	learn: 0.6815998	total: 17m 48s	remaining: 11m 50s
+1400:	learn: 0.6811889	total: 20m 42s	remaining: 8m 51s
+1600:	learn: 0.6807564	total: 23m 39s	remaining: 5m 53s
+1800:	learn: 0.6803272	total: 26m 32s	remaining: 2m 55s
+1999:	learn: 0.6799039	total: 29m 27s	remaining: 0us
+ CatBoost 학습 완료 (1768.5s)
+ saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v38b_confidence_weighted_v2\model\catboost_seed42.cbm
+
+Retrieval raw 예측(calib, v26 encoder 재사용)...
+ retrieval calib 예측 완료(213.3s)
+
+EB-GLMM(last1season=2024) 학습...
+  [EB-GLMM] season_window=(2024, 2024) n_train=240926
+    round 1/4 done
+    round 2/4 done
+    round 3/4 done
+    round 4/4 done
+ EB-GLMM 학습+calib예측 완료(4.9s)
+
+저자유도 그리드서치(CatBoost:retrieval=0.7:0.3 고정, w_ebglmm만 탐색)...
+ best_w_ebglmm=0.00  calib_bss=2088.80  (w_ebglmm=0.00일 때(=confidence-weighted CB+retrieval 순수 2way) calib_bss=2088.80)
+ 참고 -- v34(비가중 CatBoost) 동일 지표: w_ebglmm=0.00일 때 calib_bss=2082.78
+ delta vs v34 2way(2082.78) = +6.02
+
+Saved: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v38b_confidence_weighted_v2\model\catboost_seed42.cbm, ebglmm_state.pkl, feature_meta.json
+ metrics: C:\Users\USER\Desktop\lg_aimers9_phase2\lg_aimers9_ws\jh_ws\v38b_confidence_weighted_v2\output\metrics_v38.json

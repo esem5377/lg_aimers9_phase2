@@ -1,0 +1,100 @@
+{
+  "confidence_k": 2000.0,
+  "confidence_floor": 0.4,
+  "w_catboost_retrieval": 0.7,
+  "best_w_ebglmm": 0.0,
+  "carveout_calib_bss": 2088.7984754549448,
+  "calib_bss_no_ebglmm_reference": 2088.7984754549448,
+  "calib_bss_v34_unweighted_reference": 2082.78,
+  "delta_vs_v34_2way": 6.018475454944564,
+  "calibration_a": 4.774623650382421,
+  "calibration_b": -2.4019558319849548,
+  "grid_log": [
+    {
+      "w_ebglmm": 0.0,
+      "calib_bss": 2088.7984754549448
+    },
+    {
+      "w_ebglmm": 0.05,
+      "calib_bss": 2083.405426947005
+    },
+    {
+      "w_ebglmm": 0.1,
+      "calib_bss": 2072.729975436105
+    },
+    {
+      "w_ebglmm": 0.15,
+      "calib_bss": 2055.7673569485014
+    },
+    {
+      "w_ebglmm": 0.2,
+      "calib_bss": 2031.4096242853298
+    },
+    {
+      "w_ebglmm": 0.25,
+      "calib_bss": 1998.4686065835033
+    },
+    {
+      "w_ebglmm": 0.3,
+      "calib_bss": 1955.7181411879233
+    },
+    {
+      "w_ebglmm": 0.35,
+      "calib_bss": 1901.9664745204777
+    },
+    {
+      "w_ebglmm": 0.4,
+      "calib_bss": 1836.1706904866603
+    },
+    {
+      "w_ebglmm": 0.45,
+      "calib_bss": 1757.4311854127611
+    },
+    {
+      "w_ebglmm": 0.5,
+      "calib_bss": 1665.1032192223192
+    },
+    {
+      "w_ebglmm": 0.55,
+      "calib_bss": 1559.356169767323
+    },
+    {
+      "w_ebglmm": 0.6,
+      "calib_bss": 1441.0356603293594
+    },
+    {
+      "w_ebglmm": 0.65,
+      "calib_bss": 1311.8575556573476
+    },
+    {
+      "w_ebglmm": 0.7,
+      "calib_bss": 1174.385615604956
+    },
+    {
+      "w_ebglmm": 0.75,
+      "calib_bss": 1031.8779886207442
+    },
+    {
+      "w_ebglmm": 0.8,
+      "calib_bss": 888.3530039024201
+    },
+    {
+      "w_ebglmm": 0.85,
+      "calib_bss": 747.9154699291945
+    },
+    {
+      "w_ebglmm": 0.9,
+      "calib_bss": 614.5173742126975
+    },
+    {
+      "w_ebglmm": 0.95,
+      "calib_bss": 491.5337157168853
+    },
+    {
+      "w_ebglmm": 1.0,
+      "calib_bss": 381.50809191501713
+    }
+  ],
+  "n_train_sub": 1401337,
+  "n_calib": 73755
+}
