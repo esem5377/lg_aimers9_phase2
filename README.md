@@ -1,8 +1,8 @@
 # LG Aimers 9 Phase 2 — 투구 제구 성공 확률 예측 📊
 
-**최종 팀 최고 스코어 1024점** (baseline RandomForest 549.51 대비, 시작 시점 909 대비 +115)
+<img src="docs/asset/readme/lgaimers9-poster.png" width="300" align="right" alt="LG Aimers 9 poster" />
 
-**최종 리더보드 순위 398등**
+**LG Aimers 9 해커톤 Phase 2 — 최종 팀 최고 스코어 1024점 · 리더보드 398등**
 
 - **과제**<br />투구 직전까지 알 수 있는 경기 상황 / 선수 정보 / 과거 이력 피처로
   해당 투구의 제구 성공 확률(`control_success`)을 예측
@@ -11,7 +11,9 @@
 - **데이터**<br />`train.csv` 1,475,092행 × 49컬럼 (2019~2024), `trackman_history.csv` 1,793,078행 × 30컬럼
 - **제약**<br />외부 데이터/API 금지, row-wise 독립 추론(`test.csv` 타 행 참조 금지), 완전 오프라인 추론
 - **협업 구조**<br />두 워크스페이스(`jh_ws`, `es_ws`)가 독립적으로 실험하고 서로 pull하며 발전
+- **최종 스코어**<br />1024점 (baseline RandomForest 549.51 대비, 시작 시점 909 대비 +115) · 리더보드 398등
 
+<br clear="right" />
 <br />
 
 <div align="center">
