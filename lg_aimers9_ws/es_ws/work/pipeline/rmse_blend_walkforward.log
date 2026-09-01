@@ -1,0 +1,30 @@
+device=cuda
+shape=(1475092, 72)
+
+### fold0: train(<=2021)=728588 eval(2022)=247472
+  --- CatBoost Logloss ---
+    done (88s)
+  --- CatBoost RMSE ---
+    done (62s)
+  --- retrieval encoder (fold-specific) ---
+    done (88s)
+  --- blend: (Logloss+retrieval, 0.7:0.3) vs (RMSE+retrieval, 0.7:0.3) ---
+  blend(Logloss+retrieval): auc=0.5790 bss_calib=2382.78
+  blend(RMSE+retrieval):    auc=0.5792 bss_calib=2394.06  delta=+11.28
+
+### fold2: train(<=2023)=1221585 eval(2024)=253507
+  --- CatBoost Logloss ---
+    done (139s)
+  --- CatBoost RMSE ---
+    done (102s)
+  --- retrieval encoder (fold-specific) ---
+    done (152s)
+  --- blend: (Logloss+retrieval, 0.7:0.3) vs (RMSE+retrieval, 0.7:0.3) ---
+  blend(Logloss+retrieval): auc=0.5514 bss_calib=828.59
+  blend(RMSE+retrieval):    auc=0.5515 bss_calib=833.87  delta=+5.28
+
+Saved: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/rmse_blend_walkforward.json
+
+=== SUMMARY ===
+fold0: blend_delta=+11.28
+fold2: blend_delta=+5.28

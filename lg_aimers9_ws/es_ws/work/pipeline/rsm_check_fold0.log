@@ -1,0 +1,13 @@
+shape=(1475092, 72)
+train(<=2021)=728588 eval(2022)=247472
+
+=== fold0: CatBoost 1seed no-rsm baseline ===
+    seed=42 extra=None task_type=GPU done (90s)
+  baseline(no-rsm): auc=0.5788 bss_calib=2368.59
+
+=== fold0: CatBoost 1seed rsm=0.8 ===
+    seed=42 extra={'rsm': 0.8} task_type=CPU done (308s)
+  rsm-only: auc=0.5786 bss_calib=2358.26  delta_vs_baseline=-10.33
+  combined(no-rsm + rsm, 2-way mean): auc=0.5789 bss_calib=2371.52  delta_vs_baseline=+2.93
+
+Saved: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/rsm_check_fold0.json

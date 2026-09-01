@@ -1,0 +1,15 @@
+shape=(1475092, 72)
+train=1221585 eval(2024)=253507
+
+=== Task A: CatBoost 1seed(no rsm), checkpoint-avg vs final-only ===
+    seed=42 extra=None task_type=GPU done (146s)
+  baseline(1seed, final-only 2000): auc=0.5511 bss_calib=824.09
+  checkpoint_avg(1seed x 5ckpt): auc=0.5512 bss_calib=826.54  delta=+2.45
+
+=== Task B: CatBoost 1seed with rsm=0.8 vs no-rsm ===
+    seed=42 extra={'rsm': 0.8} task_type=CPU done (1603s)
+  rsm-only(1seed, rsm=0.8): auc=0.5514 bss_calib=835.62  (vs no-rsm baseline 824.09)
+  corr(no-rsm, rsm) on eval raw preds = 0.9855
+  combined(no-rsm + rsm, 2-way mean): auc=0.5514 bss_calib=836.76  delta_vs_baseline=+12.67
+
+Saved: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/diversity_screen_walkforward_1seed.json

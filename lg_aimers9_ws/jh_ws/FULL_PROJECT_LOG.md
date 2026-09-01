@@ -1,6 +1,6 @@
 # LG Aimers 9 Phase 2 — 제구 성공 확률 예측 프로젝트 전체 로그
 
-이 문서는 2026-08-16(시작) ~ 2026-08-23까지 진행된 전체 실험 이력을 시간순으로 정리한 종합 기록이다. 세션별 개별 worklog(`worklog_*.md`)의 요약이자, 팀 전체(jh_ws + es_ws) 리더보드 이력과 이 프로젝트에서 반복 확인된 방법론적 교훈을 한 곳에 모은 것.
+이 문서는 2026-08-16(시작) ~ 2026-08-24까지 진행된 전체 실험 이력을 시간순으로 정리한 종합 기록이다. 세션별 개별 worklog(`worklog_*.md`)의 요약이자, 팀 전체(jh_ws + es_ws) 리더보드 이력과 이 프로젝트에서 반복 확인된 방법론적 교훈을 한 곳에 모은 것.
 
 ## 과제 개요
 
@@ -25,8 +25,10 @@
 | 8/22 | 986 | es_ws v9 | CatBoost 6시드(v18 재사용) + LGBM/XGBoost 3시드 아키텍처 블렌드 |
 | 8/22 | **992** | jh_ws v20 | control_risk_score 피처(기존 asof_* 재조합) 추가 |
 | 8/22 | 993 | es_ws v11 | 992 레시피 + LGBM 3시드 블렌드(XGBoost 가중치 0이라 제외) |
+| 8/23 | **1020** | jh_ws v25 | CatBoost(987 레시피) + retrieval(ModernNCA 스타일 인코더, 참조 133만행 exact kernel regression) 블렌드 최초 도입 |
+| 8/24 | **1023** | jh_ws v26 | 블렌드 가중치 그리드서치, CatBoost:retrieval=0.7:0.3 확정 |
 
-**현재 팀 전체 최고: 993점**(es_ws v11, `submit_v11_riskscore_blend`).
+**현재 팀 전체 최고: 1023점**(jh_ws v26, `v26_retrieval_blend_w07`).
 
 ## 924 → 974.9 격차 원인 규명 (8/18)
 
@@ -182,11 +184,45 @@ Isotonic(비모수, 두 번 기각: -66.79, -11~-28)과 기존 Platt(2파라미�
 - **유일하게 새로 시도할 가치가 있던 것**: Brier-최적화 Platt(위 섹션) -- 실행해봤으나 무의미했음.
 - **결론**: 두 문서 모두 실질적으로 새로운 방향을 제시하지 못함, 실행 안 함(Brier-최적화 Platt 제외).
 
-## 현재 상태 (2026-08-23 기준, 최신)
+## Retrieval(ModernNCA) 블렌드 도입 — 993 → 1023 돌파 (8/23~24)
 
-- **팀 전체 최고: 993점**(es_ws v11, `submit_v11_riskscore_blend`).
-- jh_ws 단독 최고(6시드): 992점(`v20_control_risk_score`).
-- jh_ws 1시드 실험 최고: 987점(`v22_drop_ingredients_1seed`).
-- 1150(과거 확인된 타 팀 리더보드 기준) 대비 격차 약 157~179점, 지금까지 시도한 어떤 단일 실험도 이 정도 규모의 개선을 낸 적이 없음. 이 목표 자체가 8/20~21 확인 시점의 스냅샷이라 재확인 필요.
-- **탐색이 거의 소진된 방향**: 재조합 피처(control_risk_score 제외 전부 실패, quality/net_control 모든 조합 소진), 신경망(DeepFM/MLP 둘 다 실패), 트리 구조 변경(Lossguide 실패), 진짜 스태킹(es_ws가 실측으로 실패 확인), 정규화 강도 조정(실패), 팀 매핑(매칭 근거 없음), 시퀀스 모델(규칙상 불가), calibration 변형(Isotonic/Brier-최적화 Platt 둘 다 무의미/악화), 외부 전략 문서 2건(대부분 재탕 또는 규정 위반 소지).
-- **아직 안 해본 것**: 남은 "소폭 delta 그룹"(_isna 플래그/carve-out 비율/median 블렌드/체크포인트 평균 재검증), LGBM/XGBoost를 jh_ws의 Optuna 튜닝값으로 교체한 블렌드 재검증, control_risk_score 원재료 유지 vs 제거를 같은 시드 수(6시드)로 직접 비교.
+지금까지 소진된 "재조합 피처/신경망/트리구조/스태킹" 방향과 별개로, CatBoost와 **다른 종류의 귀납 편향**을 가진 축을 추가하는 시도. `control_risk_score` 원재료 제거(987) 레시피를 베이스로 유지한 채:
+
+- **v24**(975, 기각): 약하고 불안정한 `asof_*` 피처 제거 시도(1시드) — 987보다 낮아 기각. "탐색이 거의 소진됐다"는 8/23 시점 판단을 다시 한번 확인.
+- **v25**(**1020**, 8/23 신규 최고): ModernNCA 스타일 인코더로 각 행을 임베딩한 뒤, 학습 데이터 133만 행 전체를 참조 집합으로 삼아 서브샘플 없이 exact kernel regression(가장 가까운 이웃들의 가중 평균)으로 별도 예측을 생성 — CatBoost 예측과 가중 평균 후 Platt 보정. 987 레시피의 CatBoost는 그대로 두고 retrieval을 **새 축**으로 얹은 것이 핵심. `reference_embeddings.npy`(~180MB)는 용량 때문에 `.gitignore`, `retrieval_encoder.pt`(가중치, ~500KB)만 커밋됨.
+- **v26**(**1023**, 8/24 신규 최고): 블렌드 가중치 그리드서치(calibrated BSS 기준) 결과 CatBoost:retrieval **0.7:0.3**이 최적으로 확정.
+- **해석**: 지금까지 신뢰됐던 성공 축(확률보정/raw id/시드배깅/control_risk_score)이 전부 "기존 정보의 재구성"이었던 것과 달리, retrieval은 트리 기반 CatBoost와 구조적으로 다른 방식(거리 기반 최근접 이웃)으로 같은 데이터를 봐서 **오류 패턴이 CatBoost와 달라지는** 진짜 다양성을 만들어낸 것으로 추정 — 8/22 이전 "새 정보 추가 = 계절별 과적합 위험"이었던 재조합 실패들과 달리, 새로운 *피처*가 아니라 새로운 *모델 축*을 추가했다는 점이 다름.
+
+## es_ws v13~v15 — CatBoost 6시드 배깅 결합 시도, 랜덤 carve-out 함정 재확인 (8/24)
+
+v26(1023) 레시피에 이미 검증된 성공 축인 시드 배깅을 CatBoost 쪽에 결합하는 시도(retrieval은 GPU 재학습 시 품질 저하가 확인되어 v26의 encoder를 그대로 재사용, CPU 결정적 순전파로 재현성 확보).
+
+- **v13**(CatBoost만 1→6시드, 원재료 drop 유지): 랜덤 carve-out(5%, stratify) 기준 calibrated BSS 2085.15(v26의 2082.78 대비 +2.37).
+- **v14/v15**(같은 6시드 자산으로 "원재료 유지 vs 제거"를 처음으로 동일 시드 수 기준 직접 비교): carve-out 기준 원재료 **유지**가 더 강해 보임(+10.34) → v15(원재료 유지) 실제 제출 → **1004점으로 회귀(-19 vs 1023)**.
+- **원인**: carve-out이 `train_test_split(stratify=y, random_state=42)` 기반 **랜덤 5% 분리**라 시간 기준이 아님 — 원재료(투수별 누적률)가 랜덤 분리에서 같은 투수의 다른 투구들이 train/calib 양쪽에 섞여 들어가며 leak성 이득을 준 것으로 추정. jh_ws가 이미 **실측 리더보드로**(977 vs 987) 원재료 제거가 낫다는 걸 검증했었는데, 신뢰도 더 낮은 랜덤 carve-out 재검증으로 그 실측 결론을 뒤집은 게 근본 실수 — **"로컬 개선 → 실제 하락" 패턴(8/17~8/21 섹션 참고)이 랜덤 carve-out 방법론에서도 그대로 반복됨**.
+- **v13 자체는 재검증 통과**: §"원재료 유지/제거" 판단만 랜덤 carve-out 오염이었고, v13(원재료는 987 그대로 drop 유지, CatBoost만 6시드)은 시간 기준 walk-forward(train≤2023→eval 2024)로 재검증해 **+18.06(단독)/+10.88(블렌드)** 확인 — 이 프로젝트에서 실측 전이가 확인된 델타들(raw id +9.48→+15, 시드배깅 +4.1)과 같은 자릿수라 신뢰도 높음. **`submit_v13_cb6_retrieval.zip`, 8/25 클린룸 재검증 통과, 제출 대기 중.**
+- **새 원칙**: 무작위 carve-out 가중치 탐색이 함정이라는 8/22 원칙(아래 참고)이 **가중치뿐 아니라 피처/레시피 선택, 새 모델 채택 여부에도 동일하게 적용**되어야 함이 이번에 재확인됨. 앞으로 모든 레시피/모델 결정은 기본값을 walk-forward로.
+
+## jh_ws 8/24 세션 — 다양성 탐색 8종 전부 기각 + adversarial validation으로 드리프트 확인
+
+v26(1023) 이후 "완전히 새로운 방법"을 폴드0(train≤2021→eval 2022)/폴드2(train≤2023→eval 2024) walk-forward로 스크리닝:
+
+| 실험 | 결과 |
+|---|---|
+| CatBoostRegressor(RMSE) 블렌드 | fold0 +4.79/fold2 ±0.00 — 같은 트리 계열이라 다양성 부족, 기각 |
+| 베이지안 shrinkage(Beta-Binomial) | 두 폴드 다 정확히 0.00, 기각 |
+| ExtraTrees 블렌드(1차) | fold2 -430.77(시즌경계 과적합), 2차 정규화해도 두 폴드 0.00, 기각 |
+| Isotonic vs Platt 보정 비교(v28 실제 제출) | 랜덤 80:20 홀드아웃 기준 +15.23 → **실제 983점(-40)**, 랜덤 재분할이 시즌경계를 못 잡는 동일 함정 |
+| 타겟 디트렌딩(baseline offset) | fold0 -63.38/fold2 -64.65(원본), season 제거판은 더 나쁨(fold2 -603.39), 기각 |
+| adversarial validation(진단) | season≤2023 vs 2024 구분 AUC **0.9953** — 극심한 연도별 드리프트 확인. 최상위 누설 피처는 `pitcher_id`/`asof_batter_n`/`batter_id` 등 로스터 교체+표본수 축적에서 기인, 전부 핵심 피처라 제거 불가. `control_risk_score`도 드리프트 랭킹에 뜨지만 정작 유일한 성공 피처라는 점이 "불안정=제거 대상"이 아님을 재확인 |
+
+**결론**: 실제 제출까지 간 v27(retrieval 가중치 0.3, 992)/v28(isotonic, 983) 둘 다 1023 대비 하락, 8개 축 전부 기각. jh_ws의 adversarial validation(AUC 0.9953)이 es_ws의 v15 회귀 원인(랜덤 carve-out이 시즌경계를 못 잡음)을 독립적으로 뒷받침 — **두 워크스페이스가 8/24 하루 동안 각자 다른 실험으로 같은 방법론적 결론(랜덤 분리 검증 무효, walk-forward 필수)에 수렴**.
+
+## 현재 상태 (2026-08-25 기준, 최신)
+
+- **팀 전체 최고(리더보드 실측): 1023점**(jh_ws v26, `v26_retrieval_blend_w07`, CatBoost 1시드+retrieval 0.7:0.3 블렌드).
+- **`submit_v13_cb6_retrieval.zip`(es_ws) — 제출 대기 중, 최우선 후보.** CatBoost만 1→6시드 배깅으로 확장, retrieval은 v26과 완전히 동일 구성. walk-forward 재검증 통과(+18.06 단독/+10.88 블렌드), 8/25 클린룸 재실행으로 정상 동작 재확인.
+- v14/v15(원재료 유지 방향)는 랜덤 carve-out 오염으로 판단 자체가 무효 — **폐기**. v27(retrieval weight=0.3)/v28(isotonic 개별보정) 둘 다 실제 하락(992/983)으로 **폐기**.
+- **방법론 확정**: 랜덤 5% carve-out(`train_test_split(stratify=y)`)은 가중치 탐색뿐 아니라 피처/레시피/모델 채택 판단에도 무효 — 앞으로 모든 결정은 **시간 기준 walk-forward(train≤2023→eval 2024 등)를 기본값**으로 한다.
+- **탐색이 거의 소진된 방향**(8/23 시점 목록에 추가): FM(pitcher×batter matchup, bilinear 구조 자체가 약함), retrieval 인코더 확대(embed/hidden 크기, 이미 포화), RMSE 회귀 블렌드, 베이지안 shrinkage, ExtraTrees 블렌드, isotonic/Brier 계열 보정 전부, 타겟 디트렌딩.
+- **아직 유효한 다음 방향**: retrieval + 시드배깅(=v13, 검증 완료·제출 대기) 외에, CatBoost/retrieval과 다른 종류의 귀납 편향을 가진 세 번째 모델 축(트리 기반이 아닌 순수 통계적 shrinkage, 명시적 시간감쇠 모델링 등) — 단, 반드시 walk-forward로 스크리닝할 것.

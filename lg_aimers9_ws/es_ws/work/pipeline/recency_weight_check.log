@@ -1,0 +1,23 @@
+shape=(1475092, 72)
+
+### fold0: train(<=2021)=728588 eval(2022)=247472
+  --- baseline (no weight) ---
+    seed=42 weighted=False done (89s)
+  baseline: auc=0.5788 bss_calib=2368.60
+  --- recency-weighted (decay=0.7) ---
+    seed=42 weighted=True done (89s)
+  recency: auc=0.5786 bss_calib=2362.12  delta_vs_baseline=-6.48
+
+### fold2: train(<=2023)=1221585 eval(2024)=253507
+  --- baseline (no weight) ---
+    seed=42 weighted=False done (138s)
+  baseline: auc=0.5511 bss_calib=824.11
+  --- recency-weighted (decay=0.7) ---
+    seed=42 weighted=True done (139s)
+  recency: auc=0.5505 bss_calib=801.17  delta_vs_baseline=-22.94
+
+Saved: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/recency_weight_check.json
+
+=== SUMMARY ===
+fold0: delta=-6.48
+fold2: delta=-22.94

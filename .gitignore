@@ -9,6 +9,14 @@ lg_aimers9_ws/es_ws/work/experiments/catboost_info/
 lg_aimers9_ws/es_ws/work/pipeline/catboost_info/
 lg_aimers9_ws/jh_ws/catboost_info/
 lg_aimers9_ws/jh_ws/train.log
+catboost_info/
+
+# retrieval encoder 재계산 가능한 참조 임베딩 (재현 가능, 용량 큼)
+lg_aimers9_ws/es_ws/work/model_rmse_retrieval/reference_embeddings.npy
+lg_aimers9_ws/es_ws/work/submissions/submit_v_rmse_retrieval/model/reference_embeddings.npy
+
+# 제출용 zip은 GitHub 100MB 파일 한도 초과 -- build_submit.py로 로컬 재생성
+lg_aimers9_ws/es_ws/work/submissions/submit_v_rmse_retrieval/v_rmse_retrieval.zip
 
 # Python
 __pycache__/

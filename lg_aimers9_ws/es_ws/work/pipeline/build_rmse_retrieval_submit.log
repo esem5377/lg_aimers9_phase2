@@ -1,0 +1,19 @@
+Load train data (987 레시피, 원재료 drop)...
+ train_sub=(1401337, 72)  calib=(73755, 72)
+
+=== CatBoost RMSE 전체 데이터 학습 (프로덕션) ===
+ CatBoost RMSE calib carve-out BSS(raw)=2029.93
+
+=== v26 retrieval_encoder.pt 재사용 (재학습 없음) + 임베딩 재계산 ===
+/home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/pipeline/build_rmse_retrieval_submit.py:229: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(os.path.join(V26_MODEL_DIR, "retrieval_encoder.pt"), map_location=device)
+ Retrieval(v26 encoder 재사용) carve-out BSS(raw)=1896.79 (원본 v25 단독 1896.79와 비교, 재현 확인용)
+
+=== 블렌드 (w_catboost=0.7, walk-forward 검증과 동일 구성) ===
+ calibrated carve-out BSS = 2074.04  (참고: v26 동일 carve-out 2082.78)
+ delta(RMSE - v26) on carve-out = -8.74
+
+=== 모델 아티팩트 저장 ===
+
+Saved model dir: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/model_rmse_retrieval
+Saved metrics: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/metrics_rmse_retrieval.json

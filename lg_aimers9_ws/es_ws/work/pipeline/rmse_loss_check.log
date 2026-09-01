@@ -1,0 +1,27 @@
+shape=(1475092, 72)
+
+### fold0: train(<=2021)=728588 eval(2022)=247472
+  --- Logloss baseline ---
+    Logloss seed=42 done (88s)
+  Logloss: auc=0.5788 bss_calib=2368.60
+  --- RMSE ---
+    RMSE seed=42 done (61s)
+  RMSE: auc=0.5791 bss_calib=2383.56  delta_vs_logloss=+14.96
+  --- 2-way mean(Logloss + RMSE, each Platt-calibrated first) ---
+  combined: bss=2380.82  delta_vs_logloss=+12.22
+
+### fold2: train(<=2023)=1221585 eval(2024)=253507
+  --- Logloss baseline ---
+    Logloss seed=42 done (138s)
+  Logloss: auc=0.5511 bss_calib=824.10
+  --- RMSE ---
+    RMSE seed=42 done (101s)
+  RMSE: auc=0.5513 bss_calib=832.75  delta_vs_logloss=+8.65
+  --- 2-way mean(Logloss + RMSE, each Platt-calibrated first) ---
+  combined: bss=830.19  delta_vs_logloss=+6.09
+
+Saved: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/rmse_loss_check.json
+
+=== SUMMARY ===
+fold0: RMSE_delta=+14.96  combined_delta=+12.22
+fold2: RMSE_delta=+8.65  combined_delta=+6.09

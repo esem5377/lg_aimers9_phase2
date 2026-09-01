@@ -1,0 +1,4 @@
+=== CatBoost 1seed, CPU, no rsm (confound check vs GPU baseline 824.09 / rsm=0.8 835.62) ===
+  done (531s)
+  CPU no-rsm: auc=0.5511 bss_calib=826.08
+Saved: /home/esem5377/lg_aimers9_ws/lg_aimers9_ws/es_ws/work/output/rsm_confound_check.json
